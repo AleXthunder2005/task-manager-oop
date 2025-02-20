@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,7 +30,7 @@ namespace task_manager
         }
     }
 
-    
+
     public class TaskList<T> where T : Task
     {
         private Node<T> m_head;
@@ -39,6 +40,11 @@ namespace task_manager
             m_head = null;
         }
 
+
+        //properties
+        public Node<T> Head {
+            get {return m_head;}
+        }
        
 
         public void AddTask(T task)
@@ -58,8 +64,6 @@ namespace task_manager
                 current.Next = newNode;
             }
         }
-
-        
 
         public bool RemoveTask(int taskId)
         {

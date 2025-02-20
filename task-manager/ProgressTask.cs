@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace task_manager
 {
@@ -16,6 +18,12 @@ namespace task_manager
         {
             GoalCount = goalCount;
             CurrCount = 0;
+        }
+
+        public override void Draw(Graphics g, int x, int y)
+        {
+            base.Draw(g, x, y);
+            g.DrawString($"{CurrCount} / {GoalCount}", new Font("Arial", 8), Brushes.Black, x + 210, y + 85);
         }
 
         //properties

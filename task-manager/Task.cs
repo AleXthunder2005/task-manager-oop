@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace task_manager
 {
@@ -19,6 +21,8 @@ namespace task_manager
             Description = description;
             m_taskId = m_idCounter++;
         }
+
+        public abstract void Draw(Graphics g, int x, int y);
 
 
         //properties

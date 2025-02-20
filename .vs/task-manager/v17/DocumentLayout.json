@@ -3,48 +3,48 @@
   "WorkspaceRootPath": "E:\\Csharp projects\\task-manager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|e:\\csharp projects\\task-manager\\task-manager\\progresstask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\progresstask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|e:\\csharp projects\\task-manager\\task-manager\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|e:\\csharp projects\\task-manager\\task-manager\\reccuringtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\reccuringtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\reccuringtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|e:\\csharp projects\\task-manager\\task-manager\\prioritytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\prioritytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|e:\\csharp projects\\task-manager\\task-manager\\tasklist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasklist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|e:\\csharp projects\\task-manager\\task-manager\\simpletask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\simpletask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|e:\\csharp projects\\task-manager\\task-manager\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|e:\\csharp projects\\task-manager\\task-manager\\reminder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\reminder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\simpletask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\simpletask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\reminder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\reminder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\progresstask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\progresstask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\prioritytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\prioritytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|e:\\csharp projects\\task-manager\\task-manager\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|E:\\Csharp projects\\task-manager\\task-manager\\tasklist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasklist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,50 +54,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Project.cs",
-              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Project.cs",
-              "RelativeDocumentMoniker": "task-manager\\Project.cs",
-              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Project.cs",
-              "RelativeToolTip": "task-manager\\Project.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAADgvxEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T17:24:16.835Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "PriorityTask.cs",
-              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\PriorityTask.cs",
-              "RelativeDocumentMoniker": "task-manager\\PriorityTask.cs",
-              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\PriorityTask.cs",
-              "RelativeToolTip": "task-manager\\PriorityTask.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Title": "SimpleTask.cs",
+              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\SimpleTask.cs",
+              "RelativeDocumentMoniker": "task-manager\\SimpleTask.cs",
+              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\SimpleTask.cs",
+              "RelativeToolTip": "task-manager\\SimpleTask.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAswBcAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T16:54:13.344Z",
+              "WhenOpened": "2025-02-20T16:08:11.826Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "ReccuringTask.cs",
               "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\ReccuringTask.cs",
               "RelativeDocumentMoniker": "task-manager\\ReccuringTask.cs",
               "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\ReccuringTask.cs",
               "RelativeToolTip": "task-manager\\ReccuringTask.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T16:47:17.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Reminder.cs",
+              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Reminder.cs",
+              "RelativeDocumentMoniker": "task-manager\\Reminder.cs",
+              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Reminder.cs",
+              "RelativeToolTip": "task-manager\\Reminder.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T16:38:07.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Task.cs",
+              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Task.cs",
+              "RelativeDocumentMoniker": "task-manager\\Task.cs",
+              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Task.cs",
+              "RelativeToolTip": "task-manager\\Task.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T15:47:55.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Program.cs",
+              "RelativeDocumentMoniker": "task-manager\\Program.cs",
+              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Program.cs",
+              "RelativeToolTip": "task-manager\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T21:10:38.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Project.cs",
+              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Project.cs",
+              "RelativeDocumentMoniker": "task-manager\\Project.cs",
+              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Project.cs",
+              "RelativeToolTip": "task-manager\\Project.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAArwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T17:24:16.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Form1.cs",
+              "RelativeDocumentMoniker": "task-manager\\Form1.cs",
+              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Form1.cs",
+              "RelativeToolTip": "task-manager\\Form1.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T21:54:19.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProgressTask.cs",
+              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\ProgressTask.cs",
+              "RelativeDocumentMoniker": "task-manager\\ProgressTask.cs",
+              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\ProgressTask.cs",
+              "RelativeToolTip": "task-manager\\ProgressTask.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T17:00:32.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PriorityTask.cs",
+              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\PriorityTask.cs",
+              "RelativeDocumentMoniker": "task-manager\\PriorityTask.cs",
+              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\PriorityTask.cs",
+              "RelativeToolTip": "task-manager\\PriorityTask.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwDIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T16:54:13.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Form1.cs",
               "RelativeDocumentMoniker": "task-manager\\Form1.cs",
@@ -109,93 +187,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProgressTask.cs",
-              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\ProgressTask.cs",
-              "RelativeDocumentMoniker": "task-manager\\ProgressTask.cs",
-              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\ProgressTask.cs",
-              "RelativeToolTip": "task-manager\\ProgressTask.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T17:00:32.78Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Task.cs",
-              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Task.cs",
-              "RelativeDocumentMoniker": "task-manager\\Task.cs",
-              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Task.cs",
-              "RelativeToolTip": "task-manager\\Task.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T15:47:55.455Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Form1.cs",
-              "RelativeDocumentMoniker": "task-manager\\Form1.cs",
-              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Form1.cs",
-              "RelativeToolTip": "task-manager\\Form1.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAswBIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T21:54:19.481Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SimpleTask.cs",
-              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\SimpleTask.cs",
-              "RelativeDocumentMoniker": "task-manager\\SimpleTask.cs",
-              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\SimpleTask.cs",
-              "RelativeToolTip": "task-manager\\SimpleTask.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T16:08:11.826Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Reminder.cs",
-              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Reminder.cs",
-              "RelativeDocumentMoniker": "task-manager\\Reminder.cs",
-              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Reminder.cs",
-              "RelativeToolTip": "task-manager\\Reminder.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T16:38:07.068Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "TaskList.cs",
               "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\TaskList.cs",
               "RelativeDocumentMoniker": "task-manager\\TaskList.cs",
               "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\TaskList.cs",
               "RelativeToolTip": "task-manager\\TaskList.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAIA6wCQAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAiwC4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T17:06:11.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Csharp projects\\task-manager\\task-manager\\Program.cs",
-              "RelativeDocumentMoniker": "task-manager\\Program.cs",
-              "ToolTip": "E:\\Csharp projects\\task-manager\\task-manager\\Program.cs",
-              "RelativeToolTip": "task-manager\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T21:10:38.565Z",
               "EditorCaption": ""
             }
           ]

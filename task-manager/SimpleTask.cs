@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace task_manager
 {
@@ -18,6 +20,17 @@ namespace task_manager
             IsCompleted = false;
         }
 
+
+        public override void Draw(Graphics g, int x, int y)
+        {
+            Rectangle rect = new Rectangle(x, y, 300, 100);
+            g.DrawRectangle(Pens.Black, rect);
+
+            g.DrawString($"{Title}", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, x + 5, y + 5);
+            g.DrawString(Description, new Font("Arial", 9), Brushes.Black, x + 5, y + 25);
+            g.DrawString($"Start: {StartDate:G}", new Font("Arial", 8), Brushes.Black, x + 5, y + 45);
+            g.DrawString($"Deadline: {DeadlineDate:G}", new Font("Arial", 8), Brushes.Black, x + 5, y + 65);
+        }
 
         //properties
         public DateTime StartDate {
