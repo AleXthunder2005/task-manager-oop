@@ -8,7 +8,7 @@ namespace task_manager
         public wTaskManager()
         {
             InitializeComponent();
-            TaskManagerModel.LoadTaskTypes();
+            mTaskManager.Initialize();
 
             this.pMainContent.Paint += new PaintEventHandler(MainFormPaint);
         }
@@ -19,10 +19,8 @@ namespace task_manager
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.ExitApplication();
+            this.CloseApplication();
         }
-
-
 
         //view
         private void MainFormPaint(object sender, PaintEventArgs e)
@@ -39,10 +37,10 @@ namespace task_manager
 
         //model
         private void ShowTaskCreator() {
-            wTaskCreator taskCreator = new wTaskCreator();
+            wTaskCreator taskCreator = new wTaskCreator(mTaskManager.TaskTypes);
             taskCreator.Show();
         }
-        private void ExitApplication() {
+        private void CloseApplication() {
             this.Close();
         }
     }

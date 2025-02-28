@@ -47,7 +47,7 @@ namespace task_manager
             // 
             this.cbTaskType.FormattingEnabled = true;
 
-            foreach (var type in TaskManagerModel.TaskTypes) {
+            foreach (var type in mTaskCreator.TaskTypes) {
                 this.cbTaskType.Items.Add((string) type.GetField("taskTypeName").GetValue(null));
             }
 

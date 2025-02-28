@@ -46,35 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TaskCreatorModel.cs" />
-    <Compile Include="TaskManagerModel.cs" />
-    <Compile Include="Form2.cs">
+    <Compile Include="mTaskCreator.cs" />
+    <Compile Include="TaskFactories\TaskFactories.cs" />
+    <Compile Include="mTaskManager.cs" />
+    <Compile Include="fTaskCreator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="fTaskCreator.Designer.cs">
+      <DependentUpon>fTaskCreator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Project.cs" />
-    <Compile Include="TaskList.cs" />
-    <Compile Include="ProgressTask.cs" />
-    <Compile Include="PriorityTask.cs" />
-    <Compile Include="ReccuringSimpleTask.cs" />
-    <Compile Include="Reminder.cs" />
-    <Compile Include="SimpleTask.cs" />
-    <Compile Include="Task.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="DerivativeConstructions\Project.cs" />
+    <Compile Include="DerivativeConstructions\TaskList.cs" />
+    <Compile Include="Tasks\ProgressTask.cs" />
+    <Compile Include="Tasks\PriorityTask.cs" />
+    <Compile Include="Tasks\ReccuringSimpleTask.cs" />
+    <Compile Include="Tasks\Reminder.cs" />
+    <Compile Include="Tasks\SimpleTask.cs" />
+    <Compile Include="Tasks\Task.cs" />
+    <Compile Include="fTaskManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="fTaskManager.Designer.cs">
+      <DependentUpon>fTaskManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="fTaskManager.resx">
+      <DependentUpon>fTaskManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="fTaskCreator.resx">
+      <DependentUpon>fTaskCreator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,5 +99,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
