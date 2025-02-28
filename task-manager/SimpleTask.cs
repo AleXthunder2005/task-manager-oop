@@ -14,6 +14,8 @@ namespace task_manager
         private DateTime m_deadlineDate;
         private bool m_isCompleted;
 
+        public new static string taskTypeName = "Simple task";
+
         public SimpleTask(DateTime startDate, DateTime deadlineDate, string title = "new task", string description = "about task") : base(title, description) {
             StartDate = startDate;
             DeadlineDate = deadlineDate;

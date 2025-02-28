@@ -18,7 +18,8 @@ namespace task_manager
             High
         };
 
-        private t_priority m_priority; 
+        private t_priority m_priority;
+        public new static string taskTypeName = "Priority task";
 
         public PriorityTask( DateTime startDate, DateTime deadlineDate, t_priority priority = t_priority.Low, string title = "new task", string description = "about task") : base(startDate, deadlineDate, title, description)
         {

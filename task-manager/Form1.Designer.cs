@@ -1,6 +1,6 @@
 ﻿namespace task_manager
 {
-    partial class MainForm
+    partial class wTaskManager
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,125 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.sideMenuPanel = new System.Windows.Forms.Panel();
-            this.topPanel = new System.Windows.Forms.Panel();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.mainContentPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_AddRecurringTask = new System.Windows.Forms.Button();
-            this.btn_PriorityTask = new System.Windows.Forms.Button();
-            this.btn_ProgressTask = new System.Windows.Forms.Button();
-            this.sideMenuPanel.SuspendLayout();
-            this.topPanel.SuspendLayout();
+            this.pSideMenu = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnCreateProject = new System.Windows.Forms.Button();
+            this.btnAddTask = new System.Windows.Forms.Button();
+            this.pTop = new System.Windows.Forms.Panel();
+            this.lTitile = new System.Windows.Forms.Label();
+            this.pMainContent = new System.Windows.Forms.Panel();
+            this.pSideMenu.SuspendLayout();
+            this.pTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // sideMenuPanel
+            // pSideMenu
             // 
-            this.sideMenuPanel.BackColor = System.Drawing.Color.DarkCyan;
-            this.sideMenuPanel.Controls.Add(this.btn_ProgressTask);
-            this.sideMenuPanel.Controls.Add(this.btn_PriorityTask);
-            this.sideMenuPanel.Controls.Add(this.btn_AddRecurringTask);
-            this.sideMenuPanel.Controls.Add(this.button1);
-            this.sideMenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sideMenuPanel.Location = new System.Drawing.Point(0, 0);
-            this.sideMenuPanel.Name = "sideMenuPanel";
-            this.sideMenuPanel.Size = new System.Drawing.Size(237, 769);
-            this.sideMenuPanel.TabIndex = 0;
+            this.pSideMenu.BackColor = System.Drawing.Color.DarkCyan;
+            this.pSideMenu.Controls.Add(this.btnExit);
+            this.pSideMenu.Controls.Add(this.btnCreateProject);
+            this.pSideMenu.Controls.Add(this.btnAddTask);
+            this.pSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.pSideMenu.Name = "pSideMenu";
+            this.pSideMenu.Size = new System.Drawing.Size(237, 769);
+            this.pSideMenu.TabIndex = 0;
             // 
-            // topPanel
+            // btnExit
             // 
-            this.topPanel.BackColor = System.Drawing.Color.DarkSalmon;
-            this.topPanel.Controls.Add(this.titleLabel);
-            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.topPanel.Location = new System.Drawing.Point(237, 0);
-            this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1006, 59);
-            this.topPanel.TabIndex = 1;
+            this.btnExit.Location = new System.Drawing.Point(21, 717);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(199, 40);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // titleLabel
+            // btnCreateProject
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Monotype Corsiva", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.titleLabel.Location = new System.Drawing.Point(0, 0);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(416, 51);
-            this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Запланированные задачи";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCreateProject.Location = new System.Drawing.Point(21, 105);
+            this.btnCreateProject.Name = "btnCreateProject";
+            this.btnCreateProject.Size = new System.Drawing.Size(199, 40);
+            this.btnCreateProject.TabIndex = 2;
+            this.btnCreateProject.Text = "Create project";
+            this.btnCreateProject.UseVisualStyleBackColor = true;
             // 
-            // mainContentPanel
+            // btnAddTask
             // 
-            this.mainContentPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.mainContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContentPanel.Location = new System.Drawing.Point(237, 59);
-            this.mainContentPanel.Name = "mainContentPanel";
-            this.mainContentPanel.Size = new System.Drawing.Size(1006, 710);
-            this.mainContentPanel.TabIndex = 2;
+            this.btnAddTask.Location = new System.Drawing.Point(21, 59);
+            this.btnAddTask.Name = "btnAddTask";
+            this.btnAddTask.Size = new System.Drawing.Size(199, 40);
+            this.btnAddTask.TabIndex = 1;
+            this.btnAddTask.Text = "Add task";
+            this.btnAddTask.UseVisualStyleBackColor = true;
+            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
             // 
-            // button1
+            // pTop
             // 
-            this.button1.Location = new System.Drawing.Point(21, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 40);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Добавить простую задачу";
-            this.button1.UseVisualStyleBackColor = true;
+            this.pTop.BackColor = System.Drawing.Color.DarkSalmon;
+            this.pTop.Controls.Add(this.lTitile);
+            this.pTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTop.Location = new System.Drawing.Point(237, 0);
+            this.pTop.Name = "pTop";
+            this.pTop.Size = new System.Drawing.Size(1006, 59);
+            this.pTop.TabIndex = 1;
             // 
-            // btn_AddRecurringTask
+            // lTitile
             // 
-            this.btn_AddRecurringTask.Location = new System.Drawing.Point(21, 105);
-            this.btn_AddRecurringTask.Name = "btn_AddRecurringTask";
-            this.btn_AddRecurringTask.Size = new System.Drawing.Size(199, 52);
-            this.btn_AddRecurringTask.TabIndex = 2;
-            this.btn_AddRecurringTask.Text = "Добавить регулярную задачу";
-            this.btn_AddRecurringTask.UseVisualStyleBackColor = true;
+            this.lTitile.AutoSize = true;
+            this.lTitile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lTitile.Font = new System.Drawing.Font("MS PGothic", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lTitile.Location = new System.Drawing.Point(0, 0);
+            this.lTitile.Name = "lTitile";
+            this.lTitile.Size = new System.Drawing.Size(166, 42);
+            this.lTitile.TabIndex = 0;
+            this.lTitile.Text = "Task list";
+            this.lTitile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_PriorityTask
+            // pMainContent
             // 
-            this.btn_PriorityTask.Location = new System.Drawing.Point(21, 163);
-            this.btn_PriorityTask.Name = "btn_PriorityTask";
-            this.btn_PriorityTask.Size = new System.Drawing.Size(199, 51);
-            this.btn_PriorityTask.TabIndex = 3;
-            this.btn_PriorityTask.Text = "Добавить приоритетную задачу";
-            this.btn_PriorityTask.UseVisualStyleBackColor = true;
+            this.pMainContent.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pMainContent.Location = new System.Drawing.Point(237, 59);
+            this.pMainContent.Name = "pMainContent";
+            this.pMainContent.Size = new System.Drawing.Size(1006, 710);
+            this.pMainContent.TabIndex = 2;
             // 
-            // btn_ProgressTask
-            // 
-            this.btn_ProgressTask.Location = new System.Drawing.Point(21, 220);
-            this.btn_ProgressTask.Name = "btn_ProgressTask";
-            this.btn_ProgressTask.Size = new System.Drawing.Size(199, 49);
-            this.btn_ProgressTask.TabIndex = 4;
-            this.btn_ProgressTask.Text = "Добавить задачу-прогресс";
-            this.btn_ProgressTask.UseVisualStyleBackColor = true;
-            // 
-            // MainForm
+            // wTaskManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1243, 769);
-            this.Controls.Add(this.mainContentPanel);
-            this.Controls.Add(this.topPanel);
-            this.Controls.Add(this.sideMenuPanel);
-            this.Name = "MainForm";
+            this.Controls.Add(this.pMainContent);
+            this.Controls.Add(this.pTop);
+            this.Controls.Add(this.pSideMenu);
+            this.Name = "wTaskManager";
             this.Text = "Task Manager";
-            this.sideMenuPanel.ResumeLayout(false);
-            this.topPanel.ResumeLayout(false);
-            this.topPanel.PerformLayout();
+            this.pSideMenu.ResumeLayout(false);
+            this.pTop.ResumeLayout(false);
+            this.pTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel sideMenuPanel;
-        private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Panel mainContentPanel;
-        private System.Windows.Forms.Button btn_ProgressTask;
-        private System.Windows.Forms.Button btn_PriorityTask;
-        private System.Windows.Forms.Button btn_AddRecurringTask;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel pSideMenu;
+        private System.Windows.Forms.Panel pTop;
+        private System.Windows.Forms.Label lTitile;
+        private System.Windows.Forms.Panel pMainContent;
+        private System.Windows.Forms.Button btnAddTask;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnCreateProject;
     }
 }
 

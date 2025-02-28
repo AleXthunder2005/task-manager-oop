@@ -13,6 +13,8 @@ namespace task_manager
         private DateTime m_sheduledTime;
         private bool m_isViewed;
 
+        public new static string taskTypeName = "Reminder";
+
         public Reminder(DateTime sheduledTime, string title = "new task", string description = "about task") : base(title, description)
         {
             SheduledTime = sheduledTime;

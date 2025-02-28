@@ -7,4 +7,5 @@ E:\Csharp projects\task-manager\task-manager\bin\Debug\task-manager.exe
 E:\Csharp projects\task-manager\task-manager\bin\Debug\task-manager.pdb
 E:\Csharp projects\task-manager\task-manager\obj\Debug\task-manager.exe
 E:\Csharp projects\task-manager\task-manager\obj\Debug\task-manager.pdb
-E:\Csharp projects\task-manager\task-manager\obj\Debug\task_manager.MainForm.resources
+E:\Csharp projects\task-manager\task-manager\obj\Debug\task_manager.wTaskCreator.resources
+E:\Csharp projects\task-manager\task-manager\obj\Debug\task_manager.wTaskManager.resources

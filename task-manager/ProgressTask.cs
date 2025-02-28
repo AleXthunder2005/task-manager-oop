@@ -13,6 +13,7 @@ namespace task_manager
         private int m_goalCount;
         private int m_currCount;
 
+        public new static string taskTypeName = "Progress task";
 
         public ProgressTask(int goalCount, DateTime startDate, DateTime deadlineDate, string title = "new task", string description = "about task") : base(startDate, deadlineDate, title, description)
         {

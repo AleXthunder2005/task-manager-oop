@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace task_manager
 {
-    class ReccuringTask : SimpleTask
+    class ReccuringSimpleTask : SimpleTask
     {
         private double m_interval; // в часах
-
-        public ReccuringTask(int interval, DateTime startDate, DateTime deadlineDate, string title = "new task", string description = "about task") : base(startDate, deadlineDate, title, description)
+        
+        public new static string taskTypeName = "Reccuring simple task";
+        public ReccuringSimpleTask(int interval, DateTime startDate, DateTime deadlineDate, string title = "new task", string description = "about task") : base(startDate, deadlineDate, title, description)
         {
             Interval = interval;
         }
