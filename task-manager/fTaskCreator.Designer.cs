@@ -47,11 +47,13 @@ namespace task_manager
             // 
             this.cbTaskType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTaskType.BackColor = System.Drawing.SystemColors.Control;
             this.cbTaskType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTaskType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTaskType.FormattingEnabled = true;
             this.cbTaskType.Location = new System.Drawing.Point(189, 60);
             this.cbTaskType.Name = "cbTaskType";
-            this.cbTaskType.Size = new System.Drawing.Size(362, 24);
+            this.cbTaskType.Size = new System.Drawing.Size(362, 28);
             this.cbTaskType.Sorted = true;
             this.cbTaskType.TabIndex = 0;
             this.cbTaskType.SelectedIndexChanged += new System.EventHandler(this.cbTaskType_SelectedIndexChanged);
@@ -70,15 +72,17 @@ namespace task_manager
             // 
             this.tbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbTitle.Location = new System.Drawing.Point(189, 109);
+            this.tbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTitle.Location = new System.Drawing.Point(189, 106);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(362, 22);
+            this.tbTitle.Size = new System.Drawing.Size(362, 26);
             this.tbTitle.TabIndex = 2;
             // 
             // tbDescription
             // 
             this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDescription.Location = new System.Drawing.Point(189, 138);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
@@ -89,7 +93,7 @@ namespace task_manager
             // 
             this.lTaskName.AutoSize = true;
             this.lTaskName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lTaskName.Location = new System.Drawing.Point(52, 109);
+            this.lTaskName.Location = new System.Drawing.Point(52, 106);
             this.lTaskName.Name = "lTaskName";
             this.lTaskName.Size = new System.Drawing.Size(100, 20);
             this.lTaskName.TabIndex = 4;
@@ -119,6 +123,7 @@ namespace task_manager
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(25, 528);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(133, 27);
@@ -130,6 +135,7 @@ namespace task_manager
             // btnClear
             // 
             this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(164, 528);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(133, 27);
@@ -141,6 +147,7 @@ namespace task_manager
             // btnConfirm
             // 
             this.btnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Location = new System.Drawing.Point(470, 528);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(133, 27);

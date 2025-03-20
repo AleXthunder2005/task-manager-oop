@@ -122,6 +122,7 @@
             this.Name = "fTaskManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task Manager";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Resize += new System.EventHandler(this.fTaskManager_Resize);
             this.pSideMenu.ResumeLayout(false);
             this.pTop.ResumeLayout(false);

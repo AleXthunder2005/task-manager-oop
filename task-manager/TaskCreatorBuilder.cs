@@ -6,11 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static task_manager.Settings;
 
 namespace task_manager
 {
     static class TaskCreatorBuilder
     {
+        // Шрифт по умолчанию
+        private static readonly System.Drawing.Font DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+        // Жирный шрифт по умолчанию для Label
+        private static readonly System.Drawing.Font BoldDefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
         public static void BuildTaskCreator(fTaskCreator taskCreator, string className)
         {
             string methodName = $"Build{className}Creator";
@@ -46,6 +53,7 @@ namespace task_manager
             dtpStartDate.Name = "dtpStartDate";
             dtpStartDate.Size = new System.Drawing.Size(362, 22);
             dtpStartDate.TabIndex = 10;
+            dtpStartDate.Font = DefaultFont; // Устанавливаем шрифт
             taskCreator.Controls.Add(dtpStartDate);
 
             // Создаем и настраиваем DateTimePicker для даты дедлайна
@@ -54,12 +62,13 @@ namespace task_manager
             dtpDeadlineDate.Name = "dtpDeadlineDate";
             dtpDeadlineDate.Size = new System.Drawing.Size(362, 22);
             dtpDeadlineDate.TabIndex = 11;
+            dtpDeadlineDate.Font = DefaultFont; // Устанавливаем шрифт
             taskCreator.Controls.Add(dtpDeadlineDate);
 
             // Создаем и настраиваем Label для начальной даты
             Label lStartDate = new Label();
             lStartDate.AutoSize = true;
-            lStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            lStartDate.Font = BoldDefaultFont; // Устанавливаем жирный шрифт
             lStartDate.Location = new System.Drawing.Point(52, 254);
             lStartDate.Name = "lStartDate";
             lStartDate.Size = new System.Drawing.Size(92, 20);
@@ -70,7 +79,7 @@ namespace task_manager
             // Создаем и настраиваем Label для даты дедлайна
             Label lDeadlineDate = new Label();
             lDeadlineDate.AutoSize = true;
-            lDeadlineDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            lDeadlineDate.Font = BoldDefaultFont; // Устанавливаем жирный шрифт
             lDeadlineDate.Location = new System.Drawing.Point(52, 282);
             lDeadlineDate.Name = "lDeadlineDate";
             lDeadlineDate.Size = new System.Drawing.Size(115, 20);
@@ -96,18 +105,19 @@ namespace task_manager
             dtpSheduledTime.Name = "dtpSheduledTime";
             dtpSheduledTime.Size = new System.Drawing.Size(362, 22);
             dtpSheduledTime.TabIndex = 10;
-            taskCreator.Controls.Add(dtpSheduledTime); // Добавляем на форму
+            dtpSheduledTime.Font = DefaultFont; // Устанавливаем шрифт
+            taskCreator.Controls.Add(dtpSheduledTime);
 
             // Создаем и настраиваем Label для запланированного времени
             Label lStartDate = new Label();
             lStartDate.AutoSize = true;
-            lStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            lStartDate.Font = BoldDefaultFont; // Устанавливаем жирный шрифт
             lStartDate.Location = new System.Drawing.Point(52, 254);
             lStartDate.Name = "lStartDate";
             lStartDate.Size = new System.Drawing.Size(128, 20);
             lStartDate.TabIndex = 12;
-            lStartDate.Text = "Scheduled time";
-            taskCreator.Controls.Add(lStartDate); // Добавляем на форму
+            lStartDate.Text = "Sheduled time";
+            taskCreator.Controls.Add(lStartDate);
         }
 
         private static void DisposeReminderCreator(fTaskCreator taskCreator)
@@ -147,18 +157,20 @@ namespace task_manager
             cbInterval.Name = "cbInterval";
             cbInterval.Size = new System.Drawing.Size(362, 24);
             cbInterval.TabIndex = 13;
-            taskCreator.Controls.Add(cbInterval); // Добавляем на форму
+            cbInterval.SelectedIndex = 3;
+            cbInterval.Font = DefaultFont; // Устанавливаем шрифт
+            taskCreator.Controls.Add(cbInterval);
 
             // Создаем и настраиваем Label для текста "Interval"
             Label lInterval = new Label();
             lInterval.AutoSize = true;
-            lInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            lInterval.Font = BoldDefaultFont; // Устанавливаем жирный шрифт
             lInterval.Location = new System.Drawing.Point(52, 340);
             lInterval.Name = "lInterval";
             lInterval.Size = new System.Drawing.Size(71, 20);
             lInterval.TabIndex = 14;
             lInterval.Text = "Interval";
-            taskCreator.Controls.Add(lInterval); // Добавляем на форму
+            taskCreator.Controls.Add(lInterval);
         }
 
         private static void DisposeReccuringSimpleTaskCreator(fTaskCreator taskCreator)
@@ -188,18 +200,19 @@ namespace task_manager
             });
             cbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPriority.SelectedIndex = 0;
-            taskCreator.Controls.Add(cbPriority); // Добавляем на форму
+            cbPriority.Font = DefaultFont; // Устанавливаем шрифт
+            taskCreator.Controls.Add(cbPriority);
 
             // Создаем и настраиваем Label для текста "Priority"
             Label lPriority = new Label();
             lPriority.AutoSize = true;
-            lPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            lPriority.Font = BoldDefaultFont; // Устанавливаем жирный шрифт
             lPriority.Location = new System.Drawing.Point(52, 340);
             lPriority.Name = "lPriority";
             lPriority.Size = new System.Drawing.Size(70, 20);
             lPriority.TabIndex = 14;
             lPriority.Text = "Priority";
-            taskCreator.Controls.Add(lPriority); // Добавляем на форму
+            taskCreator.Controls.Add(lPriority);
         }
 
         private static void DisposePriorityTaskCreator(fTaskCreator taskCreator)
@@ -217,7 +230,7 @@ namespace task_manager
 
             Label lGoalCount = new Label();
             lGoalCount.AutoSize = true;
-            lGoalCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            lGoalCount.Font = BoldDefaultFont; // Устанавливаем жирный шрифт
             lGoalCount.Location = new System.Drawing.Point(52, 340);
             lGoalCount.Name = "lGoalCount";
             lGoalCount.Size = new System.Drawing.Size(100, 20);
@@ -229,14 +242,16 @@ namespace task_manager
             NumericUpDown udGoalCount = new NumericUpDown();
             udGoalCount.Location = new System.Drawing.Point(189, 340);
             udGoalCount.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
+                99999,
+                0,
+                0,
+                0
+            });
             udGoalCount.Minimum = 1;
             udGoalCount.Name = "udGoalCount";
             udGoalCount.Size = new System.Drawing.Size(362, 22);
             udGoalCount.TabIndex = 15;
+            udGoalCount.Font = DefaultFont; // Устанавливаем шрифт
             taskCreator.Controls.Add(udGoalCount);
         }
 

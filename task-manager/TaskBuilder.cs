@@ -116,7 +116,7 @@ namespace task_manager
                 if (_taskCreator.Controls.Find("tbDescription", true).FirstOrDefault() is TextBox tbDescription) { _description = tbDescription.Text; }
                 if (_taskCreator.Controls.Find("dtpStartDate", true).FirstOrDefault() is DateTimePicker dtpStartDate)   { _startDate = dtpStartDate.Value.Date; }
                 if (_taskCreator.Controls.Find("dtpDeadlineDate", true).FirstOrDefault() is DateTimePicker dtpDeadlineDate) { _deadlineDate = dtpDeadlineDate.Value.Date; }
-                if (_taskCreator.Controls.Find("dtpScheduledTime", true).FirstOrDefault() is DateTimePicker dtpScheduledTime) { _sheduledTime = dtpScheduledTime.Value.Date; }
+                if (_taskCreator.Controls.Find("dtpSheduledTime", true).FirstOrDefault() is DateTimePicker dtpSheduledTime) { _sheduledTime = dtpSheduledTime.Value.Date; }
                 if (_taskCreator.Controls.Find("cbInterval", true).FirstOrDefault() is ComboBox cbInterval)
                 {
                     if (double.TryParse(cbInterval.Text, out double interval))

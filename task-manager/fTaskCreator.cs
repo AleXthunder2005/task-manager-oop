@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using static task_manager.PriorityTask;
 
 namespace task_manager
 {
@@ -67,6 +68,50 @@ namespace task_manager
             return null;
         }
 
+        private bool IsFormCorrect(out string message) 
+        {
+            if (cbTaskType.Text == EMPTY_STRING) { message = "Task was not selected!"; return false; } //ничего не выбрал - бан
+            if (tbTitle.Text == EMPTY_STRING) { message = "Task name can't be empty!"; return false; } //пустое заглавие - бан
+
+
+            if ((Controls.Find("dtpStartDate", true).FirstOrDefault() is DateTimePicker dtpStartDate) &&        //дедлайн раньше старта кринж
+               (Controls.Find("dtpDeadlineDate", true).FirstOrDefault() is DateTimePicker dtpDeadlineDate))
+             {
+                if (dtpDeadlineDate.Value.CompareTo(dtpStartDate.Value) < 0) 
+                {
+                    message = "Deadline must be later, than start date!";
+                    return false;
+                }
+
+                if (dtpStartDate.Value.Date.CompareTo(DateTime.Now.Date) < 0)     //Время старта раньше, чем сейчас
+                {
+                    message = "Start time must be later, than now!";
+                    return false;
+                }
+            }
+            
+            if (Controls.Find("dtpSheduledTime", true).FirstOrDefault() is DateTimePicker dtpSheduledTime) //запланированное время меньше, чем сейчас
+            {
+                if (dtpSheduledTime.Value.Date.CompareTo(DateTime.Now.Date) < 0)
+                {
+                    message = "Sheduled time must be later, than now!";
+                    return false;
+                }
+
+            }
+            if (Controls.Find("cbInterval", true).FirstOrDefault() is ComboBox cbInterval)  //некорректное количество часов
+            {
+                if (!double.TryParse(cbInterval.Text, out double interval))
+                {
+                    message = "Enter correct interval hours count!";
+                    return false;
+                }
+            }
+
+            message = "Is correct!";
+            return true;    
+        }
+
         //view
         private void Clear()
         {
@@ -89,7 +134,14 @@ namespace task_manager
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (_selectedClassName == null) return;
+            string message;
+            if (!IsFormCorrect(out message))
+            {
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; //бан
+            }
+
+
             TaskBuilder builder = new TaskBuilder(this);
             builder.Build();
             _createdTask = (Task)Activator.CreateInstance(GetSelectedClass(), builder);
@@ -104,6 +156,10 @@ namespace task_manager
 
             _selectedClassName = GetSelectedClassName();
             TaskCreatorBuilder.Prepare(this, oldSelectedClassName);
+
+            tbTitle.Text = $"New {cbTaskType.Text}";
+            tbDescription.Text = $"I need to do ...";
+
             TaskCreatorBuilder.BuildTaskCreator(this, _selectedClassName);
         }
     }
