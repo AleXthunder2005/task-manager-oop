@@ -10,11 +10,11 @@ namespace task_manager
 {
     static class mTaskManager
     {
-        private static TaskList<Task> m_tasks;       //Список задач
-        private static List<Type> m_taskTypes;     //Список конкретных классов наследников класса Task
+        private static TaskList<Task> _tasks = new TaskList<Task>();       //Список задач
+        private static List<Type> _taskTypes;     //Список конкретных классов наследников класса Task
 
         public static void Initialize() {
-            m_taskTypes = LoadTaskTypes();
+            _taskTypes = LoadTaskTypes();
         }
 
         private static List<Type> LoadTaskTypes() { 
@@ -33,13 +33,13 @@ namespace task_manager
 
         //properties
         public static TaskList<Task> Tasks {
-            get { return m_tasks; }
-            set { m_tasks = value; }
+            get { return _tasks; }
+            set { _tasks = value; }
         }
 
         public static List<Type> TaskTypes
         {
-            get { return m_taskTypes; }
+            get { return _taskTypes; }
         }
     }
 }

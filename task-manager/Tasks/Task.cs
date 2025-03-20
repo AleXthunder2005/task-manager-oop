@@ -10,33 +10,41 @@ namespace task_manager
 {
     public abstract class Task
     {
-        private string m_title;
-        private string m_description;
-        private int m_taskId;
+        private string _title;
+        private string _description;
+        private int _taskId;
 
-        private static int m_idCounter = 0;
+        private static int _idCounter;
 
-        public Task(string title = "new task", string description = "about task") {
-            Title = title;
-            Description = description;
-            m_taskId = m_idCounter++;
+        static Task() 
+        {
+            _idCounter = 0;
         }
 
-        public abstract void Draw(Graphics g, int x, int y);
+        public Task (TaskBuilder builder) {
+            Title = builder.Title;
+            Description = builder.Description;
 
+            _taskId = _idCounter++;
+        }
 
+        public abstract void Draw(Graphics g, DrawOptions options);
+
+        protected abstract void SetOptions();
         //properties
         public string Title {
-            get { return m_title; }
-            set { m_title = value; }
+            get { return _title; }
+            set { _title = value; }
         }
         public string Description {
-            get { return m_description; }
-            set { m_description = value; }
+            get { return _description; }
+            set { _description = value; }
         }
 
         public int TaskID {
-            get { return m_taskId; }
+            get { return _taskId; }
         }
+
+        public DrawOptions Options { get; set; } = new DrawOptions();
     }
 }

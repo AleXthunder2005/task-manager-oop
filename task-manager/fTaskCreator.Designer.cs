@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace task_manager
 {
-    partial class wTaskCreator
+    partial class fTaskCreator
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,8 @@ namespace task_manager
         {
             this.cbTaskType = new System.Windows.Forms.ComboBox();
             this.lTaskType = new System.Windows.Forms.Label();
-            this.tbTaskName = new System.Windows.Forms.TextBox();
-            this.tbTaskDescription = new System.Windows.Forms.TextBox();
+            this.tbTitle = new System.Windows.Forms.TextBox();
+            this.tbDescription = new System.Windows.Forms.TextBox();
             this.lTaskName = new System.Windows.Forms.Label();
             this.lDescription = new System.Windows.Forms.Label();
             this.lTitile = new System.Windows.Forms.Label();
@@ -45,16 +45,16 @@ namespace task_manager
             // 
             // cbTaskType
             // 
+            this.cbTaskType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTaskType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTaskType.FormattingEnabled = true;
-
-            foreach (var type in mTaskCreator.TaskTypes) {
-                this.cbTaskType.Items.Add((string) type.GetField("taskTypeName").GetValue(null));
-            }
-
             this.cbTaskType.Location = new System.Drawing.Point(189, 60);
             this.cbTaskType.Name = "cbTaskType";
             this.cbTaskType.Size = new System.Drawing.Size(362, 24);
+            this.cbTaskType.Sorted = true;
             this.cbTaskType.TabIndex = 0;
+            this.cbTaskType.SelectedIndexChanged += new System.EventHandler(this.cbTaskType_SelectedIndexChanged);
             // 
             // lTaskType
             // 
@@ -66,20 +66,24 @@ namespace task_manager
             this.lTaskType.TabIndex = 1;
             this.lTaskType.Text = "Task type";
             // 
-            // tbTaskName
+            // tbTitle
             // 
-            this.tbTaskName.Location = new System.Drawing.Point(189, 109);
-            this.tbTaskName.Name = "tbTaskName";
-            this.tbTaskName.Size = new System.Drawing.Size(362, 22);
-            this.tbTaskName.TabIndex = 2;
+            this.tbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbTitle.Location = new System.Drawing.Point(189, 109);
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(362, 22);
+            this.tbTitle.TabIndex = 2;
             // 
-            // tbTaskDescription
+            // tbDescription
             // 
-            this.tbTaskDescription.Location = new System.Drawing.Point(189, 138);
-            this.tbTaskDescription.Multiline = true;
-            this.tbTaskDescription.Name = "tbTaskDescription";
-            this.tbTaskDescription.Size = new System.Drawing.Size(362, 96);
-            this.tbTaskDescription.TabIndex = 3;
+            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDescription.Location = new System.Drawing.Point(189, 138);
+            this.tbDescription.Multiline = true;
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Size = new System.Drawing.Size(362, 96);
+            this.tbDescription.TabIndex = 3;
             // 
             // lTaskName
             // 
@@ -114,6 +118,7 @@ namespace task_manager
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(25, 528);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(133, 27);
@@ -144,10 +149,11 @@ namespace task_manager
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // wTaskCreator
+            // fTaskCreator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AcceptButton = this.btnConfirm;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(615, 567);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnClear);
@@ -155,11 +161,12 @@ namespace task_manager
             this.Controls.Add(this.lTitile);
             this.Controls.Add(this.lDescription);
             this.Controls.Add(this.lTaskName);
-            this.Controls.Add(this.tbTaskDescription);
-            this.Controls.Add(this.tbTaskName);
+            this.Controls.Add(this.tbDescription);
+            this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.lTaskType);
             this.Controls.Add(this.cbTaskType);
-            this.Name = "wTaskCreator";
+            this.Name = "fTaskCreator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task creator";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,8 +177,8 @@ namespace task_manager
 
         private System.Windows.Forms.ComboBox cbTaskType;
         private System.Windows.Forms.Label lTaskType;
-        private System.Windows.Forms.TextBox tbTaskName;
-        private System.Windows.Forms.TextBox tbTaskDescription;
+        private System.Windows.Forms.TextBox tbTitle;
+        private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Label lTaskName;
         private System.Windows.Forms.Label lDescription;
         private System.Windows.Forms.Label lTitile;

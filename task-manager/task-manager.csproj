@@ -46,8 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Settings.cs" />
+    <Compile Include="DrawOptions.cs" />
+    <Compile Include="TaskCreatorBuilder.cs" />
+    <Compile Include="TaskBuilder.cs" />
     <Compile Include="mTaskCreator.cs" />
-    <Compile Include="TaskFactories\TaskFactories.cs" />
     <Compile Include="mTaskManager.cs" />
     <Compile Include="fTaskCreator.cs">
       <SubType>Form</SubType>
@@ -57,8 +60,8 @@
     </Compile>
     <Compile Include="DerivativeConstructions\Project.cs" />
     <Compile Include="DerivativeConstructions\TaskList.cs" />
-    <Compile Include="Tasks\ProgressTask.cs" />
     <Compile Include="Tasks\PriorityTask.cs" />
+    <Compile Include="Tasks\ProgressTask.cs" />
     <Compile Include="Tasks\ReccuringSimpleTask.cs" />
     <Compile Include="Tasks\Reminder.cs" />
     <Compile Include="Tasks\SimpleTask.cs" />

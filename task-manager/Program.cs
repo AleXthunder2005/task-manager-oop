@@ -13,7 +13,7 @@ namespace task_manager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new wTaskManager());
+            Application.Run(new fTaskManager());
         }
     }
 }

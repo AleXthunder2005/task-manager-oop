@@ -9,3 +9,14 @@ E:\Csharp projects\task-manager\task-manager\obj\Debug\task-manager.exe
 E:\Csharp projects\task-manager\task-manager\obj\Debug\task-manager.pdb
 E:\Csharp projects\task-manager\task-manager\obj\Debug\task_manager.wTaskCreator.resources
 E:\Csharp projects\task-manager\task-manager\obj\Debug\task_manager.wTaskManager.resources
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.csproj.AssemblyReference.cache
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task_manager.Properties.Resources.resources
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.csproj.GenerateResource.cache
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.csproj.CoreCompileInputs.cache
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.exe
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.pdb
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\task-manager.exe.config
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\task-manager.exe
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\task-manager.pdb
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task_manager.fTaskManager.resources
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task_manager.fTaskCreator.resources

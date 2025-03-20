@@ -8,55 +8,69 @@ using System.Windows.Forms;
 
 namespace task_manager
 {
-    class PriorityTask : SimpleTask
+    public class PriorityTask : SimpleTask
     {
         //datatypes
         public enum t_priority
         {
-            Low,
+            Low, 
             Medium,
             High
         };
 
-        private t_priority m_priority;
+        private t_priority _priority;
         public new static string taskTypeName = "Priority task";
 
-        public PriorityTask( DateTime startDate, DateTime deadlineDate, t_priority priority = t_priority.Low, string title = "new task", string description = "about task") : base(startDate, deadlineDate, title, description)
+        public PriorityTask(TaskBuilder builder) : base(builder)
         {
-            Priority = priority;
+            Priority = builder.Priority;
+            SetOptions();
         }
 
-        public override void Draw(Graphics g, int x, int y)
+        protected override void SetOptions()
         {
             Color priorityColor;
             switch (Priority)
             {
                 case t_priority.Low:
-                    priorityColor = Color.LightGreen;
+                    priorityColor = DrawOptions.clLOW_PRIORITY;
                     break;
                 case t_priority.Medium:
-                    priorityColor = Color.LightYellow;
+                    priorityColor = DrawOptions.clMEDIUM_PRIORITY;
                     break;
                 case t_priority.High:
-                    priorityColor = Color.LightCoral;
+                    priorityColor = DrawOptions.clHIGH_PRIORITY;
                     break;
                 default:
                     priorityColor = Color.White;
                     break;
             }
+            Options.BackgroundColor = priorityColor;
+        }
+        public override void Draw(Graphics g, DrawOptions options)
+        {
+            Brush textBrush = new SolidBrush(options.TextColor);
+            Brush backgroundBrush = new SolidBrush(options.BackgroundColor);
+            Pen borderPen = new Pen(options.BorderColor);
 
-            Rectangle rect = new Rectangle(x, y, 300, 100);
-            g.FillRectangle(new SolidBrush(priorityColor), rect);
-            g.DrawRectangle(Pens.Black, rect);
 
-            base.Draw(g, x, y);
+
+            Rectangle rect = new Rectangle(options.X, options.Y, 300, 100);
+            g.FillRectangle(backgroundBrush, rect);
+            g.DrawRectangle(borderPen, rect);
+
+            base.Draw(g, options);
+        }
+        public override string ToString()
+        {
+            return $"{base.ToString()} with priority: {Priority}";
         }
 
         //properties
         public t_priority Priority
         {
-            get { return m_priority; }
-            set { m_priority = value; }
+            get { return _priority; }
+            set { _priority = value; }
         }
 
 

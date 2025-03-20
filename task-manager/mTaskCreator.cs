@@ -10,16 +10,16 @@ namespace task_manager
 {
     static class mTaskCreator
     {
-        private static List<Type> m_taskTypes;
+        private static List<Type> _taskTypes;
 
         public static void Initialize(List<Type> taskTypes)
         {
-            m_taskTypes = taskTypes;
+            _taskTypes = taskTypes;
         }
 
         public static List<Type> TaskTypes
         {
-            get { return m_taskTypes; }
+            get { return _taskTypes; }
         }
     }
 }

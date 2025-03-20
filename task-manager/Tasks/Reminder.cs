@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,39 +12,55 @@ namespace task_manager
 {
     class Reminder : Task
     {
-        private DateTime m_sheduledTime;
-        private bool m_isViewed;
+        private DateTime _sheduledTime;
+        private bool _isViewed;
 
         public new static string taskTypeName = "Reminder";
 
-        public Reminder(DateTime sheduledTime, string title = "new task", string description = "about task") : base(title, description)
+        public Reminder(TaskBuilder builder) : base(builder)
         {
-            SheduledTime = sheduledTime;
-            IsViewed = false;
+            SheduledTime = builder.SheduledTime;
+            IsViewed = builder.IsViewed;
+
+            SetOptions();
         }
 
-        public override void Draw(Graphics g, int x, int y)
+        protected override void SetOptions()
         {
-            Rectangle rect = new Rectangle(x, y, 300, 100);
-            g.FillRectangle(IsViewed ? Brushes.LightGray : Brushes.LightBlue, rect);
-            g.DrawRectangle(Pens.Black, rect);
+            Options.BackgroundColor = DrawOptions.clREMINDER_BACKGROUNG;
+        }
 
-            g.DrawString($"{Title}", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, x + 5, y + 5);
-            g.DrawString(Description, new Font("Arial", 9), Brushes.Black, x + 5, y + 25);
-            g.DrawString($"Reminder: {SheduledTime:G}", new Font("Arial", 8), Brushes.Black, x + 5, y + 50);
+        public override void Draw(Graphics g, DrawOptions options)
+        {
+            Rectangle rect = new Rectangle(options.X, options.Y, options.Width, options.Height);
+            Brush textBrush = new SolidBrush(options.TextColor);
+            Pen borderPen = new Pen(options.BorderColor);
+            Brush backgroundBrush = new SolidBrush(options.BackgroundColor);
+
+            g.FillRectangle(backgroundBrush, rect);
+            g.DrawRectangle(borderPen, rect);
+
+            g.DrawString($"{Title}", new Font("Arial", options.TitleFontSize, FontStyle.Bold), textBrush, options.X + options.Padding, options.Y + options.Padding);
+            g.DrawString(Description, new Font("Arial", options.FontSize), textBrush, options.X + options.Padding, options.Y + options.Padding + 25);
+            g.DrawString($"Reminder: {SheduledTime.ToString("D", new CultureInfo("en-US"))}", new Font("Arial", options.FontSize), textBrush, options.X + options.Padding, options.Y + options.Padding + 40);
+
+        }
+        public override string ToString()
+        {
+            return $"{Title}({Description}) - {SheduledTime.Date}";
         }
 
         //properties
         public DateTime SheduledTime
         {
-            get { return m_sheduledTime; }
-            set { m_sheduledTime = value; }
+            get { return _sheduledTime; }
+            set { _sheduledTime = value; }
         }
  
         public bool IsViewed
         {
-            get { return m_isViewed; }
-            set { m_isViewed = value; }
+            get { return _isViewed; }
+            set { _isViewed = value; }
         }
     }
 }
