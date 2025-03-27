@@ -8,7 +8,7 @@ namespace task_manager
 {
     public class DrawOptions
     {
-        public static Color clSELECTED = Color.AliceBlue;
+        public static Color clSELECTED = Color.CadetBlue;
         public static Color clHIGH_PRIORITY = Color.LightCoral;
         public static Color clMEDIUM_PRIORITY = Color.LightYellow;
         public static Color clLOW_PRIORITY = Color.LightGreen;
@@ -34,5 +34,7 @@ namespace task_manager
         public int LineSpacing { get; set; } = TASK_LINE_SPACING;
 
         public int ProgressBarHeight { get; set; } = PROGRESS_BAR_HEIGHT;
+
+        public bool IsSelected = false;
     }
 }

@@ -21,5 +21,6 @@ namespace task_manager
         public const int PROGRESS_BAR_HEIGHT = 15;
         public const int SCROLLBAR_WIDTH = 25;
 
+        public const int RESETED_TASK_INDEX = -1;
     }
 }

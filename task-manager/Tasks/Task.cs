@@ -14,7 +14,7 @@ namespace task_manager
         private string _description;
         private int _taskId;
 
-        private static int _idCounter;
+        public static int _idCounter;
 
         static Task() 
         {

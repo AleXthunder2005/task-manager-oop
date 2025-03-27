@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static task_manager.Settings;
 
 namespace task_manager
 {
@@ -12,7 +13,8 @@ namespace task_manager
     {
         private static TaskList<Task> _tasks = new TaskList<Task>();       //Список задач
         private static List<Type> _taskTypes;     //Список конкретных классов наследников класса Task
-
+        
+        public static int SelectedTaskIndex { get; set; } = RESETED_TASK_INDEX;
         public static void Initialize() {
             _taskTypes = LoadTaskTypes();
         }

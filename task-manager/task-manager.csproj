@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="DerivativeConstructions\Project.cs" />
     <Compile Include="DerivativeConstructions\TaskList.cs" />
+    <Compile Include="TaskCreatorInitializer.cs" />
     <Compile Include="Tasks\PriorityTask.cs" />
     <Compile Include="Tasks\ProgressTask.cs" />
     <Compile Include="Tasks\ReccuringSimpleTask.cs" />

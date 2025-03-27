@@ -19,6 +19,9 @@ namespace task_manager
         public Task _createdTask;
         public Type _createdTaskType;
 
+        private Task _editingTask;
+        public Task EditingTask { get { return _editingTask; } }
+
         //controllers
         public fTaskCreator(List<Type> taskTypes)
         {
@@ -27,7 +30,23 @@ namespace task_manager
             InitializeUserComponent();
         }
 
+        public fTaskCreator(List<Type> taskTypes, Task editingTask) : this(taskTypes)
+        {
+            _editingTask = editingTask;
+            InitializeEditMode();
+        }
+
         //model
+        private void InitializeEditMode() {
+            cbTaskType.Text = (string)_editingTask.GetType().GetField("taskTypeName").GetValue(null);
+            tbTitle.Text = _editingTask.Title;
+            tbDescription.Text = _editingTask.Description;
+
+            string className = _editingTask.GetType().Name;
+
+            TaskCreatorInitializer.FillTaskCreator(this, className, _editingTask);
+        }
+
         private void InitializeUserComponent() 
         {
             foreach (var type in mTaskCreator.TaskTypes)
@@ -67,6 +86,8 @@ namespace task_manager
             }
             return null;
         }
+
+
 
         private bool IsFormCorrect(out string message) 
         {

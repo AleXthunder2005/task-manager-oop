@@ -110,6 +110,9 @@
             this.pMainContent.Name = "pMainContent";
             this.pMainContent.Size = new System.Drawing.Size(1023, 710);
             this.pMainContent.TabIndex = 2;
+            this.pMainContent.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pMainContent_MouseDown);
+            this.pMainContent.MouseLeave += new System.EventHandler(this.pMainContent_MouseLeave);
+            this.pMainContent.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pMainContent_MouseMove);
             // 
             // fTaskManager
             // 
@@ -119,6 +122,7 @@
             this.Controls.Add(this.pMainContent);
             this.Controls.Add(this.pTop);
             this.Controls.Add(this.pSideMenu);
+            this.DoubleBuffered = true;
             this.Name = "fTaskManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task Manager";

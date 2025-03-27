@@ -17,9 +17,9 @@ namespace task_manager
 
         public new static string taskTypeName = "Simple task";
 
-        //public SimpleTask(DateTime startDate, DateTime deadlineDate, string title = "new task", string description = "about task") : base(title, description) {
         public SimpleTask(TaskBuilder builder) : base(builder)
         {
+            int count = _idCounter;
 
             StartDate = builder.StartDate;
             DeadlineDate = builder.DeadlineDate;
@@ -37,7 +37,7 @@ namespace task_manager
             Rectangle rect = new Rectangle(options.X, options.Y, options.Width, options.Height);
             Brush textBrush = new SolidBrush(options.TextColor);
             Pen borderPen = new Pen(options.BorderColor);
-            Brush backgroundBrush = new SolidBrush(options.BackgroundColor);
+            Brush backgroundBrush = new SolidBrush(options.IsSelected ? DrawOptions.clSELECTED : options.BackgroundColor);
 
             g.FillRectangle(backgroundBrush, rect);
             g.DrawRectangle(borderPen, rect);

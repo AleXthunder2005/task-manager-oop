@@ -35,7 +35,7 @@ namespace task_manager
             Rectangle rect = new Rectangle(options.X, options.Y, options.Width, options.Height);
             Brush textBrush = new SolidBrush(options.TextColor);
             Pen borderPen = new Pen(options.BorderColor);
-            Brush backgroundBrush = new SolidBrush(options.BackgroundColor);
+            Brush backgroundBrush = new SolidBrush(options.IsSelected ? DrawOptions.clSELECTED : options.BackgroundColor);
 
             g.FillRectangle(backgroundBrush, rect);
             g.DrawRectangle(borderPen, rect);
