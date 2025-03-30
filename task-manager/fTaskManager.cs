@@ -7,6 +7,8 @@ namespace task_manager
 {
     public partial class fTaskManager: Form
     {
+        private readonly CommandManager _commandManager = new CommandManager();
+
         public fTaskManager()
         {
             InitializeComponent();
@@ -36,14 +38,13 @@ namespace task_manager
         //model
         private void ShowTaskCreator() {
             fTaskCreator taskCreator = new fTaskCreator(mTaskManager.TaskTypes);
-            taskCreator.ShowDialog();
-
-            if (taskCreator.DialogResult == DialogResult.OK) 
+            if (taskCreator.ShowDialog() == DialogResult.OK)
             {
-                mTaskManager.Tasks.Add(taskCreator._createdTask);
+                var command = new AddTaskCommand(taskCreator._createdTask);
+                _commandManager.ExecuteCommand(command);
+                UpdateAutoScrollMinSize();
+                pMainContent.Invalidate();
             }
-            UpdateAutoScrollMinSize();
-            this.pMainContent.Invalidate();
         }
         private void CloseApplication() {
             this.Close();
@@ -103,9 +104,18 @@ namespace task_manager
             }
             else if (SelectedTaskIndex != RESETED_TASK_INDEX)
             {
-                mTaskManager.Tasks[SelectedTaskIndex].Options.IsSelected = false;
-                InvalidateTaskRect(SelectedTaskIndex); 
-                SelectedTaskIndex = RESETED_TASK_INDEX;
+                if (SelectedTaskIndex >= Tasks.Count)
+                {
+                    for (int i = 0; i < Tasks.Count; i++)
+                        Tasks[i].Options.IsSelected = false;
+                    SelectedTaskIndex = RESETED_TASK_INDEX;
+                }
+                else
+                {
+                    mTaskManager.Tasks[SelectedTaskIndex].Options.IsSelected = false;
+                    InvalidateTaskRect(SelectedTaskIndex);
+                    SelectedTaskIndex = RESETED_TASK_INDEX;
+                }
             }
         }
 
@@ -140,18 +150,23 @@ namespace task_manager
                     ToolStripMenuItem deleteItem = new ToolStripMenuItem("Delete Task");
                     deleteItem.Click += (s, args) => DeleteTask(newSelectedTaskIndex);
 
-                    // Создаем пункт "Edit Task"
-                    ToolStripMenuItem editItem = new ToolStripMenuItem("Edit Task");
-                    editItem.Click += (s, args) => EditTask(newSelectedTaskIndex);
-
-                    // Создаем пункт "Complete Task"
-                    ToolStripMenuItem completeItem = new ToolStripMenuItem("Complete Task");
-                    completeItem.Click += (s, args) => CompleteTask(newSelectedTaskIndex);
-
                     // Добавляем пункты в меню
                     contextMenu.Items.Add(deleteItem);
-                    contextMenu.Items.Add(editItem);
-                    contextMenu.Items.Add(completeItem);
+
+                    // Создаем пункт "Complete Task"
+                    if (!Tasks[newSelectedTaskIndex].IsCompleted)
+                    {
+                        // Создаем пункт "Edit Task"
+                        ToolStripMenuItem editItem = new ToolStripMenuItem("Edit Task");
+                        editItem.Click += (s, args) => EditTask(newSelectedTaskIndex);
+                        contextMenu.Items.Add(editItem);
+
+                        ToolStripMenuItem completeItem = new ToolStripMenuItem("Complete Task");
+                        completeItem.Click += (s, args) => CompleteTask(newSelectedTaskIndex);
+                        contextMenu.Items.Add(completeItem);
+                    }
+
+                    
 
                     contextMenu.Show(pMainContent, e.Location);
                 }
@@ -162,14 +177,14 @@ namespace task_manager
         {
             if (index >= 0 && index < mTaskManager.Tasks.Count)
             {
-                mTaskManager.Tasks.RemoveAt(index);
+                var command = new DeleteTaskCommand(index);
+                _commandManager.ExecuteCommand(command);
                 UpdateAutoScrollMinSize();
                 pMainContent.Invalidate();
-
             }
         }
 
-        private void CompleteTask(int index)
+/*        private void CompleteTask(int index)
         {
             if (index >= 0 && index < mTaskManager.Tasks.Count)
             {
@@ -180,7 +195,7 @@ namespace task_manager
                     ProgressTask progressTask = (ProgressTask)task;
                     progressTask.CurrCount++;
 
-                    if (progressTask.CurrCount == progressTask.GoalCount) 
+                    if (progressTask.CurrCount == progressTask.GoalCount)
                     {
                         mTaskManager.Tasks.RemoveAt(index);
                         UpdateAutoScrollMinSize();
@@ -193,25 +208,59 @@ namespace task_manager
                 }
                 pMainContent.Invalidate();
             }
+        }*/
+
+        private void CompleteTask(int index)
+        {
+            if (index >= 0 && index < mTaskManager.Tasks.Count)
+            {
+                var command = new CompleteTaskCommand(index);
+                _commandManager.ExecuteCommand(command);
+                UpdateAutoScrollMinSize();
+                pMainContent.Invalidate();
+            }
         }
 
         private void EditTask(int index)
         {
             if (index >= 0 && index < mTaskManager.Tasks.Count)
             {
-                var taskToEdit = mTaskManager.Tasks[index];
-
                 if (SelectedTaskIndex != RESETED_TASK_INDEX) {
                     Tasks[SelectedTaskIndex].Options.IsSelected = false;
                 }
 
-                fTaskCreator editForm = new fTaskCreator(TaskTypes, taskToEdit);
+                var taskToEdit = mTaskManager.Tasks[index];
+                fTaskCreator editForm = new fTaskCreator(mTaskManager.TaskTypes, taskToEdit);
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
-                    Tasks[index] = editForm._createdTask;
+                    var command = new EditTaskCommand(index, editForm._createdTask);
+                    _commandManager.ExecuteCommand(command);
                     pMainContent.Invalidate();
                 }
             }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.Z))
+            {
+                bool canUndo = _commandManager.CanUndo();
+                _commandManager.Undo();
+
+                if (canUndo) 
+                    pMainContent.Invalidate();
+                return true;
+            }
+            else if (keyData == (Keys.Control | Keys.Y) || keyData == (Keys.Control | Keys.Alt | Keys.Z))
+            {
+                bool canRedo = _commandManager.CanRedo();
+                _commandManager.Redo();
+                
+                if (canRedo)
+                    pMainContent.Invalidate();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

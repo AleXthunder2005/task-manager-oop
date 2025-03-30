@@ -13,9 +13,9 @@ namespace task_manager
     {
         private DateTime _startDate;
         private DateTime _deadlineDate;
-        private bool _isCompleted;
 
         public new static string taskTypeName = "Simple task";
+        public SimpleTask() : base() { }
 
         public SimpleTask(TaskBuilder builder) : base(builder)
         {
@@ -24,6 +24,8 @@ namespace task_manager
             StartDate = builder.StartDate;
             DeadlineDate = builder.DeadlineDate;
             IsCompleted = builder.IsCompleted;
+
+            
 
             SetOptions();
         }
@@ -37,7 +39,9 @@ namespace task_manager
             Rectangle rect = new Rectangle(options.X, options.Y, options.Width, options.Height);
             Brush textBrush = new SolidBrush(options.TextColor);
             Pen borderPen = new Pen(options.BorderColor);
-            Brush backgroundBrush = new SolidBrush(options.IsSelected ? DrawOptions.clSELECTED : options.BackgroundColor);
+            Brush backgroundBrush = new SolidBrush(options.IsSelected ? DrawOptions.clSELECTED: IsCompleted ? DrawOptions.clCOMPLETED : options.BackgroundColor);
+
+
 
             g.FillRectangle(backgroundBrush, rect);
             g.DrawRectangle(borderPen, rect);
@@ -53,6 +57,31 @@ namespace task_manager
             return $"{Title}({Description}) {StartDate.Date} - {DeadlineDate}";
         }
 
+        public override Task Clone()
+        {
+            return new SimpleTask
+            {
+                TaskID = this.TaskID,
+                Title = this.Title,
+                Description = this.Description,
+                StartDate = this.StartDate,
+                DeadlineDate = this.DeadlineDate,
+                IsCompleted = this.IsCompleted,
+                Options = new DrawOptions
+                {
+                    IsSelected = this.Options.IsSelected,
+                    X = this.Options.X,
+                    Y = this.Options.Y,
+                    Width = this.Options.Width,
+                    Height = this.Options.Height,
+                    Margin = this.Options.Margin,
+                    BackgroundColor = this.Options.BackgroundColor,
+                    TextColor = this.Options.TextColor,
+                    FontSize = this.Options.FontSize,
+                }
+            };
+        }
+
         //properties
         public DateTime StartDate {
             get { return _startDate; }
@@ -62,11 +91,6 @@ namespace task_manager
         {
             get { return _deadlineDate; }
             set { _deadlineDate = value; }
-        }
-        public bool IsCompleted
-        {
-            get { return _isCompleted; }
-            set { _isCompleted = value; }
         }
     }
 }

@@ -15,6 +15,8 @@ namespace task_manager
 
         public new static string taskTypeName = "Progress task";
 
+        public ProgressTask() : base() { }
+
         public ProgressTask(TaskBuilder builder) : base(builder)
         {
             GoalCount = builder.GoalCount;
@@ -52,6 +54,33 @@ namespace task_manager
         public override string ToString()
         {
             return $"{base.ToString()}, current result: {CurrCount}/{GoalCount}";
+        }
+
+        public override Task Clone()
+        {
+            return new ProgressTask
+            {
+                TaskID = this.TaskID,
+                Title = this.Title,
+                Description = this.Description,
+                StartDate = this.StartDate,
+                DeadlineDate = this.DeadlineDate,
+                CurrCount = this.CurrCount,
+                GoalCount = this.GoalCount,
+                IsCompleted = this.IsCompleted,
+                Options = new DrawOptions
+                {
+                    IsSelected = this.Options.IsSelected,
+                    X = this.Options.X,
+                    Y = this.Options.Y,
+                    Width = this.Options.Width,
+                    Height = this.Options.Height,
+                    Margin = this.Options.Margin,
+                    BackgroundColor = this.Options.BackgroundColor,
+                    TextColor = this.Options.TextColor,
+                    FontSize = this.Options.FontSize,
+                }
+            };
         }
 
         //properties

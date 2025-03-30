@@ -21,6 +21,8 @@ namespace task_manager
         private t_priority _priority;
         public new static string taskTypeName = "Priority task";
 
+        public PriorityTask() { }
+
         public PriorityTask(TaskBuilder builder) : base(builder)
         {
             Priority = builder.Priority;
@@ -50,10 +52,8 @@ namespace task_manager
         public override void Draw(Graphics g, DrawOptions options)
         {
             Brush textBrush = new SolidBrush(options.TextColor);
-            Brush backgroundBrush = new SolidBrush(options.BackgroundColor);
+            Brush backgroundBrush = new SolidBrush(IsCompleted ? DrawOptions.clCOMPLETED : options.BackgroundColor);
             Pen borderPen = new Pen(options.BorderColor);
-
-
 
             Rectangle rect = new Rectangle(options.X, options.Y, 300, 100);
             g.FillRectangle(backgroundBrush, rect);
@@ -66,6 +66,31 @@ namespace task_manager
             return $"{base.ToString()} with priority: {Priority}";
         }
 
+        public override Task Clone()
+        {
+            return new PriorityTask
+            {
+                TaskID = this.TaskID,
+                Title = this.Title,
+                Description = this.Description,
+                StartDate = this.StartDate,
+                DeadlineDate = this.DeadlineDate,
+                Priority = this.Priority,
+                IsCompleted = this.IsCompleted,
+                Options = new DrawOptions
+                {
+                    IsSelected = this.Options.IsSelected,
+                    X = this.Options.X,
+                    Y = this.Options.Y,
+                    Width = this.Options.Width,
+                    Height = this.Options.Height,
+                    Margin = this.Options.Margin,
+                    BackgroundColor = this.Options.BackgroundColor,
+                    TextColor = this.Options.TextColor,
+                    FontSize = this.Options.FontSize,
+                }
+            };
+        }
         //properties
         public t_priority Priority
         {

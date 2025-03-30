@@ -21,6 +21,7 @@ namespace task_manager
             _idCounter = 0;
         }
 
+        public Task() { }
         public Task (TaskBuilder builder) {
             Title = builder.Title;
             Description = builder.Description;
@@ -43,8 +44,24 @@ namespace task_manager
 
         public int TaskID {
             get { return _taskId; }
+            set { _taskId = value; }
         }
 
+        public bool IsCompleted { get; set; } = false;
+
         public DrawOptions Options { get; set; } = new DrawOptions();
+
+        public abstract Task Clone();
+
+        public override bool Equals(object obj)
+        {
+            Task otherTask = obj as Task;
+            if (otherTask == null)
+            {
+                return false;
+            }
+
+            return this.TaskID == otherTask.TaskID;
+        }
     }
 }

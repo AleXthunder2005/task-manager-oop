@@ -10,10 +10,10 @@ namespace task_manager
     {
         public static Color clSELECTED = Color.CadetBlue;
         public static Color clHIGH_PRIORITY = Color.LightCoral;
-        public static Color clMEDIUM_PRIORITY = Color.LightYellow;
-        public static Color clLOW_PRIORITY = Color.LightGreen;
+        public static Color clMEDIUM_PRIORITY = Color.Orange;
+        public static Color clLOW_PRIORITY = Color.LightYellow;
         public static Color clREMINDER_BACKGROUNG = Color.DeepSkyBlue;
-
+        public static Color clCOMPLETED = Color.LightGreen;
 
         public int X { get; set; } = 0;
         public int Y { get; set; } = 0;

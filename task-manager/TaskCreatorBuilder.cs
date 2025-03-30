@@ -12,10 +12,7 @@ namespace task_manager
 {
     static class TaskCreatorBuilder
     {
-        // Шрифт по умолчанию
         private static readonly System.Drawing.Font DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-        // Жирный шрифт по умолчанию для Label
         private static readonly System.Drawing.Font BoldDefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
         public static void BuildTaskCreator(fTaskCreator taskCreator, string className)
@@ -26,7 +23,6 @@ namespace task_manager
 
             if (method != null)
             {
-                // Вызываем метод, передавая taskCreator в качестве параметра
                 method.Invoke(null, new object[] { taskCreator });
                 taskCreator.Invalidate();
             }
