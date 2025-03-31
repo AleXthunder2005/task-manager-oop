@@ -116,14 +116,27 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public void ReadPropertyFromBinary(Reminder task, Dictionary<string, string> fields)
+        public override bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            base.ReadPropertyFromBinary(task, fields);
+            bool isBaseSuccessful = base.isReadingFromBinaryObjectSuccessful(task, fields);
+            if (!isBaseSuccessful)
+                return false;
 
-            if (fields.ContainsKey("SheduledTime"))
+            Reminder reminder = task as Reminder;
+
+            try
             {
-                task.SheduledTime = DateTime.ParseExact(fields["SheduledTime"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                if (fields.ContainsKey("SheduledTime"))
+                {
+                    reminder.SheduledTime = DateTime.ParseExact(fields["SheduledTime"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                }
             }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
 
         //properties

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace task_manager
 {
@@ -43,7 +44,15 @@ namespace task_manager
                     TaskBuilder builder = new TaskBuilder();
                     builder.Build();
                     dynamic newTask = Activator.CreateInstance(taskType, builder);
-                    newTask.ReadPropertyFromBinary(newTask, dictionary);
+                    bool isReadingSuccessful = newTask.isReadingFromBinaryObjectSuccessful(newTask, dictionary);
+
+                    if (!isReadingSuccessful)
+                    {
+                        MessageBox.Show("Reading unsuccessful!", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
+                    
+                    
                     newTask.SetOptions();
 
                     tasks.Add(newTask);

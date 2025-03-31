@@ -98,14 +98,27 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public void ReadPropertyFromBinary(ReccuringSimpleTask task, Dictionary<string, string> fields)
+        public override bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            base.ReadPropertyFromBinary(task, fields);
+            bool isBaseSuccessful = base.isReadingFromBinaryObjectSuccessful(task, fields);
+            if (!isBaseSuccessful)
+                return false;
 
-            if (fields.ContainsKey("Interval"))
+            ReccuringSimpleTask reccuringSimpleTask = task as ReccuringSimpleTask;
+
+            try
             {
-                task.Interval = int.Parse(fields["Interval"]);
+                if (fields.ContainsKey("Interval"))
+                {
+                    reccuringSimpleTask.Interval = int.Parse(fields["Interval"]);
+                }
             }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
 
         //properties

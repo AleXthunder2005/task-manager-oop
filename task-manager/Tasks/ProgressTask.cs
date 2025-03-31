@@ -130,19 +130,33 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public void ReadPropertyFromBinary(ProgressTask task, Dictionary<string, string> fields)
+
+        public override bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            base.ReadPropertyFromBinary(task, fields);
+            bool isBaseSuccessful = base.isReadingFromBinaryObjectSuccessful(task, fields);
+            if (!isBaseSuccessful)
+                return false;
 
-            if (fields.ContainsKey("CurrCount"))
+            ProgressTask progressTask = task as ProgressTask;
+
+            try
             {
-                task.CurrCount = int.Parse(fields["CurrCount"]);
+                if (fields.ContainsKey("CurrCount"))
+                {
+                    progressTask.CurrCount = int.Parse(fields["CurrCount"]);
+                }
+
+                if (fields.ContainsKey("GoalCount"))
+                {
+                    progressTask.GoalCount = int.Parse(fields["GoalCount"]);
+                }
+            }
+            catch
+            {
+                return false;
             }
 
-            if (fields.ContainsKey("GoalCount"))
-            {
-                task.GoalCount = int.Parse(fields["GoalCount"]);
-            }
+            return true;
         }
 
 

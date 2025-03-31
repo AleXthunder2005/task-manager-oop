@@ -12,15 +12,18 @@ namespace task_manager
         {
 
             StringBuilder jsonBuilder = new StringBuilder("[");
-            foreach (Task task in tasks)
+            if (tasks.Count > 0)
             {
-                jsonBuilder.Append("\n{");
-                jsonBuilder.Append($"\n\t\"Type\": \"{task.GetType().Name}\",");
+                foreach (Task task in tasks)
+                {
+                    jsonBuilder.Append("\n{");
+                    jsonBuilder.Append($"\n\t\"Type\": \"{task.GetType().Name}\",");
 
-                jsonBuilder.Append(task.ToJSON().TrimStart('{'));
-                jsonBuilder.Append(",");
+                    jsonBuilder.Append(task.ToJSON().TrimStart('{'));
+                    jsonBuilder.Append(",");
+                }
+                jsonBuilder.Length--;
             }
-            jsonBuilder.Length--;
             jsonBuilder.Append("\n]");
             return jsonBuilder.ToString();
         }

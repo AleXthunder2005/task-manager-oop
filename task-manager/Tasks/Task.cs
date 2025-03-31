@@ -101,12 +101,20 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public void ReadPropertyFromBinary(Task task, Dictionary<string, string> fields)
+        public virtual bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
             task.Title = fields.ContainsKey("Title") ? fields["Title"] : "task";
             task.Description = fields.ContainsKey("Description") ? fields["Description"] : "description";
-            if (fields.ContainsKey("TaskID")) task.TaskID = int.Parse(fields["TaskID"]);
-            task.IsCompleted = fields.ContainsKey("IsCompleted") ? bool.Parse(fields["IsCompleted"]) : false;
+            try
+            {
+                if (fields.ContainsKey("TaskID")) task.TaskID = int.Parse(fields["TaskID"]);
+                task.IsCompleted = fields.ContainsKey("IsCompleted") ? bool.Parse(fields["IsCompleted"]) : false;
+            }
+            catch 
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

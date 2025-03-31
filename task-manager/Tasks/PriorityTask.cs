@@ -129,15 +129,28 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public void ReadPropertyFromBinary(PriorityTask task, Dictionary<string, string> fields)
+        public override bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            base.ReadPropertyFromBinary(task, fields);
+            bool isBaseSuccessful = base.isReadingFromBinaryObjectSuccessful(task, fields);
+            if (!isBaseSuccessful)
+                return false;
 
-            t_priority priority;
-            if (Enum.TryParse<t_priority>(fields["Priority"], out priority))
+            PriorityTask priorityTask = task as PriorityTask;
+
+            try
             {
-                task.Priority = priority;
+                t_priority priority;
+                if (Enum.TryParse<t_priority>(fields["Priority"], out priority))
+                {
+                    priorityTask.Priority = priority;
+                }
             }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
 
         //properties
