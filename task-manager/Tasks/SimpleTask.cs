@@ -29,7 +29,7 @@ namespace task_manager
 
             SetOptions();
         }
-        protected override void SetOptions()
+        public override void SetOptions()
         {
             
         }
@@ -87,14 +87,13 @@ namespace task_manager
             var jsonBuilder = new StringBuilder("{");
 
             string baseJson = base.ToJSON();
-            baseJson = baseJson.TrimStart('{');
 
-            jsonBuilder.Append(baseJson);
-            jsonBuilder.Length--; //Обрезали последний '}'
+            jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
+            jsonBuilder.Length -= 2; //Обрезали последний '\n}'
 
-            jsonBuilder.Append($",\"StartDate\":\"{StartDate: yyyy-MM-dd}\"");
-            jsonBuilder.Append($",\"DeadlineDate\":\"{DeadlineDate: yyyy-MM-dd}\"");
-            jsonBuilder.Append("}");
+            jsonBuilder.Append($",\n\t\"StartDate\":\"{StartDate: yyyy-MM-dd}\"");
+            jsonBuilder.Append($",\n\t\"DeadlineDate\":\"{DeadlineDate: yyyy-MM-dd}\"");
+            jsonBuilder.Append("\n}");
             return jsonBuilder.ToString();
         }
 

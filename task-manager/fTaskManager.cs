@@ -254,7 +254,7 @@ namespace task_manager
                     try
                     {
                         File.WriteAllText(saveFileDialog.FileName, json);
-                        MessageBox.Show("Файл сохранен успешно!", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Succesful saving!", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex) 
                     {

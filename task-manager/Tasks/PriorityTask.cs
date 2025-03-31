@@ -29,8 +29,9 @@ namespace task_manager
             SetOptions();
         }
 
-        protected override void SetOptions()
+        public override void SetOptions()
         {
+            base.SetOptions();
             Color priorityColor;
             switch (Priority)
             {
@@ -97,12 +98,11 @@ namespace task_manager
             var jsonBuilder = new StringBuilder("{");
 
             string baseJson = base.ToJSON();
-            baseJson = baseJson.Trim('{', '}');
+            jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
+            jsonBuilder.Length -= 2; //Обрезали последний '\n}'
 
-            jsonBuilder.Append(baseJson);
-
-            jsonBuilder.Append($",\"Priority\": \"{Priority}\"");
-            jsonBuilder.Append("}");
+            jsonBuilder.Append($",\n\t\"Priority\": \"{Priority}\"");
+            jsonBuilder.Append("\n}");
             return jsonBuilder.ToString();
         }
 

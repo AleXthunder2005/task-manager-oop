@@ -14,14 +14,14 @@ namespace task_manager
             StringBuilder jsonBuilder = new StringBuilder("[");
             foreach (Task task in tasks)
             {
-                jsonBuilder.Append('{');
-                jsonBuilder.Append($"\"Type\": \"{task.GetType().Name}\",");
+                jsonBuilder.Append("\n{");
+                jsonBuilder.Append($"\n\t\"Type\": \"{task.GetType().Name}\",");
 
                 jsonBuilder.Append(task.ToJSON().TrimStart('{'));
                 jsonBuilder.Append(",");
             }
             jsonBuilder.Length--;
-            jsonBuilder.Append("]");
+            jsonBuilder.Append("\n]");
             return jsonBuilder.ToString();
         }
 
@@ -76,32 +76,10 @@ namespace task_manager
                     builder.Build();
                     dynamic newTask = Activator.CreateInstance(taskType, builder);
                     newTask.ReadPropertyFromJSON(newTask, dictionary);
+                    newTask.SetOptions();
 
                     tasks.Add(newTask);
                 }
-
-
-                /*                
-                if (dictionary.ContainsKey("Type"))
-                {
-                    string type = dictionary["Type"];
-                    Type taskType = Type.GetType($"task_manager.{type}");
-
-                    if (taskType != null)
-                    {
-                        TaskBuilder builder = new TaskBuilder();
-                        builder.Build();
-
-                        if (Activator.CreateInstance(taskType, builder) is Task newTask)
-                        {
-                            var readMethod = taskType.GetMethod("ReadPropertyFromJSON");
-                            readMethod?.Invoke(newTask, new object[] { newTask, dictionary });
-
-                            tasks.Add(newTask);
-                        }
-                    }
-                }
-*/
             }
 
             return tasks;

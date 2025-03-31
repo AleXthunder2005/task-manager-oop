@@ -31,7 +31,7 @@ namespace task_manager
 
         public abstract void Draw(Graphics g, DrawOptions options);
 
-        protected abstract void SetOptions();
+        public abstract void SetOptions();
         //properties
         public string Title {
             get { return _title; }
@@ -67,21 +67,15 @@ namespace task_manager
         public virtual string ToJSON()
         {
             var jsonBuilder = new StringBuilder();
-            jsonBuilder.Append("{");
+            jsonBuilder.AppendLine("{");
 
             // Сериализация базовых свойств
-            jsonBuilder.Append($"\"Title\": \"{Title}\"");
-            jsonBuilder.Append($",\"Description\": \"{Description}\"");
-            jsonBuilder.Append($",\"TaskID\": {TaskID}");
-            jsonBuilder.Append($",\"IsCompleted\": {(IsCompleted ? "true" : "false")}");
+            jsonBuilder.Append($"\t\"Title\": \"{Title}\"");
+            jsonBuilder.Append($",\n\t\"Description\": \"{Description}\"");
+            jsonBuilder.Append($",\n\t\"TaskID\": {TaskID}");
+            jsonBuilder.Append($",\n\t\"IsCompleted\": {(IsCompleted ? "true" : "false")}");
 
-            // Сериализация Options
-            jsonBuilder.Append(",\"Options\": {");
-            jsonBuilder.Append($"\"X\": {Options.X}");
-            jsonBuilder.Append($",\"Y\": {Options.Y}");
-            jsonBuilder.Append("}");
-
-            jsonBuilder.Append("}");
+            jsonBuilder.Append("\n}");
             return jsonBuilder.ToString();
         }
 
@@ -91,17 +85,6 @@ namespace task_manager
             task.Description = jsonObject.ContainsKey("Description") ? jsonObject["Description"] : "description";
             if (jsonObject.ContainsKey("TaskID")) task.TaskID = int.Parse(jsonObject["TaskID"]);
             task.IsCompleted = jsonObject.ContainsKey("IsCompleted") ? bool.Parse(jsonObject["IsCompleted"]) : false;
-
-            // Десериализация Options
-            if (jsonObject.TryGetValue("Options", out string optionsJson))
-            {
-                var optionsProps = JsonParser.ParseJsonToDictionary(optionsJson);
-                task.Options = new DrawOptions
-                {
-                    X = int.Parse(optionsProps["X"]),
-                    Y = int.Parse(optionsProps["Y"]),
-                };
-            }
         }
     }
 }

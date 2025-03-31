@@ -23,6 +23,10 @@ namespace task_manager
             CurrCount = builder.CurrCount;
         }
 
+        public override void SetOptions()
+        {
+            base.SetOptions();
+        }
         public override void Draw(Graphics g, DrawOptions options)
         {
             Brush textBrush = new SolidBrush(options.TextColor);
@@ -88,13 +92,12 @@ namespace task_manager
             var jsonBuilder = new StringBuilder("{");
 
             string baseJson = base.ToJSON();
-            baseJson = baseJson.Trim('{', '}');
+            jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
+            jsonBuilder.Length -= 2; //Обрезали последний '\n}'
 
-            jsonBuilder.Append(baseJson);
-
-            jsonBuilder.Append($",\"CurrCount\": \"{CurrCount}\"");
-            jsonBuilder.Append($",\"GoalCount\": \"{GoalCount}\"");
-            jsonBuilder.Append("}");
+            jsonBuilder.Append($",\n\t\"CurrCount\": \"{CurrCount}\"");
+            jsonBuilder.Append($",\n\t\"GoalCount\": \"{GoalCount}\"");
+            jsonBuilder.Append("\n}");
             return jsonBuilder.ToString();
         }
 

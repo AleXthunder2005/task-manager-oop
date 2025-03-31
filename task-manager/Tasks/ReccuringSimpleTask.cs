@@ -19,6 +19,11 @@ namespace task_manager
             base.Draw(g, options);
         }
 
+        public override void SetOptions()
+        {
+            base.SetOptions();
+        }
+
         public override string ToString()
         {
             return $"{base.ToString()} with interval {Interval}";
@@ -62,12 +67,11 @@ namespace task_manager
             var jsonBuilder = new StringBuilder("{");
 
             string baseJson = base.ToJSON();
-            baseJson = baseJson.Trim('{', '}');
+            jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
+            jsonBuilder.Length -= 2; //Обрезали последний '\n}'
 
-            jsonBuilder.Append(baseJson);
-
-            jsonBuilder.Append($",\"Interval\": \"{Interval}\"");
-            jsonBuilder.Append("}");
+            jsonBuilder.Append($",\n\t\"Interval\": \"{Interval}\"");
+            jsonBuilder.Append("\n}");
             return jsonBuilder.ToString();
         }
 

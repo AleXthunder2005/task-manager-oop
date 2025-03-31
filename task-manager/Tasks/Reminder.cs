@@ -27,7 +27,7 @@ namespace task_manager
             SetOptions();
         }
 
-        protected override void SetOptions()
+        public override void SetOptions()
         {
             Options.BackgroundColor = DrawOptions.clREMINDER_BACKGROUNG;
         }
@@ -81,12 +81,11 @@ namespace task_manager
             var jsonBuilder = new StringBuilder("{");
 
             string baseJson = base.ToJSON();
-            baseJson = baseJson.Trim('{', '}');
+            jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
+            jsonBuilder.Length -= 2; //Обрезали последний '\n}'
 
-            jsonBuilder.Append(baseJson);
-
-            jsonBuilder.Append($",\"SheduledTime\":\"{SheduledTime: yyyy-MM-dd}\"");
-            jsonBuilder.Append("}");
+            jsonBuilder.Append($",\n\t\"SheduledTime\":\"{SheduledTime: yyyy-MM-dd}\"");
+            jsonBuilder.Append("\n}");
             return jsonBuilder.ToString();
         }
 
