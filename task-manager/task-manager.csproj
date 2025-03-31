@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="CommandManager.cs" />
     <Compile Include="Commands.cs" />
+    <Compile Include="JsonParser.cs" />
+    <Compile Include="JsonHandler.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="DrawOptions.cs" />
     <Compile Include="TaskCreatorBuilder.cs" />

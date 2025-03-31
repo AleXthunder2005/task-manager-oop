@@ -91,6 +91,31 @@ namespace task_manager
                 }
             };
         }
+
+        public override string ToJSON()
+        {
+            var jsonBuilder = new StringBuilder("{");
+
+            string baseJson = base.ToJSON();
+            baseJson = baseJson.Trim('{', '}');
+
+            jsonBuilder.Append(baseJson);
+
+            jsonBuilder.Append($",\"Priority\": \"{Priority}\"");
+            jsonBuilder.Append("}");
+            return jsonBuilder.ToString();
+        }
+
+        public void ReadPropertyFromJSON(PriorityTask task, Dictionary<string, string> jsonObject)
+        {
+            base.ReadPropertyFromJSON(task, jsonObject);
+
+            if (Enum.TryParse(jsonObject["Priority"], out t_priority priority))
+            {
+                task.Priority = priority;
+            }
+        }
+
         //properties
         public t_priority Priority
         {

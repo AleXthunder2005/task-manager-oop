@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using static task_manager.Settings;
 using static task_manager.mTaskManager;
+using System.IO;
+using System.Collections.Generic;
 namespace task_manager
 {
     public partial class fTaskManager: Form
@@ -166,8 +168,6 @@ namespace task_manager
                         contextMenu.Items.Add(completeItem);
                     }
 
-                    
-
                     contextMenu.Show(pMainContent, e.Location);
                 }
             }
@@ -183,32 +183,6 @@ namespace task_manager
                 pMainContent.Invalidate();
             }
         }
-
-/*        private void CompleteTask(int index)
-        {
-            if (index >= 0 && index < mTaskManager.Tasks.Count)
-            {
-                var task = mTaskManager.Tasks[index];
-
-                if (task.GetType().Name == "ProgressTask")
-                {
-                    ProgressTask progressTask = (ProgressTask)task;
-                    progressTask.CurrCount++;
-
-                    if (progressTask.CurrCount == progressTask.GoalCount)
-                    {
-                        mTaskManager.Tasks.RemoveAt(index);
-                        UpdateAutoScrollMinSize();
-                    }
-                }
-                else
-                {
-                    mTaskManager.Tasks.RemoveAt(index);
-                    UpdateAutoScrollMinSize();
-                }
-                pMainContent.Invalidate();
-            }
-        }*/
 
         private void CompleteTask(int index)
         {
@@ -261,6 +235,72 @@ namespace task_manager
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void miExit_Click(object sender, EventArgs e)
+        {
+            CloseApplication();
+        }
+
+        private void miSaveAsJSON_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.DefaultExt = "json";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) 
+            {
+                string json = JsonHandler.BuildJson(mTaskManager.Tasks);
+                if (json != null)
+                {
+                    try
+                    {
+                        File.WriteAllText(saveFileDialog.FileName, json);
+                        MessageBox.Show("Файл сохранен успешно!", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex) 
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void miSaveAsBinaryFile_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.FilterIndex = 2;
+            saveFileDialog.DefaultExt = "bin";
+        }
+
+        private void miOpenJSON_Click(object sender, EventArgs e)
+        {
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.DefaultExt= "json";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string json = null;
+                try
+                {
+                    json = File.ReadAllText(openFileDialog.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (json != null)
+                {
+                    TaskList<Task> tasks = JsonHandler.ReadJson(json);
+                    mTaskManager.Tasks = tasks;
+
+                    pMainContent.Invalidate();
+                }
+            }
+        }
+
+        private void miOpenBinaryFile_Click(object sender, EventArgs e)
+        {
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.DefaultExt = "bin";
         }
     }
 }

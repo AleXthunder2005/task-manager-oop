@@ -34,8 +34,20 @@
             this.pTop = new System.Windows.Forms.Panel();
             this.lTitile = new System.Windows.Forms.Label();
             this.pMainContent = new System.Windows.Forms.Panel();
+            this.msMenu = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSaveAsJSON = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSaveAsBinaryFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.miOpenJSON = new System.Windows.Forms.ToolStripMenuItem();
+            this.miOpenBinaryFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.miExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.pSideMenu.SuspendLayout();
             this.pTop.SuspendLayout();
+            this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pSideMenu
@@ -44,9 +56,9 @@
             this.pSideMenu.Controls.Add(this.btnExit);
             this.pSideMenu.Controls.Add(this.btnAddTask);
             this.pSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.pSideMenu.Location = new System.Drawing.Point(0, 28);
             this.pSideMenu.Name = "pSideMenu";
-            this.pSideMenu.Size = new System.Drawing.Size(220, 769);
+            this.pSideMenu.Size = new System.Drawing.Size(220, 741);
             this.pSideMenu.TabIndex = 0;
             // 
             // btnExit
@@ -55,7 +67,7 @@
             this.btnExit.BackColor = System.Drawing.Color.White;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(12, 717);
+            this.btnExit.Location = new System.Drawing.Point(12, 689);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(199, 40);
             this.btnExit.TabIndex = 3;
@@ -81,7 +93,7 @@
             this.pTop.BackColor = System.Drawing.Color.SlateGray;
             this.pTop.Controls.Add(this.lTitile);
             this.pTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pTop.Location = new System.Drawing.Point(220, 0);
+            this.pTop.Location = new System.Drawing.Point(220, 28);
             this.pTop.Name = "pTop";
             this.pTop.Size = new System.Drawing.Size(1023, 59);
             this.pTop.TabIndex = 1;
@@ -106,13 +118,95 @@
             this.pMainContent.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.pMainContent.Cursor = System.Windows.Forms.Cursors.Default;
             this.pMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pMainContent.Location = new System.Drawing.Point(220, 59);
+            this.pMainContent.Location = new System.Drawing.Point(220, 87);
             this.pMainContent.Name = "pMainContent";
-            this.pMainContent.Size = new System.Drawing.Size(1023, 710);
+            this.pMainContent.Size = new System.Drawing.Size(1023, 682);
             this.pMainContent.TabIndex = 2;
             this.pMainContent.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pMainContent_MouseDown);
             this.pMainContent.MouseLeave += new System.EventHandler(this.pMainContent_MouseLeave);
             this.pMainContent.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pMainContent_MouseMove);
+            // 
+            // msMenu
+            // 
+            this.msMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.msMenu.Location = new System.Drawing.Point(0, 0);
+            this.msMenu.Name = "msMenu";
+            this.msMenu.Size = new System.Drawing.Size(1243, 28);
+            this.msMenu.TabIndex = 3;
+            this.msMenu.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miSaveAsJSON,
+            this.miSaveAsBinaryFile,
+            this.toolStripMenuItem1,
+            this.miOpenJSON,
+            this.miOpenBinaryFile,
+            this.toolStripMenuItem2,
+            this.miExit});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // miSaveAsJSON
+            // 
+            this.miSaveAsJSON.Name = "miSaveAsJSON";
+            this.miSaveAsJSON.Size = new System.Drawing.Size(224, 26);
+            this.miSaveAsJSON.Text = "Save as JSON";
+            this.miSaveAsJSON.Click += new System.EventHandler(this.miSaveAsJSON_Click);
+            // 
+            // miSaveAsBinaryFile
+            // 
+            this.miSaveAsBinaryFile.Name = "miSaveAsBinaryFile";
+            this.miSaveAsBinaryFile.Size = new System.Drawing.Size(224, 26);
+            this.miSaveAsBinaryFile.Text = "Save as Binary file";
+            this.miSaveAsBinaryFile.Click += new System.EventHandler(this.miSaveAsBinaryFile_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
+            // 
+            // miOpenJSON
+            // 
+            this.miOpenJSON.Name = "miOpenJSON";
+            this.miOpenJSON.Size = new System.Drawing.Size(224, 26);
+            this.miOpenJSON.Text = "Open JSON";
+            this.miOpenJSON.Click += new System.EventHandler(this.miOpenJSON_Click);
+            // 
+            // miOpenBinaryFile
+            // 
+            this.miOpenBinaryFile.Name = "miOpenBinaryFile";
+            this.miOpenBinaryFile.Size = new System.Drawing.Size(224, 26);
+            this.miOpenBinaryFile.Text = "Open Binary file";
+            this.miOpenBinaryFile.Click += new System.EventHandler(this.miOpenBinaryFile_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(221, 6);
+            // 
+            // miExit
+            // 
+            this.miExit.Name = "miExit";
+            this.miExit.Size = new System.Drawing.Size(224, 26);
+            this.miExit.Text = "Exit";
+            this.miExit.Click += new System.EventHandler(this.miExit_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "json";
+            this.saveFileDialog.FileName = "save";
+            this.saveFileDialog.Filter = "JSON files (*.json)|*.json|Binary files (*.bin)|*.bin";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.DefaultExt = "json";
+            this.openFileDialog.FileName = "save";
+            this.openFileDialog.Filter = "JSON files (*.json)|*.json|Binary files (*.bin)|*.bin";
             // 
             // fTaskManager
             // 
@@ -122,7 +216,9 @@
             this.Controls.Add(this.pMainContent);
             this.Controls.Add(this.pTop);
             this.Controls.Add(this.pSideMenu);
+            this.Controls.Add(this.msMenu);
             this.DoubleBuffered = true;
+            this.MainMenuStrip = this.msMenu;
             this.Name = "fTaskManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task Manager";
@@ -130,7 +226,10 @@
             this.Resize += new System.EventHandler(this.fTaskManager_Resize);
             this.pSideMenu.ResumeLayout(false);
             this.pTop.ResumeLayout(false);
+            this.msMenu.ResumeLayout(false);
+            this.msMenu.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -142,6 +241,17 @@
         private System.Windows.Forms.Panel pMainContent;
         private System.Windows.Forms.Button btnAddTask;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.MenuStrip msMenu;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miSaveAsJSON;
+        private System.Windows.Forms.ToolStripMenuItem miSaveAsBinaryFile;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem miOpenJSON;
+        private System.Windows.Forms.ToolStripMenuItem miOpenBinaryFile;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem miExit;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 

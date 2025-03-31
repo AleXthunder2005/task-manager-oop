@@ -83,6 +83,36 @@ namespace task_manager
             };
         }
 
+        public override string ToJSON()
+        {
+            var jsonBuilder = new StringBuilder("{");
+
+            string baseJson = base.ToJSON();
+            baseJson = baseJson.Trim('{', '}');
+
+            jsonBuilder.Append(baseJson);
+
+            jsonBuilder.Append($",\"CurrCount\": \"{CurrCount}\"");
+            jsonBuilder.Append($",\"GoalCount\": \"{GoalCount}\"");
+            jsonBuilder.Append("}");
+            return jsonBuilder.ToString();
+        }
+
+        public void ReadPropertyFromJSON(ProgressTask task, Dictionary<string, string> jsonObject)
+        {
+            base.ReadPropertyFromJSON(task, jsonObject);
+
+            if (jsonObject.ContainsKey("CurrCount"))
+            {
+                task.CurrCount = int.Parse(jsonObject["CurrCount"]);
+            }
+
+            if (jsonObject.ContainsKey("GoalCount"))
+            {
+                task.GoalCount = int.Parse(jsonObject["GoalCount"]);
+            }
+        }
+
         //properties
         public int GoalCount
         {

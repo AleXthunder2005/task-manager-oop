@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +55,30 @@ namespace task_manager
                     FontSize = this.Options.FontSize,
                 }
             };
+        }
+
+        public override string ToJSON()
+        {
+            var jsonBuilder = new StringBuilder("{");
+
+            string baseJson = base.ToJSON();
+            baseJson = baseJson.Trim('{', '}');
+
+            jsonBuilder.Append(baseJson);
+
+            jsonBuilder.Append($",\"Interval\": \"{Interval}\"");
+            jsonBuilder.Append("}");
+            return jsonBuilder.ToString();
+        }
+
+        public void ReadPropertyFromJSON(ReccuringSimpleTask task, Dictionary<string, string> jsonObject)
+        {
+            base.ReadPropertyFromJSON(task, jsonObject);
+
+            if (jsonObject.ContainsKey("Interval"))
+            {
+                task.Interval = int.Parse(jsonObject["Interval"]);
+            }
         }
 
         //properties

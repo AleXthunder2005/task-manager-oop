@@ -76,6 +76,34 @@ namespace task_manager
             };
         }
 
+        public override string ToJSON()
+        {
+            var jsonBuilder = new StringBuilder("{");
+
+            string baseJson = base.ToJSON();
+            baseJson = baseJson.Trim('{', '}');
+
+            jsonBuilder.Append(baseJson);
+
+            jsonBuilder.Append($",\"SheduledTime\":\"{SheduledTime: yyyy-MM-dd}\"");
+            jsonBuilder.Append("}");
+            return jsonBuilder.ToString();
+        }
+
+        public void ReadPropertyFromJSON(Reminder task, Dictionary<string, string> jsonObject)
+        {
+            base.ReadPropertyFromJSON(task, jsonObject);
+            
+            if (jsonObject.ContainsKey("SheduledTime"))
+            {
+                task.SheduledTime = DateTime.ParseExact(
+                    jsonObject["SheduledTime"],
+                    "yyyy-MM-dd",
+                    CultureInfo.InvariantCulture
+                );
+            }
+        }
+
         //properties
         public DateTime SheduledTime
         {

@@ -82,6 +82,45 @@ namespace task_manager
             };
         }
 
+        public override string ToJSON()
+        {
+            var jsonBuilder = new StringBuilder("{");
+
+            string baseJson = base.ToJSON();
+            baseJson = baseJson.TrimStart('{');
+
+            jsonBuilder.Append(baseJson);
+            jsonBuilder.Length--; //Обрезали последний '}'
+
+            jsonBuilder.Append($",\"StartDate\":\"{StartDate: yyyy-MM-dd}\"");
+            jsonBuilder.Append($",\"DeadlineDate\":\"{DeadlineDate: yyyy-MM-dd}\"");
+            jsonBuilder.Append("}");
+            return jsonBuilder.ToString();
+        }
+
+        public void ReadPropertyFromJSON(SimpleTask task, Dictionary<string, string> jsonObject)
+        {
+            base.ReadPropertyFromJSON(task, jsonObject);
+
+            if (jsonObject.ContainsKey("StartDate"))
+            {
+                task.StartDate = DateTime.ParseExact(
+                    jsonObject["StartDate"],
+                    "yyyy-MM-dd",
+                    CultureInfo.InvariantCulture
+                );
+            }
+
+            if (jsonObject.ContainsKey("DeadlineDate"))
+            {
+                task.DeadlineDate = DateTime.ParseExact(
+                    jsonObject["DeadlineDate"],
+                    "yyyy-MM-dd",
+                    CultureInfo.InvariantCulture
+                );
+            }
+        }
+
         //properties
         public DateTime StartDate {
             get { return _startDate; }

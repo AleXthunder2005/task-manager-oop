@@ -63,5 +63,45 @@ namespace task_manager
 
             return this.TaskID == otherTask.TaskID;
         }
+
+        public virtual string ToJSON()
+        {
+            var jsonBuilder = new StringBuilder();
+            jsonBuilder.Append("{");
+
+            // Сериализация базовых свойств
+            jsonBuilder.Append($"\"Title\": \"{Title}\"");
+            jsonBuilder.Append($",\"Description\": \"{Description}\"");
+            jsonBuilder.Append($",\"TaskID\": {TaskID}");
+            jsonBuilder.Append($",\"IsCompleted\": {(IsCompleted ? "true" : "false")}");
+
+            // Сериализация Options
+            jsonBuilder.Append(",\"Options\": {");
+            jsonBuilder.Append($"\"X\": {Options.X}");
+            jsonBuilder.Append($",\"Y\": {Options.Y}");
+            jsonBuilder.Append("}");
+
+            jsonBuilder.Append("}");
+            return jsonBuilder.ToString();
+        }
+
+        public void ReadPropertyFromJSON(Task task, Dictionary<string, string> jsonObject) 
+        {
+            task.Title = jsonObject.ContainsKey("Title") ? jsonObject["Title"] : "task";
+            task.Description = jsonObject.ContainsKey("Description") ? jsonObject["Description"] : "description";
+            if (jsonObject.ContainsKey("TaskID")) task.TaskID = int.Parse(jsonObject["TaskID"]);
+            task.IsCompleted = jsonObject.ContainsKey("IsCompleted") ? bool.Parse(jsonObject["IsCompleted"]) : false;
+
+            // Десериализация Options
+            if (jsonObject.TryGetValue("Options", out string optionsJson))
+            {
+                var optionsProps = JsonParser.ParseJsonToDictionary(optionsJson);
+                task.Options = new DrawOptions
+                {
+                    X = int.Parse(optionsProps["X"]),
+                    Y = int.Parse(optionsProps["Y"]),
+                };
+            }
+        }
     }
 }
