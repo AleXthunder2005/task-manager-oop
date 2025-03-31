@@ -106,14 +106,28 @@ namespace task_manager
             return jsonBuilder.ToString();
         }
 
-        public void ReadPropertyFromJSON(PriorityTask task, Dictionary<string, string> jsonObject)
+        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            base.ReadPropertyFromJSON(task, jsonObject);
+            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
+            if (!isBaseSuccessful)
+                return false;
 
-            if (Enum.TryParse(jsonObject["Priority"], out t_priority priority))
+            PriorityTask priorityTask = task as PriorityTask;
+
+            try
             {
-                task.Priority = priority;
+                t_priority priority;
+                if (Enum.TryParse<t_priority>(fields["Priority"], out priority))
+                {
+                    priorityTask.Priority = priority;
+                }
             }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override byte[] ToBinary()
@@ -129,9 +143,9 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public override bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
+        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            bool isBaseSuccessful = base.isReadingFromBinaryObjectSuccessful(task, fields);
+            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
             if (!isBaseSuccessful)
                 return false;
 

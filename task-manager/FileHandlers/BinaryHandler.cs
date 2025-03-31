@@ -44,11 +44,12 @@ namespace task_manager
                     TaskBuilder builder = new TaskBuilder();
                     builder.Build();
                     dynamic newTask = Activator.CreateInstance(taskType, builder);
-                    bool isReadingSuccessful = newTask.isReadingFromBinaryObjectSuccessful(newTask, dictionary);
+                    bool isReadingSuccessful = newTask.IsReadingFromBinaryObjectSuccessful(newTask, dictionary);
 
                     if (!isReadingSuccessful)
                     {
                         MessageBox.Show("Reading unsuccessful!", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tasks.Clear();
                         break;
                     }
                     

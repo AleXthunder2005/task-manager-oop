@@ -89,18 +89,27 @@ namespace task_manager
             return jsonBuilder.ToString();
         }
 
-        public void ReadPropertyFromJSON(Reminder task, Dictionary<string, string> jsonObject)
+        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            base.ReadPropertyFromJSON(task, jsonObject);
-            
-            if (jsonObject.ContainsKey("SheduledTime"))
+            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
+            if (!isBaseSuccessful)
+                return false;
+
+            Reminder reminder = task as Reminder;
+
+            try
             {
-                task.SheduledTime = DateTime.ParseExact(
-                    jsonObject["SheduledTime"],
-                    "yyyy-MM-dd",
-                    CultureInfo.InvariantCulture
-                );
+                if (fields.ContainsKey("SheduledTime"))
+                {
+                    reminder.SheduledTime = DateTime.ParseExact(fields["SheduledTime"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                }
             }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override byte[] ToBinary()
@@ -116,9 +125,9 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public override bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
+        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            bool isBaseSuccessful = base.isReadingFromBinaryObjectSuccessful(task, fields);
+            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
             if (!isBaseSuccessful)
                 return false;
 

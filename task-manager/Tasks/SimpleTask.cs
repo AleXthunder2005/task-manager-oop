@@ -97,28 +97,34 @@ namespace task_manager
             return jsonBuilder.ToString();
         }
 
-        public void ReadPropertyFromJSON(SimpleTask task, Dictionary<string, string> jsonObject)
+        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            base.ReadPropertyFromJSON(task, jsonObject);
+            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
+            if (!isBaseSuccessful)
+                return false;
 
-            if (jsonObject.ContainsKey("StartDate"))
+            SimpleTask simpleTask = task as SimpleTask;
+
+            try
             {
-                task.StartDate = DateTime.ParseExact(
-                    jsonObject["StartDate"],
-                    "yyyy-MM-dd",
-                    CultureInfo.InvariantCulture
-                );
+                if (fields.ContainsKey("StartDate"))
+                {
+                    simpleTask.StartDate = DateTime.ParseExact(fields["StartDate"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                }
+
+                if (fields.ContainsKey("DeadlineDate"))
+                {
+                    simpleTask.DeadlineDate = DateTime.ParseExact(fields["DeadlineDate"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                }
+            }
+            catch
+            {
+                return false;
             }
 
-            if (jsonObject.ContainsKey("DeadlineDate"))
-            {
-                task.DeadlineDate = DateTime.ParseExact(
-                    jsonObject["DeadlineDate"],
-                    "yyyy-MM-dd",
-                    CultureInfo.InvariantCulture
-                );
-            }
+            return true;
         }
+
 
         public override byte[] ToBinary()
         {
@@ -134,9 +140,9 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public override bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
+        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            bool isBaseSuccessful = base.isReadingFromBinaryObjectSuccessful(task, fields);
+            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
             if (!isBaseSuccessful)
                 return false;
 

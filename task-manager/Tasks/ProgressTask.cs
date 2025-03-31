@@ -101,19 +101,32 @@ namespace task_manager
             return jsonBuilder.ToString();
         }
 
-        public void ReadPropertyFromJSON(ProgressTask task, Dictionary<string, string> jsonObject)
+        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            base.ReadPropertyFromJSON(task, jsonObject);
+            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
+            if (!isBaseSuccessful)
+                return false;
 
-            if (jsonObject.ContainsKey("CurrCount"))
+            ProgressTask progressTask = task as ProgressTask;
+
+            try
             {
-                task.CurrCount = int.Parse(jsonObject["CurrCount"]);
+                if (fields.ContainsKey("CurrCount"))
+                {
+                    progressTask.CurrCount = int.Parse(fields["CurrCount"]);
+                }
+
+                if (fields.ContainsKey("GoalCount"))
+                {
+                    progressTask.GoalCount = int.Parse(fields["GoalCount"]);
+                }
+            }
+            catch
+            {
+                return false;
             }
 
-            if (jsonObject.ContainsKey("GoalCount"))
-            {
-                task.GoalCount = int.Parse(jsonObject["GoalCount"]);
-            }
+            return true;
         }
 
         public override byte[] ToBinary()
@@ -131,9 +144,9 @@ namespace task_manager
         }
 
 
-        public override bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
+        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            bool isBaseSuccessful = base.isReadingFromBinaryObjectSuccessful(task, fields);
+            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
             if (!isBaseSuccessful)
                 return false;
 

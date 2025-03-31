@@ -75,14 +75,27 @@ namespace task_manager
             return jsonBuilder.ToString();
         }
 
-        public void ReadPropertyFromJSON(ReccuringSimpleTask task, Dictionary<string, string> jsonObject)
+        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            base.ReadPropertyFromJSON(task, jsonObject);
+            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
+            if (!isBaseSuccessful)
+                return false;
 
-            if (jsonObject.ContainsKey("Interval"))
+            ReccuringSimpleTask reccuringSimpleTask = task as ReccuringSimpleTask;
+
+            try
             {
-                task.Interval = int.Parse(jsonObject["Interval"]);
+                if (fields.ContainsKey("Interval"))
+                {
+                    reccuringSimpleTask.Interval = int.Parse(fields["Interval"]);
+                }
             }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override byte[] ToBinary()
@@ -98,9 +111,9 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public override bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
+        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            bool isBaseSuccessful = base.isReadingFromBinaryObjectSuccessful(task, fields);
+            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
             if (!isBaseSuccessful)
                 return false;
 

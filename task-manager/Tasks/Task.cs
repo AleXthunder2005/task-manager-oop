@@ -78,12 +78,20 @@ namespace task_manager
             return jsonBuilder.ToString();
         }
 
-        public void ReadPropertyFromJSON(Task task, Dictionary<string, string> jsonObject) 
+        public virtual bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
-            task.Title = jsonObject.ContainsKey("Title") ? jsonObject["Title"] : "task";
-            task.Description = jsonObject.ContainsKey("Description") ? jsonObject["Description"] : "description";
-            if (jsonObject.ContainsKey("TaskID")) task.TaskID = int.Parse(jsonObject["TaskID"]);
-            task.IsCompleted = jsonObject.ContainsKey("IsCompleted") ? bool.Parse(jsonObject["IsCompleted"]) : false;
+            task.Title = fields.ContainsKey("Title") ? fields["Title"] : "task";
+            task.Description = fields.ContainsKey("Description") ? fields["Description"] : "description";
+            try
+            {
+                if (fields.ContainsKey("TaskID")) task.TaskID = int.Parse(fields["TaskID"]);
+                task.IsCompleted = fields.ContainsKey("IsCompleted") ? bool.Parse(fields["IsCompleted"]) : false;
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
 
         public virtual byte[] ToBinary()
@@ -101,7 +109,7 @@ namespace task_manager
             return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
         }
 
-        public virtual bool isReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
+        public virtual bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
             task.Title = fields.ContainsKey("Title") ? fields["Title"] : "task";
             task.Description = fields.ContainsKey("Description") ? fields["Description"] : "description";
