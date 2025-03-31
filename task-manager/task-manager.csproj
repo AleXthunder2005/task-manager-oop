@@ -46,12 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinaryHandler.cs" />
-    <Compile Include="BinaryParser.cs" />
-    <Compile Include="CommandManager.cs" />
-    <Compile Include="Commands.cs" />
-    <Compile Include="JsonParser.cs" />
-    <Compile Include="JsonHandler.cs" />
+    <Compile Include="FileHandlers\BinaryHandler.cs" />
+    <Compile Include="FileHandlers\BinaryParser.cs" />
+    <Compile Include="Commander\CommandManager.cs" />
+    <Compile Include="Commander\Commands.cs" />
+    <Compile Include="FileHandlers\JsonParser.cs" />
+    <Compile Include="FileHandlers\JsonHandler.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="DrawOptions.cs" />
     <Compile Include="TaskCreatorBuilder.cs" />
