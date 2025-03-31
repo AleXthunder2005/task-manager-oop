@@ -67,10 +67,9 @@ namespace task_manager
         public virtual string ToJSON()
         {
             var jsonBuilder = new StringBuilder();
-            jsonBuilder.AppendLine("{");
+            jsonBuilder.Append("{");
 
-            // Сериализация базовых свойств
-            jsonBuilder.Append($"\t\"Title\": \"{Title}\"");
+            jsonBuilder.Append($"\n\t\"Title\": \"{Title}\"");
             jsonBuilder.Append($",\n\t\"Description\": \"{Description}\"");
             jsonBuilder.Append($",\n\t\"TaskID\": {TaskID}");
             jsonBuilder.Append($",\n\t\"IsCompleted\": {(IsCompleted ? "true" : "false")}");
@@ -85,6 +84,29 @@ namespace task_manager
             task.Description = jsonObject.ContainsKey("Description") ? jsonObject["Description"] : "description";
             if (jsonObject.ContainsKey("TaskID")) task.TaskID = int.Parse(jsonObject["TaskID"]);
             task.IsCompleted = jsonObject.ContainsKey("IsCompleted") ? bool.Parse(jsonObject["IsCompleted"]) : false;
+        }
+
+        public virtual byte[] ToBinary()
+        {
+            var binaryBuilder = new StringBuilder();
+
+            binaryBuilder.Append($"Title:{Title}");
+            binaryBuilder.Append($",Description:{Description}");
+            binaryBuilder.Append($",TaskID:{TaskID}");
+            binaryBuilder.Append($",IsCompleted:{(IsCompleted ? "true" : "false")}");
+
+            binaryBuilder.Append(";");
+
+
+            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
+        }
+
+        public void ReadPropertyFromBinary(Task task, Dictionary<string, string> fields)
+        {
+            task.Title = fields.ContainsKey("Title") ? fields["Title"] : "task";
+            task.Description = fields.ContainsKey("Description") ? fields["Description"] : "description";
+            if (fields.ContainsKey("TaskID")) task.TaskID = int.Parse(fields["TaskID"]);
+            task.IsCompleted = fields.ContainsKey("IsCompleted") ? bool.Parse(fields["IsCompleted"]) : false;
         }
     }
 }

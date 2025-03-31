@@ -268,6 +268,23 @@ namespace task_manager
         {
             saveFileDialog.FilterIndex = 2;
             saveFileDialog.DefaultExt = "bin";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                byte[] data = BinaryHandler.BuildBinary(mTaskManager.Tasks);
+                if (data != null)
+                {
+                    try
+                    {
+                        File.WriteAllBytes(saveFileDialog.FileName, data);
+                        MessageBox.Show("Successful saving!", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void miOpenJSON_Click(object sender, EventArgs e)
@@ -301,6 +318,27 @@ namespace task_manager
         {
             openFileDialog.FilterIndex = 2;
             openFileDialog.DefaultExt = "bin";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                byte[] data = null;
+                try
+                {
+                    data = File.ReadAllBytes(openFileDialog.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (data != null)
+                {
+                    TaskList<Task> tasks = BinaryHandler.ReadBinary(data);
+                    mTaskManager.Tasks = tasks;
+
+                    pMainContent.Invalidate();
+                }
+            }
         }
     }
 }

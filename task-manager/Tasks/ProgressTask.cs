@@ -116,6 +116,36 @@ namespace task_manager
             }
         }
 
+        public override byte[] ToBinary()
+        {
+            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
+            binaryBuilder.Length--;
+
+            binaryBuilder.Append($",CurrCount:{CurrCount}");
+            binaryBuilder.Append($",GoalCount:{GoalCount}");
+
+            binaryBuilder.Append(";");
+
+
+            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
+        }
+
+        public void ReadPropertyFromBinary(ProgressTask task, Dictionary<string, string> fields)
+        {
+            base.ReadPropertyFromBinary(task, fields);
+
+            if (fields.ContainsKey("CurrCount"))
+            {
+                task.CurrCount = int.Parse(fields["CurrCount"]);
+            }
+
+            if (fields.ContainsKey("GoalCount"))
+            {
+                task.GoalCount = int.Parse(fields["GoalCount"]);
+            }
+        }
+
+
         //properties
         public int GoalCount
         {

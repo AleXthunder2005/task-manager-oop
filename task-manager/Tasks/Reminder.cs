@@ -103,6 +103,29 @@ namespace task_manager
             }
         }
 
+        public override byte[] ToBinary()
+        {
+            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
+            binaryBuilder.Length--;
+
+            binaryBuilder.Append($",SheduledTime:{SheduledTime: yyyy-MM-dd}");
+
+            binaryBuilder.Append(";");
+
+
+            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
+        }
+
+        public void ReadPropertyFromBinary(Reminder task, Dictionary<string, string> fields)
+        {
+            base.ReadPropertyFromBinary(task, fields);
+
+            if (fields.ContainsKey("SheduledTime"))
+            {
+                task.SheduledTime = DateTime.ParseExact(fields["SheduledTime"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            }
+        }
+
         //properties
         public DateTime SheduledTime
         {

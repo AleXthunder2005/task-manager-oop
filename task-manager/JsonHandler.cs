@@ -25,6 +25,38 @@ namespace task_manager
             return jsonBuilder.ToString();
         }
 
+        public static TaskList<Task> ReadJson(string json) 
+        { 
+            TaskList<Task> tasks = new TaskList<Task>();
+
+
+            string[] objects = SplitJsonArray(json);
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                Dictionary<String, String> dictionary = new Dictionary<String, String>();
+                dictionary = JsonParser.ParseJsonObject(objects[i]);
+
+                if (dictionary.ContainsKey("Type")) 
+                {
+                    string type = dictionary["Type"];
+                    Type taskType = Type.GetType($"task_manager.{type}");
+                    if (taskType == null) continue;
+                    
+                    TaskBuilder builder = new TaskBuilder();
+                    builder.Build();
+                    dynamic newTask = Activator.CreateInstance(taskType, builder);
+                    newTask.ReadPropertyFromJSON(newTask, dictionary);
+                    newTask.SetOptions();
+
+                    tasks.Add(newTask);
+                }
+            }
+
+            return tasks;
+        }        
+        
+        
         private static string[] SplitJsonArray(string array)
         {
             array = array.Trim('[', ']');
@@ -52,37 +84,6 @@ namespace task_manager
             }
 
             return objects.ToArray();
-        }
-
-        public static TaskList<Task> ReadJson(string json) 
-        { 
-            TaskList<Task> tasks = new TaskList<Task>();
-
-
-            string[] objects = SplitJsonArray(json);
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                Dictionary<String, String> dictionary = new Dictionary<String, String>();
-                dictionary = JsonParser.ParseJsonToDictionary(objects[i]);
-
-                if (dictionary.ContainsKey("Type")) 
-                {
-                    string type = dictionary["Type"];
-                    Type taskType = Type.GetType($"task_manager.{type}");
-                    if (taskType == null) continue;
-                    
-                    TaskBuilder builder = new TaskBuilder();
-                    builder.Build();
-                    dynamic newTask = Activator.CreateInstance(taskType, builder);
-                    newTask.ReadPropertyFromJSON(newTask, dictionary);
-                    newTask.SetOptions();
-
-                    tasks.Add(newTask);
-                }
-            }
-
-            return tasks;
         }
     }
 }

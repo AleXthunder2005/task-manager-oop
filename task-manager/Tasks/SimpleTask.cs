@@ -91,8 +91,8 @@ namespace task_manager
             jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
             jsonBuilder.Length -= 2; //Обрезали последний '\n}'
 
-            jsonBuilder.Append($",\n\t\"StartDate\":\"{StartDate: yyyy-MM-dd}\"");
-            jsonBuilder.Append($",\n\t\"DeadlineDate\":\"{DeadlineDate: yyyy-MM-dd}\"");
+            jsonBuilder.Append($",\n\t\"StartDate\": \"{StartDate: yyyy-MM-dd}\"");
+            jsonBuilder.Append($",\n\t\"DeadlineDate\": \"{DeadlineDate: yyyy-MM-dd}\"");
             jsonBuilder.Append("\n}");
             return jsonBuilder.ToString();
         }
@@ -119,6 +119,36 @@ namespace task_manager
                 );
             }
         }
+
+        public override byte[] ToBinary()
+        {
+            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
+            binaryBuilder.Length--;
+
+            binaryBuilder.Append($",StartDate:{StartDate: yyyy-MM-dd}");
+            binaryBuilder.Append($",DeadlineDate:{DeadlineDate: yyyy-MM-dd}");
+
+            binaryBuilder.Append(";");
+
+
+            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
+        }
+
+        public void ReadPropertyFromBinary(SimpleTask task, Dictionary<string, string> fields)
+        {
+            base.ReadPropertyFromBinary(task, fields);
+
+            if (fields.ContainsKey("StartDate"))
+            {
+                task.StartDate = DateTime.ParseExact(fields["StartDate"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            }
+
+            if (fields.ContainsKey("DeadlineDate"))
+            {
+                task.DeadlineDate = DateTime.ParseExact(fields["DeadlineDate"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            }
+        }
+
 
         //properties
         public DateTime StartDate {

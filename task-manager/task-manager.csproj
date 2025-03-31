@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryHandler.cs" />
+    <Compile Include="BinaryParser.cs" />
     <Compile Include="CommandManager.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="JsonParser.cs" />

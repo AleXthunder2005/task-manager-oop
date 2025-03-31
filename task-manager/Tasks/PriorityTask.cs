@@ -116,6 +116,30 @@ namespace task_manager
             }
         }
 
+        public override byte[] ToBinary()
+        {
+            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
+            binaryBuilder.Length--;
+
+            binaryBuilder.Append($",Priority:{Priority}");
+
+            binaryBuilder.Append(";");
+
+
+            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
+        }
+
+        public void ReadPropertyFromBinary(PriorityTask task, Dictionary<string, string> fields)
+        {
+            base.ReadPropertyFromBinary(task, fields);
+
+            t_priority priority;
+            if (Enum.TryParse<t_priority>(fields["Priority"], out priority))
+            {
+                task.Priority = priority;
+            }
+        }
+
         //properties
         public t_priority Priority
         {

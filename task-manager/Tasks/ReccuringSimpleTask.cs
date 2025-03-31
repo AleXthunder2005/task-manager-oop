@@ -85,6 +85,29 @@ namespace task_manager
             }
         }
 
+        public override byte[] ToBinary()
+        {
+            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
+            binaryBuilder.Length--;
+
+            binaryBuilder.Append($",Interval:{Interval}");
+
+            binaryBuilder.Append(";");
+
+
+            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
+        }
+
+        public void ReadPropertyFromBinary(ReccuringSimpleTask task, Dictionary<string, string> fields)
+        {
+            base.ReadPropertyFromBinary(task, fields);
+
+            if (fields.ContainsKey("Interval"))
+            {
+                task.Interval = int.Parse(fields["Interval"]);
+            }
+        }
+
         //properties
         public double Interval
         {

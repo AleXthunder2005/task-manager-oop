@@ -8,7 +8,7 @@ namespace task_manager
 {
     public static class JsonParser
     {
-        public static Dictionary<string, string> ParseJsonToDictionary(string json)
+        public static Dictionary<string, string> ParseJsonObject(string json)
         {
             var result = new Dictionary<string, string>();
             json = json.Trim().TrimStart('{').TrimEnd('}');
