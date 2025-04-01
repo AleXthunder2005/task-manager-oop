@@ -88,12 +88,11 @@ namespace task_manager
 
             string baseJson = base.ToJSON();
 
-            jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
-            jsonBuilder.Length -= 2; //Обрезали последний '\n}'
+            jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
 
-            jsonBuilder.Append($",\n\t\"StartDate\": \"{StartDate: yyyy-MM-dd}\"");
-            jsonBuilder.Append($",\n\t\"DeadlineDate\": \"{DeadlineDate: yyyy-MM-dd}\"");
-            jsonBuilder.Append("\n}");
+            jsonBuilder.Append($",\"StartDate\":\"{StartDate: yyyy-MM-dd}\"");
+            jsonBuilder.Append($",\"DeadlineDate\":\"{DeadlineDate: yyyy-MM-dd}\"");
+            jsonBuilder.Append("}");
             return jsonBuilder.ToString();
         }
 

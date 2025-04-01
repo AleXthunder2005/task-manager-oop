@@ -45,6 +45,11 @@
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miChecksumSavingEnable = new System.Windows.Forms.ToolStripMenuItem();
+            this.miChecksumSavingDisable = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.miLoadTask = new System.Windows.Forms.ToolStripMenuItem();
             this.pSideMenu.SuspendLayout();
             this.pTop.SuspendLayout();
             this.msMenu.SuspendLayout();
@@ -130,7 +135,8 @@
             // 
             this.msMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(1243, 28);
@@ -208,6 +214,43 @@
             this.openFileDialog.FileName = "save";
             this.openFileDialog.Filter = "JSON files (*.json)|*.json|Binary files (*.bin)|*.bin";
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miChecksumSavingEnable,
+            this.miChecksumSavingDisable,
+            this.toolStripMenuItem3,
+            this.miLoadTask});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // miChecksumSavingEnable
+            // 
+            this.miChecksumSavingEnable.Name = "miChecksumSavingEnable";
+            this.miChecksumSavingEnable.Size = new System.Drawing.Size(256, 26);
+            this.miChecksumSavingEnable.Text = "Checksum saving enable";
+            this.miChecksumSavingEnable.Click += new System.EventHandler(this.miChecksumSavingEnable_Click);
+            // 
+            // miChecksumSavingDisable
+            // 
+            this.miChecksumSavingDisable.Enabled = false;
+            this.miChecksumSavingDisable.Name = "miChecksumSavingDisable";
+            this.miChecksumSavingDisable.Size = new System.Drawing.Size(256, 26);
+            this.miChecksumSavingDisable.Text = "Checksum saving disable";
+            this.miChecksumSavingDisable.Click += new System.EventHandler(this.miChecksumSavingDisable_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(253, 6);
+            // 
+            // miLoadTask
+            // 
+            this.miLoadTask.Name = "miLoadTask";
+            this.miLoadTask.Size = new System.Drawing.Size(256, 26);
+            this.miLoadTask.Text = "Load task (*.dll)";
+            // 
             // fTaskManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -252,6 +295,11 @@
         private System.Windows.Forms.ToolStripMenuItem miExit;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miChecksumSavingEnable;
+        private System.Windows.Forms.ToolStripMenuItem miChecksumSavingDisable;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem miLoadTask;
     }
 }
 

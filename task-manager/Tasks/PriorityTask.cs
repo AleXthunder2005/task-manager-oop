@@ -98,11 +98,10 @@ namespace task_manager
             var jsonBuilder = new StringBuilder("{");
 
             string baseJson = base.ToJSON();
-            jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
-            jsonBuilder.Length -= 2; //Обрезали последний '\n}'
+            jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
 
-            jsonBuilder.Append($",\n\t\"Priority\": \"{Priority}\"");
-            jsonBuilder.Append("\n}");
+            jsonBuilder.Append($",\"Priority\":\"{Priority}\"");
+            jsonBuilder.Append("}");
             return jsonBuilder.ToString();
         }
 

@@ -8,6 +8,8 @@ namespace task_manager
 {
     public static class Settings
     {
+        public static bool haveToSaveChecksum = false;
+
         public static int TaskWidthSetting = 500;
         public static int TaskHeightSetting = 110;
         public const int TASK_MARGIN = 10;

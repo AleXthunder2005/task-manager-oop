@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using task_manager.FileHandlers;
 
 namespace task_manager
 {
     public static class JsonHandler
     {
-        public static string BuildJson(TaskList<Task> tasks) 
+        public static string BuildJson(TaskList<Task> tasks, bool haveToSaveChecksum = false) 
         {
 
             StringBuilder jsonBuilder = new StringBuilder("[");
@@ -17,21 +19,61 @@ namespace task_manager
             {
                 foreach (Task task in tasks)
                 {
-                    jsonBuilder.Append("\n{");
-                    jsonBuilder.Append($"\n\t\"Type\": \"{task.GetType().Name}\",");
+                    jsonBuilder.Append("{");
+                    jsonBuilder.Append($"\"Type\":\"{task.GetType().Name}\",");
 
-                    jsonBuilder.Append(task.ToJSON().TrimStart('{'));
+                    string jsonTask = task.ToJSON();
+                    jsonBuilder.Append(jsonTask.Substring(1, jsonTask.Length - 1));
                     jsonBuilder.Append(",");
                 }
                 jsonBuilder.Length--;
             }
-            jsonBuilder.Append("\n]");
-            return jsonBuilder.ToString();
+            jsonBuilder.Append("]");
+
+            string json = jsonBuilder.ToString();
+            if (haveToSaveChecksum) 
+            {
+                json = JsonPlugin.SaveChecksum(json);
+            }
+
+            //красивый вывод
+            JsonDocument doc = JsonDocument.Parse(json);
+            json = JsonSerializer.Serialize(doc, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+
+            return json;
         }
 
-        public static TaskList<Task> ReadJson(string json) 
+        public static TaskList<Task> ReadJson(string json, bool haveToVerifyChecksum = false) 
         { 
             TaskList<Task> tasks = new TaskList<Task>();
+
+            try
+            {
+                JsonDocument doc = JsonDocument.Parse(json.Trim());
+                json = JsonSerializer.Serialize(doc, new JsonSerializerOptions
+                {
+                    WriteIndented = false
+                });
+            }
+            catch 
+            {
+                MessageBox.Show("Reading unsuccessful! (Json is incorrect!)", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return tasks;
+            }
+
+
+            if (haveToVerifyChecksum) 
+            {
+                if (!JsonPlugin.IsChecksumCorrect(json))
+                {
+                    MessageBox.Show("Reading unsuccessful! (Checksum is incorrect!)", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return tasks;
+                }
+            }
+            json = JsonPlugin.DiscardChecksum(json);
 
 
             string[] objects = SplitJsonArray(json);

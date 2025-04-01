@@ -81,11 +81,10 @@ namespace task_manager
             var jsonBuilder = new StringBuilder("{");
 
             string baseJson = base.ToJSON();
-            jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
-            jsonBuilder.Length -= 2; //Обрезали последний '\n}'
+            jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
 
-            jsonBuilder.Append($",\n\t\"SheduledTime\":\"{SheduledTime: yyyy-MM-dd}\"");
-            jsonBuilder.Append("\n}");
+            jsonBuilder.Append($",\"SheduledTime\":\"{SheduledTime: yyyy-MM-dd}\"");
+            jsonBuilder.Append("}");
             return jsonBuilder.ToString();
         }
 

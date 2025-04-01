@@ -69,12 +69,12 @@ namespace task_manager
             var jsonBuilder = new StringBuilder();
             jsonBuilder.Append("{");
 
-            jsonBuilder.Append($"\n\t\"Title\": \"{Title}\"");
-            jsonBuilder.Append($",\n\t\"Description\": \"{Description}\"");
-            jsonBuilder.Append($",\n\t\"TaskID\": {TaskID}");
-            jsonBuilder.Append($",\n\t\"IsCompleted\": {(IsCompleted ? "true" : "false")}");
+            jsonBuilder.Append($"\"Title\":\"{Title}\"");
+            jsonBuilder.Append($",\"Description\":\"{Description}\"");
+            jsonBuilder.Append($",\"TaskID\":\"{TaskID}\"");
+            jsonBuilder.Append($",\"IsCompleted\":{(IsCompleted ? "true" : "false")}");
 
-            jsonBuilder.Append("\n}");
+            jsonBuilder.Append("}");
             return jsonBuilder.ToString();
         }
 

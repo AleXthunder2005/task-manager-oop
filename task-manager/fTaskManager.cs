@@ -248,7 +248,7 @@ namespace task_manager
             saveFileDialog.DefaultExt = "json";
             if (saveFileDialog.ShowDialog() == DialogResult.OK) 
             {
-                string json = JsonHandler.BuildJson(mTaskManager.Tasks);
+                string json = JsonHandler.BuildJson(mTaskManager.Tasks, Settings.haveToSaveChecksum);
                 if (json != null)
                 {
                     try
@@ -306,7 +306,7 @@ namespace task_manager
 
                 if (json != null)
                 {
-                    TaskList<Task> tasks = JsonHandler.ReadJson(json);
+                    TaskList<Task> tasks = JsonHandler.ReadJson(json, Settings.haveToSaveChecksum);
                     mTaskManager.Tasks = tasks;
 
                     pMainContent.Invalidate();
@@ -339,6 +339,22 @@ namespace task_manager
                     pMainContent.Invalidate();
                 }
             }
+        }
+
+        private void miChecksumSavingEnable_Click(object sender, EventArgs e)
+        {
+            Settings.haveToSaveChecksum = true;
+
+            miChecksumSavingEnable.Enabled = false;
+            miChecksumSavingDisable.Enabled = true;
+        }
+
+        private void miChecksumSavingDisable_Click(object sender, EventArgs e)
+        {
+            Settings.haveToSaveChecksum = false;
+
+            miChecksumSavingEnable.Enabled = true;
+            miChecksumSavingDisable.Enabled = false;
         }
     }
 }

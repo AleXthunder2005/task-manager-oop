@@ -10,33 +10,25 @@ namespace task_manager
     {
         public static Dictionary<string, string> ParseJsonObject(string json)
         {
-            var result = new Dictionary<string, string>();
-            json = json.Trim().TrimStart('{').TrimEnd('}');
+            var resultDictionary = new Dictionary<string, string>();
+            json = json.Trim().Substring(1, json.Length - 2); //убрали крайние { и }
 
             int braceLevel = 0;
             int startIndex = 0;
-            bool inQuotes = false;
 
             // Сначала разбиваем на пары ключ-значение с учетом вложенных объектов
             var pairs = new List<string>();
-
             for (int i = 0; i < json.Length; i++)
             {
                 char c = json[i];
 
-                if (c == '"' && (i == 0 || json[i - 1] != '\\'))
-                    inQuotes = !inQuotes;
+                if (c == '{' || c == '[') braceLevel++;
+                if (c == '}' || c == ']') braceLevel--;
 
-                if (!inQuotes)
+                if (c == ',' && braceLevel == 0)
                 {
-                    if (c == '{') braceLevel++;
-                    if (c == '}') braceLevel--;
-
-                    if (c == ',' && braceLevel == 0)
-                    {
-                        pairs.Add(json.Substring(startIndex, i - startIndex));
-                        startIndex = i + 1;
-                    }
+                    pairs.Add(json.Substring(startIndex, i - startIndex));
+                    startIndex = i + 1;
                 }
             }
 
@@ -53,23 +45,15 @@ namespace task_manager
                 string key = pair.Substring(0, colonPos).Trim().Trim('"');
                 string value = pair.Substring(colonPos + 1).Trim();
 
-                // Если значение - вложенный объект, сохраняем его как есть
-                if (value.StartsWith("{") && value.EndsWith("}"))
-                {
-                    result[key] = value;
-                }
-                else
-                {
-                    // Удаляем кавычки у строковых значений
-                    if (value.StartsWith("\"") && value.EndsWith("\""))
-                        value = value.Substring(1, value.Length - 2);
-                        value = value.Trim();
+                // Удаляем кавычки у строковых значений
+                if (value.StartsWith("\"") && value.EndsWith("\""))
+                    value = value.Substring(1, value.Length - 2);
+                    value = value.Trim();
 
-                    result[key] = value;
-                }
+                resultDictionary[key] = value;
             }
 
-            return result;
+            return resultDictionary;
         }
     }
 }

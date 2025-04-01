@@ -92,12 +92,11 @@ namespace task_manager
             var jsonBuilder = new StringBuilder("{");
 
             string baseJson = base.ToJSON();
-            jsonBuilder.Append(baseJson, 1, baseJson.Length - 1); //обрезали первый {
-            jsonBuilder.Length -= 2; //Обрезали последний '\n}'
+            jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
 
-            jsonBuilder.Append($",\n\t\"CurrCount\": \"{CurrCount}\"");
-            jsonBuilder.Append($",\n\t\"GoalCount\": \"{GoalCount}\"");
-            jsonBuilder.Append("\n}");
+            jsonBuilder.Append($",\"CurrCount\":\"{CurrCount}\"");
+            jsonBuilder.Append($",\"GoalCount\":\"{GoalCount}\"");
+            jsonBuilder.Append("}");
             return jsonBuilder.ToString();
         }
 
