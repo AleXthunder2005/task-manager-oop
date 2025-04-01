@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace task_manager
 {
+    [Serializable]
     public abstract class Task
     {
         private string _title;

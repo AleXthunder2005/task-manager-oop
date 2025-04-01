@@ -6,6 +6,7 @@ using System.Text;
 using static task_manager.Settings;
 namespace task_manager
 {
+    [Serializable]
     public class DrawOptions
     {
         public static Color clSELECTED = Color.CadetBlue;

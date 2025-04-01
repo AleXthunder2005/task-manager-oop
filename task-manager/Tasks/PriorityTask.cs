@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace task_manager
 {
+    [Serializable]
     public class PriorityTask : SimpleTask
     {
         //datatypes
@@ -108,43 +109,6 @@ namespace task_manager
         public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
         {
             bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
-
-            PriorityTask priorityTask = task as PriorityTask;
-
-            try
-            {
-                t_priority priority;
-                if (Enum.TryParse<t_priority>(fields["Priority"], out priority))
-                {
-                    priorityTask.Priority = priority;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        public override byte[] ToBinary()
-        {
-            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
-            binaryBuilder.Length--;
-
-            binaryBuilder.Append($",Priority:{Priority}");
-
-            binaryBuilder.Append(";");
-
-
-            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
-        }
-
-        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
             if (!isBaseSuccessful)
                 return false;
 

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace task_manager
 {
+    [Serializable]
     class ProgressTask : SimpleTask
     {
         private int _goalCount;

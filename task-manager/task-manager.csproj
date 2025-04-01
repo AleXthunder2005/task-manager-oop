@@ -77,7 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileHandlers\BinaryHandler.cs" />
+    <Compile Include="FileHandlers\BinarySerializer.cs" />
     <Compile Include="FileHandlers\BinaryParser.cs" />
     <Compile Include="Commander\CommandManager.cs" />
     <Compile Include="Commander\Commands.cs" />

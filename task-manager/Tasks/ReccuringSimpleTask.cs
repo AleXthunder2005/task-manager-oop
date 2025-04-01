@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace task_manager
 {
+    [Serializable]
     class ReccuringSimpleTask : SimpleTask
     {
         private double _interval; // в часах

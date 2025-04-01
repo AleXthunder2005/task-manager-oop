@@ -271,19 +271,7 @@ namespace task_manager
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                byte[] data = BinaryHandler.BuildBinary(mTaskManager.Tasks);
-                if (data != null)
-                {
-                    try
-                    {
-                        File.WriteAllBytes(saveFileDialog.FileName, data);
-                        MessageBox.Show("Successful saving!", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                BinarySerializer.SerializeTasks(Tasks, saveFileDialog.FileName);
             }
         }
 
@@ -321,23 +309,10 @@ namespace task_manager
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                byte[] data = null;
-                try
-                {
-                    data = File.ReadAllBytes(openFileDialog.FileName);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                if (data != null)
-                {
-                    TaskList<Task> tasks = BinaryHandler.ReadBinary(data);
+                    TaskList<Task> tasks = BinarySerializer.DeserializeTasks(openFileDialog.FileName);
                     mTaskManager.Tasks = tasks;
 
                     pMainContent.Invalidate();
-                }
             }
         }
 

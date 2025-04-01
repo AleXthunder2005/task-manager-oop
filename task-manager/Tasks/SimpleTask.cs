@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace task_manager
 {
+    [Serializable]
     public class SimpleTask : Task
     {
         private DateTime _startDate;

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace task_manager
 {
+    [Serializable]
     class Reminder : Task
     {
         private DateTime _sheduledTime;

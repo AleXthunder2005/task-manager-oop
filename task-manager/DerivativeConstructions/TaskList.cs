@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace task_manager
 {
+    [Serializable]
     public class TaskList<T> : List<T> where T: Task
     {
         
