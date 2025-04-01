@@ -98,42 +98,6 @@ namespace task_manager
             return true;
         }
 
-        public override byte[] ToBinary()
-        {
-            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
-            binaryBuilder.Length--;
-
-            binaryBuilder.Append($",Interval:{Interval}");
-
-            binaryBuilder.Append(";");
-
-
-            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
-        }
-
-        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
-
-            ReccuringSimpleTask reccuringSimpleTask = task as ReccuringSimpleTask;
-
-            try
-            {
-                if (fields.ContainsKey("Interval"))
-                {
-                    reccuringSimpleTask.Interval = int.Parse(fields["Interval"]);
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
-        }
-
         //properties
         public double Interval
         {

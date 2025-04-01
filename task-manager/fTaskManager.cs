@@ -271,7 +271,7 @@ namespace task_manager
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                BinarySerializer.SerializeTasks(Tasks, saveFileDialog.FileName);
+                BinarySerializer.SerializeTasks(Tasks, saveFileDialog.FileName, Settings.haveToSaveChecksum);
             }
         }
 
@@ -309,7 +309,7 @@ namespace task_manager
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                    TaskList<Task> tasks = BinarySerializer.DeserializeTasks(openFileDialog.FileName);
+                    TaskList<Task> tasks = BinarySerializer.DeserializeTasks(openFileDialog.FileName, Settings.haveToSaveChecksum);
                     mTaskManager.Tasks = tasks;
 
                     pMainContent.Invalidate();

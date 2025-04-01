@@ -112,42 +112,6 @@ namespace task_manager
             return true;
         }
 
-        public override byte[] ToBinary()
-        {
-            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
-            binaryBuilder.Length--;
-
-            binaryBuilder.Append($",SheduledTime:{SheduledTime: yyyy-MM-dd}");
-
-            binaryBuilder.Append(";");
-
-
-            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
-        }
-
-        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
-
-            Reminder reminder = task as Reminder;
-
-            try
-            {
-                if (fields.ContainsKey("SheduledTime"))
-                {
-                    reminder.SheduledTime = DateTime.ParseExact(fields["SheduledTime"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
-        }
-
         //properties
         public DateTime SheduledTime
         {

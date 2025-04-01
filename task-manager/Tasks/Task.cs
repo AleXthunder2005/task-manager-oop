@@ -95,35 +95,5 @@ namespace task_manager
             return true;
         }
 
-        public virtual byte[] ToBinary()
-        {
-            var binaryBuilder = new StringBuilder();
-
-            binaryBuilder.Append($"Title:{Title}");
-            binaryBuilder.Append($",Description:{Description}");
-            binaryBuilder.Append($",TaskID:{TaskID}");
-            binaryBuilder.Append($",IsCompleted:{(IsCompleted ? "true" : "false")}");
-
-            binaryBuilder.Append(";");
-
-
-            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
-        }
-
-        public virtual bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            task.Title = fields.ContainsKey("Title") ? fields["Title"] : "task";
-            task.Description = fields.ContainsKey("Description") ? fields["Description"] : "description";
-            try
-            {
-                if (fields.ContainsKey("TaskID")) task.TaskID = int.Parse(fields["TaskID"]);
-                task.IsCompleted = fields.ContainsKey("IsCompleted") ? bool.Parse(fields["IsCompleted"]) : false;
-            }
-            catch 
-            {
-                return false;
-            }
-            return true;
-        }
     }
 }

@@ -126,49 +126,6 @@ namespace task_manager
         }
 
 
-        public override byte[] ToBinary()
-        {
-            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
-            binaryBuilder.Length--;
-
-            binaryBuilder.Append($",StartDate:{StartDate: yyyy-MM-dd}");
-            binaryBuilder.Append($",DeadlineDate:{DeadlineDate: yyyy-MM-dd}");
-
-            binaryBuilder.Append(";");
-
-
-            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
-        }
-
-        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
-
-            SimpleTask simpleTask = task as SimpleTask;
-
-            try
-            {
-                if (fields.ContainsKey("StartDate"))
-                {
-                    simpleTask.StartDate = DateTime.ParseExact(fields["StartDate"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                }
-
-                if (fields.ContainsKey("DeadlineDate"))
-                {
-                    simpleTask.DeadlineDate = DateTime.ParseExact(fields["DeadlineDate"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                }
-            }
-            catch 
-            { 
-                return false;
-            }
-
-            return true;
-        }
-
-
         //properties
         public DateTime StartDate {
             get { return _startDate; }

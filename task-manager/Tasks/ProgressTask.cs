@@ -129,50 +129,6 @@ namespace task_manager
             return true;
         }
 
-        public override byte[] ToBinary()
-        {
-            var binaryBuilder = new StringBuilder(Encoding.UTF8.GetString(base.ToBinary()));
-            binaryBuilder.Length--;
-
-            binaryBuilder.Append($",CurrCount:{CurrCount}");
-            binaryBuilder.Append($",GoalCount:{GoalCount}");
-
-            binaryBuilder.Append(";");
-
-
-            return Encoding.UTF8.GetBytes(binaryBuilder.ToString());
-        }
-
-
-        public override bool IsReadingFromBinaryObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromBinaryObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
-
-            ProgressTask progressTask = task as ProgressTask;
-
-            try
-            {
-                if (fields.ContainsKey("CurrCount"))
-                {
-                    progressTask.CurrCount = int.Parse(fields["CurrCount"]);
-                }
-
-                if (fields.ContainsKey("GoalCount"))
-                {
-                    progressTask.GoalCount = int.Parse(fields["GoalCount"]);
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-
         //properties
         public int GoalCount
         {
