@@ -86,7 +86,7 @@ namespace task_manager
 
         private void pMainContent_MouseMove(object sender, MouseEventArgs e)
         {
-            int y = e.Y;
+            int y = e.Y - pMainContent.AutoScrollPosition.Y;
             int newSelectedTaskIndex = y / (TaskHeightSetting + TASK_MARGIN);
 
             if (newSelectedTaskIndex >= 0 && newSelectedTaskIndex < mTaskManager.Tasks.Count)
@@ -124,7 +124,7 @@ namespace task_manager
         // Перерисовывает только область конкретной задачи
         private void InvalidateTaskRect(int taskIndex)
         {
-            int yPos = taskIndex * (TaskHeightSetting + TASK_MARGIN) + TASK_MARGIN;
+            int yPos = taskIndex * (TaskHeightSetting + TASK_MARGIN) + TASK_MARGIN + pMainContent.AutoScrollPosition.Y;
             pMainContent.Invalidate(new Rectangle(0, yPos, pMainContent.Width, TaskHeightSetting));
         }
 
@@ -142,11 +142,13 @@ namespace task_manager
         {
             if (e.Button == MouseButtons.Right)
             {
-                int y = e.Y;
+                int y = e.Y - pMainContent.AutoScrollPosition.Y;
                 int newSelectedTaskIndex = y / (TaskHeightSetting + TASK_MARGIN);
 
                 if (newSelectedTaskIndex >= 0 && newSelectedTaskIndex < mTaskManager.Tasks.Count)
                 {
+                    SelectedTaskIndex = newSelectedTaskIndex;
+
                     ContextMenuStrip contextMenu = new ContextMenuStrip();
                     // Создаем пункт "Delete Task"
                     ToolStripMenuItem deleteItem = new ToolStripMenuItem("Delete Task");
@@ -297,6 +299,7 @@ namespace task_manager
                     TaskList<Task> tasks = JsonHandler.ReadJson(json, Settings.haveToSaveChecksum);
                     mTaskManager.Tasks = tasks;
 
+                    UpdateAutoScrollMinSize();
                     pMainContent.Invalidate();
                 }
             }
@@ -309,10 +312,11 @@ namespace task_manager
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                    TaskList<Task> tasks = BinarySerializer.DeserializeTasks(openFileDialog.FileName, Settings.haveToSaveChecksum);
-                    mTaskManager.Tasks = tasks;
+                TaskList<Task> tasks = BinarySerializer.DeserializeTasks(openFileDialog.FileName, Settings.haveToSaveChecksum);
+                mTaskManager.Tasks = tasks;
 
-                    pMainContent.Invalidate();
+                UpdateAutoScrollMinSize();
+                pMainContent.Invalidate();
             }
         }
 
