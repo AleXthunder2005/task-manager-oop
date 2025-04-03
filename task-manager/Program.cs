@@ -14,8 +14,6 @@ namespace task_manager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new fTaskManager());
-
-            int id = Task._idCounter;
         }
     }
 }

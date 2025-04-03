@@ -89,7 +89,7 @@ namespace task_manager
                     Type taskType = Type.GetType($"task_manager.{type}");
                     if (taskType == null) continue;
                     
-                    TaskBuilder builder = new TaskBuilder();
+                    TaskOptions builder = new TaskOptions();
                     builder.Build();
                     dynamic newTask = Activator.CreateInstance(taskType, builder);
 

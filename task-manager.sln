@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task-manager", "task-manager\task-manager.csproj", "{09070F8C-2A8B-4F25-A668-3B98C88FB29E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssigneeTaskLibrary", "AssigneeTask\AssigneeTaskLibrary.csproj", "{AC18A611-3D94-49D9-90E2-16EED2C8326F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{09070F8C-2A8B-4F25-A668-3B98C88FB29E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09070F8C-2A8B-4F25-A668-3B98C88FB29E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09070F8C-2A8B-4F25-A668-3B98C88FB29E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC18A611-3D94-49D9-90E2-16EED2C8326F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC18A611-3D94-49D9-90E2-16EED2C8326F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC18A611-3D94-49D9-90E2-16EED2C8326F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC18A611-3D94-49D9-90E2-16EED2C8326F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -163,7 +163,7 @@ namespace task_manager
             }
 
 
-            TaskBuilder builder = new TaskBuilder(this);
+            TaskOptions builder = new TaskOptions(this);
             builder.Build();
             _createdTask = (Task)Activator.CreateInstance(GetSelectedClass(), builder);
 

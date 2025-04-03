@@ -87,8 +87,13 @@
     <Compile Include="FileHandlers\JsonPlugin.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="DrawOptions.cs" />
-    <Compile Include="TaskCreatorBuilder.cs" />
-    <Compile Include="TaskBuilder.cs" />
+    <Compile Include="Tasks\PriorityTask\PriorityTaskCreatorInitializer.cs" />
+    <Compile Include="Tasks\ProgressTask\ProgressTaskCreatorInitializer.cs" />
+    <Compile Include="Tasks\ReccuringSimpleTask\ReccuringSimpleTaskCreatorInitializer.cs" />
+    <Compile Include="Tasks\Reminder\ReminderCreatorInitializer.cs" />
+    <Compile Include="Tasks\SimpleTask\SimpleTaskCreatorInitializer.cs" />
+    <Compile Include="Tasks\Task\TaskCreatorBuilder.cs" />
+    <Compile Include="Tasks\Task\TaskOptions.cs" />
     <Compile Include="mTaskCreator.cs" />
     <Compile Include="mTaskManager.cs" />
     <Compile Include="fTaskCreator.cs">
@@ -99,13 +104,23 @@
     </Compile>
     <Compile Include="DerivativeConstructions\Project.cs" />
     <Compile Include="DerivativeConstructions\TaskList.cs" />
-    <Compile Include="TaskCreatorInitializer.cs" />
-    <Compile Include="Tasks\PriorityTask.cs" />
-    <Compile Include="Tasks\ProgressTask.cs" />
-    <Compile Include="Tasks\ReccuringSimpleTask.cs" />
-    <Compile Include="Tasks\Reminder.cs" />
-    <Compile Include="Tasks\SimpleTask.cs" />
-    <Compile Include="Tasks\Task.cs" />
+    <Compile Include="Tasks\Task\TaskCreatorInitializer.cs" />
+    <Compile Include="Tasks\PriorityTask\PriorityTask.cs" />
+    <Compile Include="Tasks\PriorityTask\PriorityTaskOptions.cs" />
+    <Compile Include="Tasks\PriorityTask\PriorityTaskCreatorBuilder.cs" />
+    <Compile Include="Tasks\ProgressTask\ProgressTask.cs" />
+    <Compile Include="Tasks\ProgressTask\ProgressTaskOptions.cs" />
+    <Compile Include="Tasks\ProgressTask\ProgressTaskCreatorBuilder.cs" />
+    <Compile Include="Tasks\ReccuringSimpleTask\ReccuringSimpleTask.cs" />
+    <Compile Include="Tasks\ReccuringSimpleTask\ReccuringSimpleTaskOptions.cs" />
+    <Compile Include="Tasks\ReccuringSimpleTask\ReccuringSimpleTaskCreatorBuilder.cs" />
+    <Compile Include="Tasks\Reminder\Reminder.cs" />
+    <Compile Include="Tasks\Reminder\ReminderOptions.cs" />
+    <Compile Include="Tasks\Reminder\ReminderCreatorBuilder.cs" />
+    <Compile Include="Tasks\SimpleTask\SimpleTask.cs" />
+    <Compile Include="Tasks\SimpleTask\SimpleTaskOptions.cs" />
+    <Compile Include="Tasks\SimpleTask\SimpleTaskCreatorBuilder.cs" />
+    <Compile Include="Tasks\Task\Task.cs" />
     <Compile Include="fTaskManager.cs">
       <SubType>Form</SubType>
     </Compile>

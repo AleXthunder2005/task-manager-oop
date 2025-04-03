@@ -43,13 +43,13 @@
             this.miOpenBinaryFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miChecksumSavingEnable = new System.Windows.Forms.ToolStripMenuItem();
             this.miChecksumSavingDisable = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.miLoadTask = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.pSideMenu.SuspendLayout();
             this.pTop.SuspendLayout();
             this.msMenu.SuspendLayout();
@@ -160,59 +160,47 @@
             // miSaveAsJSON
             // 
             this.miSaveAsJSON.Name = "miSaveAsJSON";
-            this.miSaveAsJSON.Size = new System.Drawing.Size(224, 26);
+            this.miSaveAsJSON.Size = new System.Drawing.Size(211, 26);
             this.miSaveAsJSON.Text = "Save as JSON";
             this.miSaveAsJSON.Click += new System.EventHandler(this.miSaveAsJSON_Click);
             // 
             // miSaveAsBinaryFile
             // 
             this.miSaveAsBinaryFile.Name = "miSaveAsBinaryFile";
-            this.miSaveAsBinaryFile.Size = new System.Drawing.Size(224, 26);
+            this.miSaveAsBinaryFile.Size = new System.Drawing.Size(211, 26);
             this.miSaveAsBinaryFile.Text = "Save as Binary file";
             this.miSaveAsBinaryFile.Click += new System.EventHandler(this.miSaveAsBinaryFile_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(208, 6);
             // 
             // miOpenJSON
             // 
             this.miOpenJSON.Name = "miOpenJSON";
-            this.miOpenJSON.Size = new System.Drawing.Size(224, 26);
+            this.miOpenJSON.Size = new System.Drawing.Size(211, 26);
             this.miOpenJSON.Text = "Open JSON";
             this.miOpenJSON.Click += new System.EventHandler(this.miOpenJSON_Click);
             // 
             // miOpenBinaryFile
             // 
             this.miOpenBinaryFile.Name = "miOpenBinaryFile";
-            this.miOpenBinaryFile.Size = new System.Drawing.Size(224, 26);
+            this.miOpenBinaryFile.Size = new System.Drawing.Size(211, 26);
             this.miOpenBinaryFile.Text = "Open Binary file";
             this.miOpenBinaryFile.Click += new System.EventHandler(this.miOpenBinaryFile_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(221, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(208, 6);
             // 
             // miExit
             // 
             this.miExit.Name = "miExit";
-            this.miExit.Size = new System.Drawing.Size(224, 26);
+            this.miExit.Size = new System.Drawing.Size(211, 26);
             this.miExit.Text = "Exit";
             this.miExit.Click += new System.EventHandler(this.miExit_Click);
-            // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.DefaultExt = "json";
-            this.saveFileDialog.FileName = "save";
-            this.saveFileDialog.Filter = "JSON files (*.json)|*.json|Binary files (*.bin)|*.bin";
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.DefaultExt = "json";
-            this.openFileDialog.FileName = "save";
-            this.openFileDialog.Filter = "JSON files (*.json)|*.json|Binary files (*.bin)|*.bin";
             // 
             // settingsToolStripMenuItem
             // 
@@ -250,6 +238,19 @@
             this.miLoadTask.Name = "miLoadTask";
             this.miLoadTask.Size = new System.Drawing.Size(256, 26);
             this.miLoadTask.Text = "Load task (*.dll)";
+            this.miLoadTask.Click += new System.EventHandler(this.miLoadTask_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "json";
+            this.saveFileDialog.FileName = "save";
+            this.saveFileDialog.Filter = "JSON files (*.json)|*.json|Binary files (*.bin)|*.bin";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.DefaultExt = "json";
+            this.openFileDialog.FileName = "save";
+            this.openFileDialog.Filter = "JSON files (*.json)|*.json|Binary files (*.bin)|*.bin|Task type (*.dll)|*.dll";
             // 
             // fTaskManager
             // 

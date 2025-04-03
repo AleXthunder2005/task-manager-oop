@@ -335,5 +335,15 @@ namespace task_manager
             miChecksumSavingEnable.Enabled = true;
             miChecksumSavingDisable.Enabled = false;
         }
+
+        private void miLoadTask_Click(object sender, EventArgs e)
+        {
+            openFileDialog.FilterIndex = 3;
+            openFileDialog.DefaultExt = "dll";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                mTaskCreator.LoadNewTaskType(openFileDialog.FileName);
+            }
+        }
     }
 }
