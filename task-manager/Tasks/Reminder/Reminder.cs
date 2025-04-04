@@ -19,7 +19,7 @@ namespace task_manager.Tasks
 
         public Reminder():base() { }
 
-        public Reminder(TaskOptions builder) : base(builder)
+        public Reminder(ReminderOptions builder) : base(builder)
         {
             SheduledTime = builder.SheduledTime;
             IsViewed = builder.IsViewed;

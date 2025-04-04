@@ -32,7 +32,7 @@ namespace task_manager.Tasks
 
         public ReccuringSimpleTask() : base() { }
 
-        public ReccuringSimpleTask(TaskOptions builder) : base(builder)
+        public ReccuringSimpleTask(ReccuringSimpleTaskOptions builder) : base(builder)
         {
             Interval = builder.Interval;
         }
