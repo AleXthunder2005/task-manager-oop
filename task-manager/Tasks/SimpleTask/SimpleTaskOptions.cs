@@ -36,8 +36,11 @@ namespace task_manager.Tasks
         {
             SimpleTaskOptions options = (SimpleTaskOptions)base.Build();
 
-            if (_taskCreator.Controls.Find("dtpStartDate", true).FirstOrDefault() is DateTimePicker dtpStartDate) { options._startDate = dtpStartDate.Value.Date; }
-            if (_taskCreator.Controls.Find("dtpDeadlineDate", true).FirstOrDefault() is DateTimePicker dtpDeadlineDate) { options._deadlineDate = dtpDeadlineDate.Value.Date; }
+            if (_taskCreator != null)
+            {
+                if (_taskCreator.Controls.Find("dtpStartDate", true).FirstOrDefault() is DateTimePicker dtpStartDate) { options._startDate = dtpStartDate.Value.Date; }
+                if (_taskCreator.Controls.Find("dtpDeadlineDate", true).FirstOrDefault() is DateTimePicker dtpDeadlineDate) { options._deadlineDate = dtpDeadlineDate.Value.Date; }
+            }
 
             return options;
         }

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
-using static task_manager.PriorityTask;
+using task_manager.Tasks;
+using static task_manager.Settings;
 
 namespace task_manager
 {
@@ -44,7 +40,10 @@ namespace task_manager
 
             string className = _editingTask.GetType().Name;
 
-            TaskCreatorInitializer.FillTaskCreator(this, className, _editingTask);
+            string editingTaskInitializer = $"{Settings.TASKS_NAMESPACE}.{className}CreatorInitializer";
+            dynamic taskEditor = Activator.CreateInstance(Type.GetType(editingTaskInitializer), this);
+            taskEditor.InitializeCreator(_editingTask);
+
         }
 
         private void InitializeUserComponent() 
@@ -76,7 +75,6 @@ namespace task_manager
 
         private Type GetSelectedClass()
         {
-            string className = "";
             foreach (var type in mTaskCreator.TaskTypes)
             {
                 if (cbTaskType.Text == (string)type.GetField("taskTypeName").GetValue(null))
@@ -153,6 +151,20 @@ namespace task_manager
             DialogResult = DialogResult.Cancel;
         }
 
+        private Task CreateTask() 
+        {
+            string className = GetSelectedClassName();
+            string fullClassName = $"{Settings.TASKS_NAMESPACE}.{className}";
+            string optionsName = $"{fullClassName}Options";
+
+            dynamic options = Activator.CreateInstance(Type.GetType(optionsName), this);
+            if (options == null) return null;
+
+            options.Build();
+           
+            return Activator.CreateInstance(Type.GetType(fullClassName), options);
+        }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             string message;
@@ -162,10 +174,7 @@ namespace task_manager
                 return; //бан
             }
 
-
-            TaskOptions builder = new TaskOptions(this);
-            builder.Build();
-            _createdTask = (Task)Activator.CreateInstance(GetSelectedClass(), builder);
+            _createdTask = CreateTask();
 
             this.DialogResult = DialogResult.OK;
             this.CloseTaskCreator();
@@ -173,15 +182,21 @@ namespace task_manager
 
         private void cbTaskType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string oldSelectedClassName = _selectedClassName;
+            if (_selectedClassName != "")
+            {
+                string oldSelectedClassName = _selectedClassName;
+                string oldClassCreatorBuilder = $"{Settings.TASKS_NAMESPACE}.{oldSelectedClassName}CreatorBuilder";
+                dynamic oldTaskCreatorBuilder = Activator.CreateInstance(Type.GetType(oldClassCreatorBuilder), this);
+                oldTaskCreatorBuilder.ClearTaskCreator();
+            }
 
             _selectedClassName = GetSelectedClassName();
-            TaskCreatorBuilder.Prepare(this, oldSelectedClassName);
+            string selectedClassCreatorBuilder = $"{Settings.TASKS_NAMESPACE}.{_selectedClassName}CreatorBuilder";
+            dynamic selectedTaskCreatorBuilder = Activator.CreateInstance(Type.GetType(selectedClassCreatorBuilder), this);
+            selectedTaskCreatorBuilder.BuildTaskCreator();
 
             tbTitle.Text = $"New {cbTaskType.Text}";
             tbDescription.Text = $"I need to do ...";
-
-            TaskCreatorBuilder.BuildTaskCreator(this, _selectedClassName);
         }
     }
 }

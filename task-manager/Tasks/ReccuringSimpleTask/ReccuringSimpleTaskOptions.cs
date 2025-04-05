@@ -28,12 +28,14 @@ namespace task_manager.Tasks
         {
             ReccuringSimpleTaskOptions options = (ReccuringSimpleTaskOptions)base.Build();
 
-
-            if (_taskCreator.Controls.Find("cbInterval", true).FirstOrDefault() is ComboBox cbInterval)
+            if (_taskCreator != null)
             {
-                if (double.TryParse(cbInterval.Text, out double interval))
+                if (_taskCreator.Controls.Find("cbInterval", true).FirstOrDefault() is ComboBox cbInterval)
                 {
-                    options._interval = interval;
+                    if (double.TryParse(cbInterval.Text, out double interval))
+                    {
+                        options._interval = interval;
+                    }
                 }
             }
 

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 
-namespace task_manager.Tasks.PriorityTask
+namespace task_manager.Tasks
 {
     public class PriorityTaskCreatorInitializer : SimpleTaskCreatorInitializer
     {

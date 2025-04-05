@@ -1,4 +1,6 @@
-﻿namespace task_manager
+﻿using task_manager.Tasks;
+
+namespace task_manager
 {
     public interface ICommand
     {

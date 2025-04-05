@@ -9,3 +9,35 @@ E:\Csharp projects\task-manager\task-manager\obj\Debug\task-manager.exe
 E:\Csharp projects\task-manager\task-manager\obj\Debug\task-manager.pdb
 E:\Csharp projects\task-manager\task-manager\obj\Debug\task_manager.wTaskCreator.resources
 E:\Csharp projects\task-manager\task-manager\obj\Debug\task_manager.wTaskManager.resources
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.csproj.AssemblyReference.cache
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task_manager.fTaskManager.resources
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task_manager.fTaskCreator.resources
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task_manager.Properties.Resources.resources
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.csproj.GenerateResource.cache
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.csproj.CoreCompileInputs.cache
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\task-manager.exe.config
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\task-manager.exe
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\task-manager.pdb
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Buffers.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.IO.Pipelines.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Memory.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Numerics.Vectors.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Text.Encodings.Web.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Text.Json.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.ValueTuple.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Buffers.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.IO.Pipelines.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Memory.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Numerics.Vectors.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Text.Encodings.Web.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Text.Json.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\System.ValueTuple.xml
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-man.EDDC1717.Up2Date
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.exe
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.pdb

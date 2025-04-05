@@ -33,8 +33,10 @@ namespace task_manager.Tasks
         public override TaskOptions Build()
         {
             ReminderOptions options = (ReminderOptions)base.Build();
-
-            if (_taskCreator.Controls.Find("dtpSheduledTime", true).FirstOrDefault() is DateTimePicker dtpSheduledTime) { options._sheduledTime = dtpSheduledTime.Value.Date; }
+            if (_taskCreator != null)
+            {
+                if (_taskCreator.Controls.Find("dtpSheduledTime", true).FirstOrDefault() is DateTimePicker dtpSheduledTime) { options._sheduledTime = dtpSheduledTime.Value.Date; }
+            }
 
             return options;
         }

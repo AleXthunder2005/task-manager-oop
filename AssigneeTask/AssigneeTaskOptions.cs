@@ -21,10 +21,12 @@ namespace task_manager.Tasks
 
         public override TaskOptions Build()
         {
-            AssigneeTaskOptions builder = (AssigneeTaskOptions)base.Build();
-            if (_taskCreator.Controls.Find("tbAssignee", true).FirstOrDefault() is TextBox tbAssignee) { _assignee = tbAssignee.Text; }
-            builder.Assignee = _assignee;
-            return builder;
+            AssigneeTaskOptions options = (AssigneeTaskOptions)base.Build();
+            if (_taskCreator != null)
+            {
+                if (_taskCreator.Controls.Find("tbAssignee", true).FirstOrDefault() is TextBox tbAssignee) { options._assignee = tbAssignee.Text; }
+            }
+            return options;
         }
     }
 }

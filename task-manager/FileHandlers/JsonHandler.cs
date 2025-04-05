@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using task_manager.FileHandlers;
+using task_manager.Tasks;
 
 namespace task_manager
 {
@@ -86,12 +85,14 @@ namespace task_manager
                 if (dictionary.ContainsKey("Type")) 
                 {
                     string type = dictionary["Type"];
-                    Type taskType = Type.GetType($"task_manager.{type}");
+                    Type taskType = Type.GetType($"{Settings.TASKS_NAMESPACE}.{type}");
                     if (taskType == null) continue;
-                    
-                    TaskOptions builder = new TaskOptions();
-                    builder.Build();
-                    dynamic newTask = Activator.CreateInstance(taskType, builder);
+
+                    string taskOptionsName = $"{Settings.TASKS_NAMESPACE}.{type}Options";
+
+                    dynamic options = Activator.CreateInstance(Type.GetType(taskOptionsName));
+                    options.Build();
+                    dynamic newTask = Activator.CreateInstance(taskType, options);
 
 
                     bool isReadingSuccessful = newTask.IsReadingFromJsonObjectSuccessful(newTask, dictionary);

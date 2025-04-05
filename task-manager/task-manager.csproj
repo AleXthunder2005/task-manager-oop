@@ -79,7 +79,6 @@
   <ItemGroup>
     <Compile Include="FileHandlers\BinaryPlugin.cs" />
     <Compile Include="FileHandlers\BinarySerializer.cs" />
-    <Compile Include="FileHandlers\BinaryParser.cs" />
     <Compile Include="Commander\CommandManager.cs" />
     <Compile Include="Commander\Commands.cs" />
     <Compile Include="FileHandlers\JsonParser.cs" />
@@ -87,6 +86,7 @@
     <Compile Include="FileHandlers\JsonPlugin.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="DrawOptions.cs" />
+    <Compile Include="Tasks\IOptionsInitializer.cs" />
     <Compile Include="Tasks\PriorityTask\PriorityTaskCreatorInitializer.cs" />
     <Compile Include="Tasks\ProgressTask\ProgressTaskCreatorInitializer.cs" />
     <Compile Include="Tasks\ReccuringSimpleTask\ReccuringSimpleTaskCreatorInitializer.cs" />

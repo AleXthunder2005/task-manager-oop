@@ -41,7 +41,6 @@ namespace task_manager.Tasks
             get { return _description; }
             set { _description = value; }
         }
-
         public int TaskID {
             get { return _taskId; }
             set { _taskId = value; }

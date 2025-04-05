@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static task_manager.Tasks.PriorityTask;
 
 namespace task_manager.Tasks
 {
@@ -29,11 +27,14 @@ namespace task_manager.Tasks
         {
             PriorityTaskOptions options = (PriorityTaskOptions)base.Build();
 
-            if (_taskCreator.Controls.Find("cbPriority", true).FirstOrDefault() is ComboBox cbPriority)
+            if (_taskCreator != null)
             {
-                if (cbPriority.SelectedItem != null && Enum.TryParse(cbPriority.SelectedItem.ToString(), out t_priority priority))
+                if (_taskCreator.Controls.Find("cbPriority", true).FirstOrDefault() is ComboBox cbPriority)
                 {
-                    options._priority = priority;
+                    if (cbPriority.SelectedItem != null && Enum.TryParse(cbPriority.SelectedItem.ToString(), out t_priority priority))
+                    {
+                        options._priority = priority;
+                    }
                 }
             }
 

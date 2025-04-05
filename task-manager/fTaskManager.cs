@@ -4,7 +4,8 @@ using System.Windows.Forms;
 using static task_manager.Settings;
 using static task_manager.mTaskManager;
 using System.IO;
-using System.Collections.Generic;
+using task_manager.Tasks;
+
 namespace task_manager
 {
     public partial class fTaskManager: Form
@@ -106,10 +107,10 @@ namespace task_manager
             }
             else if (SelectedTaskIndex != RESETED_TASK_INDEX)
             {
-                if (SelectedTaskIndex >= Tasks.Count)
+                if (SelectedTaskIndex >= mTaskManager.Tasks.Count)
                 {
-                    for (int i = 0; i < Tasks.Count; i++)
-                        Tasks[i].Options.IsSelected = false;
+                    for (int i = 0; i < mTaskManager.Tasks.Count; i++)
+                        mTaskManager.Tasks[i].Options.IsSelected = false;
                     SelectedTaskIndex = RESETED_TASK_INDEX;
                 }
                 else
@@ -158,7 +159,7 @@ namespace task_manager
                     contextMenu.Items.Add(deleteItem);
 
                     // Создаем пункт "Complete Task"
-                    if (!Tasks[newSelectedTaskIndex].IsCompleted)
+                    if (!mTaskManager.Tasks[newSelectedTaskIndex].IsCompleted)
                     {
                         // Создаем пункт "Edit Task"
                         ToolStripMenuItem editItem = new ToolStripMenuItem("Edit Task");
@@ -202,7 +203,7 @@ namespace task_manager
             if (index >= 0 && index < mTaskManager.Tasks.Count)
             {
                 if (SelectedTaskIndex != RESETED_TASK_INDEX) {
-                    Tasks[SelectedTaskIndex].Options.IsSelected = false;
+                    mTaskManager.Tasks[SelectedTaskIndex].Options.IsSelected = false;
                 }
 
                 var taskToEdit = mTaskManager.Tasks[index];
@@ -248,6 +249,7 @@ namespace task_manager
         {
             saveFileDialog.FilterIndex = 1;
             saveFileDialog.DefaultExt = "json";
+            saveFileDialog.FileName = Settings.DEFAULT_FILE_NAME;
             if (saveFileDialog.ShowDialog() == DialogResult.OK) 
             {
                 string json = JsonHandler.BuildJson(mTaskManager.Tasks, Settings.haveToSaveChecksum);
@@ -270,10 +272,10 @@ namespace task_manager
         {
             saveFileDialog.FilterIndex = 2;
             saveFileDialog.DefaultExt = "bin";
-
+            saveFileDialog.FileName = Settings.DEFAULT_FILE_NAME;
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                BinarySerializer.SerializeTasks(Tasks, saveFileDialog.FileName, Settings.haveToSaveChecksum);
+                BinarySerializer.SerializeTasks(mTaskManager.Tasks, saveFileDialog.FileName, Settings.haveToSaveChecksum);
             }
         }
 
@@ -281,7 +283,7 @@ namespace task_manager
         {
             openFileDialog.FilterIndex = 1;
             openFileDialog.DefaultExt= "json";
-
+            openFileDialog.FileName = Settings.DEFAULT_FILE_NAME;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string json = null;
@@ -309,6 +311,7 @@ namespace task_manager
         {
             openFileDialog.FilterIndex = 2;
             openFileDialog.DefaultExt = "bin";
+            openFileDialog.FileName = Settings.DEFAULT_FILE_NAME;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -342,7 +345,7 @@ namespace task_manager
             openFileDialog.DefaultExt = "dll";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                mTaskCreator.LoadNewTaskType(openFileDialog.FileName);
+                mTaskManager.LoadAssembly(openFileDialog.FileName);
             }
         }
     }

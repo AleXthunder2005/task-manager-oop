@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using task_manager.FileHandlers;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+using task_manager.Tasks;
 
 namespace task_manager
 {

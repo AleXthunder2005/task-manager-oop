@@ -35,11 +35,14 @@ namespace task_manager.Tasks
         {
             ProgressTaskOptions options = (ProgressTaskOptions)base.Build();
 
-            if (_taskCreator.Controls.Find("udGoalCount", true).FirstOrDefault() is NumericUpDown udGoalCount)
+            if (_taskCreator != null)
             {
-                if (int.TryParse(udGoalCount.Text, out int goalCount))
+                if (_taskCreator.Controls.Find("udGoalCount", true).FirstOrDefault() is NumericUpDown udGoalCount)
                 {
-                    options._goalCount = goalCount;
+                    if (int.TryParse(udGoalCount.Text, out int goalCount))
+                    {
+                        options._goalCount = goalCount;
+                    }
                 }
             }
 

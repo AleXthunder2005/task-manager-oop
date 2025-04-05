@@ -24,5 +24,8 @@ namespace task_manager
         public const int SCROLLBAR_WIDTH = 25;
 
         public const int RESETED_TASK_INDEX = -1;
+
+        public const string TASKS_NAMESPACE = "task_manager.Tasks";
+        public const string DEFAULT_FILE_NAME = "save";
     }
 }

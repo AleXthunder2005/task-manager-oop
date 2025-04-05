@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using static task_manager.Settings;
+
 namespace task_manager
 {
     [Serializable]

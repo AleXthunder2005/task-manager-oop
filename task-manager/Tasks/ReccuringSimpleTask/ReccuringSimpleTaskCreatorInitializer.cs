@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 
-namespace task_manager.Tasks.ReccuringSimpleTask
+namespace task_manager.Tasks
 {
     public class ReccuringSimpleTaskCreatorInitializer : SimpleTaskCreatorInitializer
     {

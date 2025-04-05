@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 
-namespace task_manager.Tasks.Reminder
+namespace task_manager.Tasks
 {
     public class ReminderCreatorInitializer : TaskCreatorInitializer
     {

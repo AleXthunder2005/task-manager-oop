@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 
-namespace task_manager.Tasks.ProgressTask
+namespace task_manager.Tasks
 {
     public class ProgressTaskCreatorInitializer : SimpleTaskCreatorInitializer
     {
