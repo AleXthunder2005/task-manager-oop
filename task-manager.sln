@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task-manager", "task-manage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssigneeTaskLibrary", "AssigneeTask\AssigneeTaskLibrary.csproj", "{AC18A611-3D94-49D9-90E2-16EED2C8326F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonChecksumSaver", "JsonChecksumSaver\JsonChecksumSaver.csproj", "{7A744796-FCD6-4E52-9E44-65A1793419C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryChecksumSaver", "BinaryChecksumSaver\BinaryChecksumSaver.csproj", "{240ADB88-7323-4267-BEB1-0DCCD80A58C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{AC18A611-3D94-49D9-90E2-16EED2C8326F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC18A611-3D94-49D9-90E2-16EED2C8326F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC18A611-3D94-49D9-90E2-16EED2C8326F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A744796-FCD6-4E52-9E44-65A1793419C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A744796-FCD6-4E52-9E44-65A1793419C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A744796-FCD6-4E52-9E44-65A1793419C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A744796-FCD6-4E52-9E44-65A1793419C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240ADB88-7323-4267-BEB1-0DCCD80A58C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240ADB88-7323-4267-BEB1-0DCCD80A58C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240ADB88-7323-4267-BEB1-0DCCD80A58C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240ADB88-7323-4267-BEB1-0DCCD80A58C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

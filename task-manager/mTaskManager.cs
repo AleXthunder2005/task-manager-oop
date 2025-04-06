@@ -64,7 +64,7 @@ namespace task_manager
             bool isCorrect = false;
             Assembly assembly = Assembly.LoadFrom(dllPath);
 
-            if (assembly != null)
+            if (assembly != null && (!_loadedAssemblies.Contains(assembly)))
             {
                 _loadedAssemblies.Add(assembly);
                 isCorrect = LoadNewTaskType(assembly);

@@ -78,13 +78,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factory.cs" />
-    <Compile Include="FileHandlers\BinaryPlugin.cs" />
-    <Compile Include="FileHandlers\BinarySerializer.cs" />
+    <Compile Include="FileHandlers\BinaryHandler.cs" />
     <Compile Include="Commander\CommandManager.cs" />
     <Compile Include="Commander\Commands.cs" />
     <Compile Include="FileHandlers\TaskJsonConverter.cs" />
     <Compile Include="FileHandlers\JsonHandler.cs" />
-    <Compile Include="FileHandlers\JsonPlugin.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="DrawOptions.cs" />
     <Compile Include="Tasks\PriorityTask\PriorityTaskCreatorInitializer.cs" />
@@ -157,6 +155,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\JsonChecksumSaver\JsonChecksumSaver.csproj">
+      <Project>{7A744796-FCD6-4E52-9E44-65A1793419C1}</Project>
+      <Name>JsonChecksumSaver</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

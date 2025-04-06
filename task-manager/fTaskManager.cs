@@ -275,7 +275,7 @@ namespace task_manager
             saveFileDialog.FileName = Settings.DEFAULT_FILE_NAME;
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                BinarySerializer.SerializeTasks(mTaskManager.Tasks, saveFileDialog.FileName, Settings.haveToSaveChecksum);
+                BinaryHandler.SerializeTasks(mTaskManager.Tasks, saveFileDialog.FileName, Settings.haveToSaveChecksum);
             }
         }
 
@@ -315,7 +315,7 @@ namespace task_manager
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                TaskList<Task> tasks = BinarySerializer.DeserializeTasks(openFileDialog.FileName, Settings.haveToSaveChecksum);
+                TaskList<Task> tasks = BinaryHandler.DeserializeTasks(openFileDialog.FileName, Settings.haveToSaveChecksum);
                 mTaskManager.Tasks = tasks;
 
                 UpdateAutoScrollMinSize();

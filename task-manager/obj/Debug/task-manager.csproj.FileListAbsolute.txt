@@ -41,3 +41,6 @@ C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\Syst
 C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-man.EDDC1717.Up2Date
 C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.exe
 C:\Labs\object-oriented-programming\task-manager-oop\task-manager\obj\Debug\task-manager.pdb
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\JsonChecksumSaver.dll
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\JsonChecksumSaver.pdb
+C:\Labs\object-oriented-programming\task-manager-oop\task-manager\bin\Debug\JsonChecksumSaver.dll.config

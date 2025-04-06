@@ -8,7 +8,7 @@ namespace task_manager.FileHandlers
 {
     public static class JsonPlugin
     {
-        public static string SaveChecksum(string jsonArray) 
+        public static string SaveChecksum(string jsonArray)
         {
             int checksum = int.MaxValue - jsonArray.Length;
 
@@ -27,7 +27,7 @@ namespace task_manager.FileHandlers
             return jsonBuilder.ToString();
         }
 
-        public static string DiscardChecksum(string json) 
+        public static string DiscardChecksum(string json)
         {
 
             Dictionary<string, string> parsedJson = JsonParser.ParseJsonObject(json);
@@ -42,7 +42,8 @@ namespace task_manager.FileHandlers
             }
         }
 
-        public static bool IsChecksumCorrect(string json) {
+        public static bool IsChecksumCorrect(string json)
+        {
 
             Dictionary<string, string> parsedJson = JsonParser.ParseJsonObject(json);
 
@@ -66,12 +67,12 @@ namespace task_manager.FileHandlers
                     }
                 }
             }
-            else 
+            else
             {
                 return false;
             }
 
-                return true;
+            return true;
         }
 
         public static class JsonParser

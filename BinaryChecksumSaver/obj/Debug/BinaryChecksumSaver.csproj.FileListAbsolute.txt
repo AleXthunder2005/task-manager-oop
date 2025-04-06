@@ -1,0 +1,6 @@
+C:\Labs\object-oriented-programming\task-manager-oop\BinaryChecksumSaver\bin\Debug\BinaryChecksumSaver.dll
+C:\Labs\object-oriented-programming\task-manager-oop\BinaryChecksumSaver\bin\Debug\BinaryChecksumSaver.pdb
+C:\Labs\object-oriented-programming\task-manager-oop\BinaryChecksumSaver\obj\Debug\BinaryChecksumSaver.csproj.AssemblyReference.cache
+C:\Labs\object-oriented-programming\task-manager-oop\BinaryChecksumSaver\obj\Debug\BinaryChecksumSaver.csproj.CoreCompileInputs.cache
+C:\Labs\object-oriented-programming\task-manager-oop\BinaryChecksumSaver\obj\Debug\BinaryChecksumSaver.dll
+C:\Labs\object-oriented-programming\task-manager-oop\BinaryChecksumSaver\obj\Debug\BinaryChecksumSaver.pdb

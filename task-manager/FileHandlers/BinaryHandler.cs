@@ -9,12 +9,13 @@ using task_manager.Tasks;
 
 namespace task_manager
 {
-    public static class BinarySerializer
+    public static class BinaryHandler
     {
-        static BinarySerializer()
+        static BinaryHandler()
         {
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
         }
+
         public static void SerializeTasks(TaskList<Task> tasks, string filePath, bool haveToSaveChecksum = false)
         {
             try
@@ -25,10 +26,26 @@ namespace task_manager
                     formatter.Serialize(memoryStream, tasks);
                     byte[] data = memoryStream.ToArray();
 
+                    //Подключение плагина
                     if (haveToSaveChecksum)
                     {
-                        data = BinaryPlugin.SaveChecksum(data);
+                        Assembly binaryChecksumSaver = Assembly.LoadFrom(Settings.BINARY_SAVER_PATH);
+                        Type binaryPluginType = binaryChecksumSaver.GetType($"{Settings.PLUGINS_NAMESPACE}.BinaryPlugin");
+
+                        if (binaryPluginType == null)
+                        {
+                            MessageBox.Show($"Checksum saver is not found in {Settings.BINARY_SAVER_PATH}");
+                        }
+                        else
+                        {
+                            MethodInfo saveChecksumMethod = binaryPluginType.GetMethod("SaveChecksum", BindingFlags.Public | BindingFlags.Static);
+
+                            if (saveChecksumMethod != null)
+                                data = (byte[])saveChecksumMethod.Invoke(null, new object[] { data });
+                        }
                     }
+                    //Конец подключения плагина
+
                     File.WriteAllBytes(filePath, data);
 
                     MessageBox.Show("Successful saving!", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -47,22 +64,36 @@ namespace task_manager
             {
                 byte[] fileData = File.ReadAllBytes(filePath);
 
+                //Начало подключения плагина
                 if (haveToVerifyChecksum)
                 {
-                    if (!BinaryPlugin.IsChecksumCorrect(fileData))
+                    Assembly binaryChecksumSaver = Assembly.LoadFrom(Settings.BINARY_SAVER_PATH);
+                    Type binaryPluginType = binaryChecksumSaver.GetType($"{Settings.PLUGINS_NAMESPACE}.BinaryPlugin");
+
+                    if (binaryPluginType == null)
+                    {
+                        MessageBox.Show($"Checksum saver is not found in {Settings.BINARY_SAVER_PATH}");
+                        return new TaskList<Task>();
+                    }
+
+                    MethodInfo isChecksumCorrectMethod = binaryPluginType.GetMethod("IsCheckSumCorrect", BindingFlags.Public | BindingFlags.Static);
+
+                    if (isChecksumCorrectMethod != null && !((bool)isChecksumCorrectMethod.Invoke(null, new object[] { fileData })))
                     {
                         MessageBox.Show($"Reading unsuccessful! (Checksum is incorrect!)", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return new TaskList<Task>();
                     }
                     else
                     {
-                        byte[] data = BinaryPlugin.DiscardChecksum(fileData);
+                        MethodInfo discardChecksumMethod = binaryPluginType.GetMethod("DiscardChecksum", BindingFlags.Public | BindingFlags.Static);
+                        byte[] data = (byte[])discardChecksumMethod.Invoke(null, new object[] { fileData });
                         using (MemoryStream memoryStream = new MemoryStream(data))
                         {
                             BinaryFormatter formatter = new BinaryFormatter();
                             return (TaskList<Task>)formatter.Deserialize(memoryStream);
                         }
                     }
+                    //Конец подключения плагина
                 }
                 else
                 {

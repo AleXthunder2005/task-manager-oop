@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Windows.Forms;
 using task_manager.FileHandlers;
+using task_manager.Plugins;
 using task_manager.Tasks;
+
 
 namespace task_manager
 {
@@ -23,10 +26,26 @@ namespace task_manager
             {
                 string json = JsonSerializer.Serialize(tasks, _jsonOptions);
 
+                //Подключение плагина
                 if (haveToSaveChecksum)
                 {
-                    json = JsonPlugin.SaveChecksum(json);
+                    Assembly jsonChecksumSaver = Assembly.LoadFrom(Settings.JSON_SAVER_PATH);
+
+                    Type jsonPluginType = jsonChecksumSaver.GetType($"{Settings.PLUGINS_NAMESPACE}.JsonPlugin");
+
+                    if (jsonPluginType == null)
+                    {
+                        MessageBox.Show($"Checksum saver is not found in {Settings.JSON_SAVER_PATH}");
+                        return json;
+                    }
+
+                    MethodInfo saveChecksumMethod = jsonPluginType.GetMethod("SaveChecksum", BindingFlags.Public | BindingFlags.Static);
+
+                    if (saveChecksumMethod == null) return json;
+
+                    json = (string)saveChecksumMethod.Invoke(null, new object[] { json });
                 }
+                //Конец подключения плагина
 
                 return json;
             }
@@ -41,15 +60,37 @@ namespace task_manager
         {
             try
             {
+                //Начало подключения плагина
                 if (haveToVerifyChecksum)
                 {
-                    if (!JsonPlugin.IsChecksumCorrect(json))
+                    Assembly jsonChecksumSaver = Assembly.LoadFrom(Settings.JSON_SAVER_PATH);
+                    Type jsonPluginType = jsonChecksumSaver.GetType($"{Settings.PLUGINS_NAMESPACE}.JsonPlugin");
+                    if (jsonPluginType == null)
                     {
-                        MessageBox.Show("Checksum verification failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return new TaskList<Task>();
+                        MessageBox.Show($"Checksum saver is not found in {Settings.JSON_SAVER_PATH}", "Opening plugin error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    json = JsonPlugin.DiscardChecksum(json);
+                    else
+                    {
+                        MethodInfo isChecksumCorrectMethod = jsonPluginType.GetMethod("IsChecksumCorrect", BindingFlags.Public | BindingFlags.Static);
+                        if (isChecksumCorrectMethod != null)
+                        {
+                            bool isChecksumCorrect = (bool)isChecksumCorrectMethod.Invoke(null, new object[] { json });
+                            if (!isChecksumCorrect)
+                            {
+                                MessageBox.Show($"Checksum is incorrect!", "Incorrect checksum", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return new TaskList<Task>();
+                            }
+                        }
+
+                        MethodInfo discardChecksumMethod = jsonPluginType.GetMethod("DiscardChecksum", BindingFlags.Public | BindingFlags.Static);
+                        if (discardChecksumMethod != null)
+                        {
+                            json = (string)discardChecksumMethod.Invoke(null, new object[] { json });
+                        }
+                    }
                 }
+                //Конец подключения плагина
+
 
                 TaskList<Task> tasks = JsonSerializer.Deserialize<TaskList<Task>>(json, _jsonOptions);
                 if (tasks != null)
