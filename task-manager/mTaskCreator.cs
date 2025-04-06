@@ -18,9 +18,9 @@ namespace task_manager
         }
 
 
-        public static void AddTaskType(Type type) 
-        {
-            _taskTypes.Add(type);
-        }
+        //public static void AddTaskType(Type type) 
+        //{
+        //     //_taskTypes.Add(type);
+        //}
     }
 }

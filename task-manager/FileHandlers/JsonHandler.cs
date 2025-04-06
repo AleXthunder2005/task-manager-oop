@@ -84,16 +84,11 @@ namespace task_manager
 
                 if (dictionary.ContainsKey("Type")) 
                 {
-                    string type = dictionary["Type"];
-                    Type taskType = Type.GetType($"{Settings.TASKS_NAMESPACE}.{type}");
-                    if (taskType == null) continue;
+                    string typeName = dictionary["Type"];
+                    Factory factory = new Factory(mTaskManager.LoadedAssemblies);
+                    dynamic newTask = factory.CreateTask(typeName);
 
-                    string taskOptionsName = $"{Settings.TASKS_NAMESPACE}.{type}Options";
-
-                    dynamic options = Activator.CreateInstance(Type.GetType(taskOptionsName));
-                    options.Build();
-                    dynamic newTask = Activator.CreateInstance(taskType, options);
-
+                    if (newTask == null) continue;
 
                     bool isReadingSuccessful = newTask.IsReadingFromJsonObjectSuccessful(newTask, dictionary);
 

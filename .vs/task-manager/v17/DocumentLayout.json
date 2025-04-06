@@ -3,16 +3,52 @@
   "WorkspaceRootPath": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\mtaskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\mtaskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\filehandlers\\binaryserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\filehandlers\\binaryserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\filehandlers\\jsonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\filehandlers\\jsonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\simpletask\\simpletaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\simpletask\\simpletaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\task\\taskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\task\\taskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\progresstask\\progresstaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\progresstask\\progresstaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\prioritytask\\prioritytaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\prioritytask\\prioritytaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|c:\\labs\\object-oriented-programming\\task-manager-oop\\task-manager\\factory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\factory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|c:\\labs\\object-oriented-programming\\task-manager-oop\\task-manager\\ftaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\ftaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\ftaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\ftaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\ftaskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\ftaskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\mtaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\mtaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\mtaskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\mtaskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\task\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\reminder\\reminder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|c:\\labs\\object-oriented-programming\\task-manager-oop\\task-manager\\ftaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\ftaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,36 +71,16 @@
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\ftaskmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\filehandlers\\jsonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\filehandlers\\jsonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\reccuringsimpletask\\reccuringsimpletaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\reccuringsimpletask\\reccuringsimpletaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\prioritytask\\prioritytaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\prioritytask\\prioritytaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC18A611-3D94-49D9-90E2-16EED2C8326F}|AssigneeTask\\AssigneeTaskLibrary.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\assigneetask\\assigneetaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC18A611-3D94-49D9-90E2-16EED2C8326F}|AssigneeTask\\AssigneeTaskLibrary.csproj|solutionrelative:assigneetask\\assigneetaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\progresstask\\progresstaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\progresstask\\progresstaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\reminder\\reminderoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\reminder\\reminderoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\simpletask\\simpletaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\simpletask\\simpletaskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\task\\taskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\task\\taskoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|c:\\labs\\object-oriented-programming\\task-manager-oop\\task-manager\\ftaskcreator.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
@@ -91,10 +103,6 @@
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\reccuringsimpletask\\reccuringsimpletaskcreatorbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\ftaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\ftaskcreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\prioritytask\\prioritytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\prioritytask\\prioritytask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -107,10 +115,6 @@
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\prioritytask\\prioritytaskcreatorinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\ioptionsinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\ioptionsinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\commander\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\commander\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -121,10 +125,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\filehandlers\\binaryplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\filehandlers\\binaryplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\filehandlers\\binaryserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\filehandlers\\binaryserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\filehandlers\\jsonplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -175,10 +175,6 @@
       "RelativeMoniker": "D:0:0:{AC18A611-3D94-49D9-90E2-16EED2C8326F}|AssigneeTask\\AssigneeTask.csproj|solutionrelative:assigneetask\\assigneetask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\tasks\\progresstask\\progresstaskcreatorbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09070F8C-2A8B-4F25-A668-3B98C88FB29E}|task-manager\\task-manager.csproj|solutionrelative:task-manager\\tasks\\progresstask\\progresstaskcreatorbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -210,63 +206,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Settings.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Settings.cs",
-              "RelativeDocumentMoniker": "task-manager\\Settings.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Settings.cs",
-              "RelativeToolTip": "task-manager\\Settings.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAqwBwAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T20:09:11.718Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "fTaskCreator.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskCreator.cs",
-              "RelativeDocumentMoniker": "task-manager\\fTaskCreator.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskCreator.cs",
-              "RelativeToolTip": "task-manager\\fTaskCreator.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAADgv00AAAAAAAAAAAAAAA==",
+              "Title": "Factory.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Factory.cs",
+              "RelativeDocumentMoniker": "task-manager\\Factory.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Factory.cs",
+              "RelativeToolTip": "task-manager\\Factory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T22:59:15.51Z",
+              "WhenOpened": "2025-04-06T11:47:42.621Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Reminder.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Reminder\\Reminder.cs",
-              "RelativeDocumentMoniker": "task-manager\\Tasks\\Reminder\\Reminder.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Reminder\\Reminder.cs",
-              "RelativeToolTip": "task-manager\\Tasks\\Reminder\\Reminder.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "JsonHandler.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\FileHandlers\\JsonHandler.cs",
+              "RelativeDocumentMoniker": "task-manager\\FileHandlers\\JsonHandler.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\FileHandlers\\JsonHandler.cs",
+              "RelativeToolTip": "task-manager\\FileHandlers\\JsonHandler.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAArwF0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T19:43:17.871Z",
+              "WhenOpened": "2025-03-30T22:34:49.06Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SimpleTask.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTask.cs",
-              "RelativeDocumentMoniker": "task-manager\\Tasks\\SimpleTask\\SimpleTask.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTask.cs",
-              "RelativeToolTip": "task-manager\\Tasks\\SimpleTask\\SimpleTask.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T17:21:39.723Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "Task.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Task\\Task.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\Task\\Task.cs",
@@ -280,58 +250,96 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BinarySerializer.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\FileHandlers\\BinarySerializer.cs",
+              "RelativeDocumentMoniker": "task-manager\\FileHandlers\\BinarySerializer.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\FileHandlers\\BinarySerializer.cs",
+              "RelativeToolTip": "task-manager\\FileHandlers\\BinarySerializer.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAgwAsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T15:56:54.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PriorityTaskOptions.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\PriorityTask\\PriorityTaskOptions.cs",
+              "RelativeDocumentMoniker": "task-manager\\Tasks\\PriorityTask\\PriorityTaskOptions.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\PriorityTask\\PriorityTaskOptions.cs",
+              "RelativeToolTip": "task-manager\\Tasks\\PriorityTask\\PriorityTaskOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T21:21:51.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProgressTaskOptions.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\ProgressTask\\ProgressTaskOptions.cs",
+              "RelativeDocumentMoniker": "task-manager\\Tasks\\ProgressTask\\ProgressTaskOptions.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\ProgressTask\\ProgressTaskOptions.cs",
+              "RelativeToolTip": "task-manager\\Tasks\\ProgressTask\\ProgressTaskOptions.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAC4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T21:22:59.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TaskOptions.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Task\\TaskOptions.cs",
+              "RelativeDocumentMoniker": "task-manager\\Tasks\\Task\\TaskOptions.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Task\\TaskOptions.cs",
+              "RelativeToolTip": "task-manager\\Tasks\\Task\\TaskOptions.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAUwCUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T16:42:28.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SimpleTaskOptions.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTaskOptions.cs",
+              "RelativeDocumentMoniker": "task-manager\\Tasks\\SimpleTask\\SimpleTaskOptions.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTaskOptions.cs",
+              "RelativeToolTip": "task-manager\\Tasks\\SimpleTask\\SimpleTaskOptions.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAswCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T21:25:26.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "mTaskManager.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\mTaskManager.cs",
               "RelativeDocumentMoniker": "task-manager\\mTaskManager.cs",
               "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\mTaskManager.cs",
               "RelativeToolTip": "task-manager\\mTaskManager.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAnwEYAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAkwAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T23:31:46.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "fTaskManager.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskManager.cs",
-              "RelativeDocumentMoniker": "task-manager\\fTaskManager.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskManager.cs",
-              "RelativeToolTip": "task-manager\\fTaskManager.cs",
-              "ViewState": "AgIAAEEBAAAAAAAAAAAqwFsBAAApAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "fTaskCreator.cs [Design]",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskCreator.cs",
+              "RelativeDocumentMoniker": "task-manager\\fTaskCreator.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskCreator.cs [Design]",
+              "RelativeToolTip": "task-manager\\fTaskCreator.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T16:03:11.127Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T23:01:04.327Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "JsonHandler.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\FileHandlers\\JsonHandler.cs",
-              "RelativeDocumentMoniker": "task-manager\\FileHandlers\\JsonHandler.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\FileHandlers\\JsonHandler.cs",
-              "RelativeToolTip": "task-manager\\FileHandlers\\JsonHandler.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAYwF0AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T22:34:49.06Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "mTaskCreator.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\mTaskCreator.cs",
-              "RelativeDocumentMoniker": "task-manager\\mTaskCreator.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\mTaskCreator.cs",
-              "RelativeToolTip": "task-manager\\mTaskCreator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAgwBYAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T00:17:36.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "ReminderOptions.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Reminder\\ReminderOptions.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\Reminder\\ReminderOptions.cs",
@@ -344,7 +352,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
+              "Title": "fTaskManager.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskManager.cs",
+              "RelativeDocumentMoniker": "task-manager\\fTaskManager.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskManager.cs",
+              "RelativeToolTip": "task-manager\\fTaskManager.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T16:03:11.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "fTaskCreator.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskCreator.cs",
+              "RelativeDocumentMoniker": "task-manager\\fTaskCreator.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskCreator.cs",
+              "RelativeToolTip": "task-manager\\fTaskCreator.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAIA+wC4AAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T22:59:15.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Program.cs",
+              "RelativeDocumentMoniker": "task-manager\\Program.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Program.cs",
+              "RelativeToolTip": "task-manager\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T00:04:10.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Settings.cs",
+              "RelativeDocumentMoniker": "task-manager\\Settings.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Settings.cs",
+              "RelativeToolTip": "task-manager\\Settings.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwBwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T20:09:11.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SimpleTask.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTask.cs",
+              "RelativeDocumentMoniker": "task-manager\\Tasks\\SimpleTask\\SimpleTask.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTask.cs",
+              "RelativeToolTip": "task-manager\\Tasks\\SimpleTask\\SimpleTask.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T17:21:39.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Reminder.cs",
+              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Reminder\\Reminder.cs",
+              "RelativeDocumentMoniker": "task-manager\\Tasks\\Reminder\\Reminder.cs",
+              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Reminder\\Reminder.cs",
+              "RelativeToolTip": "task-manager\\Tasks\\Reminder\\Reminder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T19:43:17.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "fTaskManager.cs [Design]",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskManager.cs",
               "RelativeDocumentMoniker": "task-manager\\fTaskManager.cs",
@@ -356,20 +442,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ProgressTaskOptions.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\ProgressTask\\ProgressTaskOptions.cs",
-              "RelativeDocumentMoniker": "task-manager\\Tasks\\ProgressTask\\ProgressTaskOptions.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\ProgressTask\\ProgressTaskOptions.cs",
-              "RelativeToolTip": "task-manager\\Tasks\\ProgressTask\\ProgressTaskOptions.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwC4AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T21:22:59.313Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "ReccuringSimpleTaskOptions.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\ReccuringSimpleTask\\ReccuringSimpleTaskOptions.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\ReccuringSimpleTask\\ReccuringSimpleTaskOptions.cs",
@@ -382,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "AssigneeTaskOptions.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\AssigneeTask\\AssigneeTaskOptions.cs",
               "RelativeDocumentMoniker": "AssigneeTask\\AssigneeTaskOptions.cs",
@@ -395,46 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "PriorityTaskOptions.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\PriorityTask\\PriorityTaskOptions.cs",
-              "RelativeDocumentMoniker": "task-manager\\Tasks\\PriorityTask\\PriorityTaskOptions.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\PriorityTask\\PriorityTaskOptions.cs",
-              "RelativeToolTip": "task-manager\\Tasks\\PriorityTask\\PriorityTaskOptions.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAgwCoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T21:21:51.9Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "SimpleTaskOptions.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTaskOptions.cs",
-              "RelativeDocumentMoniker": "task-manager\\Tasks\\SimpleTask\\SimpleTaskOptions.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTaskOptions.cs",
-              "RelativeToolTip": "task-manager\\Tasks\\SimpleTask\\SimpleTaskOptions.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAswCYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T21:25:26.669Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "TaskOptions.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Task\\TaskOptions.cs",
-              "RelativeDocumentMoniker": "task-manager\\Tasks\\Task\\TaskOptions.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Task\\TaskOptions.cs",
-              "RelativeToolTip": "task-manager\\Tasks\\Task\\TaskOptions.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAiwDAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T16:42:28.417Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "ReccuringSimpleTaskCreatorInitializer.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\ReccuringSimpleTask\\ReccuringSimpleTaskCreatorInitializer.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\ReccuringSimpleTask\\ReccuringSimpleTaskCreatorInitializer.cs",
@@ -446,7 +480,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "fTaskCreator.resx",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskCreator.resx",
               "RelativeDocumentMoniker": "task-manager\\fTaskCreator.resx",
@@ -458,7 +492,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "TaskCreatorBuilder.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Task\\TaskCreatorBuilder.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\Task\\TaskCreatorBuilder.cs",
@@ -471,7 +505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "ReccuringSimpleTaskCreatorBuilder.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\ReccuringSimpleTask\\ReccuringSimpleTaskCreatorBuilder.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\ReccuringSimpleTask\\ReccuringSimpleTaskCreatorBuilder.cs",
@@ -483,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "Project.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\DerivativeConstructions\\Project.cs",
               "RelativeDocumentMoniker": "task-manager\\DerivativeConstructions\\Project.cs",
@@ -495,18 +529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "fTaskCreator.cs [Design]",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskCreator.cs",
-              "RelativeDocumentMoniker": "task-manager\\fTaskCreator.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\fTaskCreator.cs [Design]",
-              "RelativeToolTip": "task-manager\\fTaskCreator.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T23:01:04.327Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "PriorityTask.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\PriorityTask\\PriorityTask.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\PriorityTask\\PriorityTask.cs",
@@ -518,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "PriorityTaskCreatorBuilder.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\PriorityTask\\PriorityTaskCreatorBuilder.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\PriorityTask\\PriorityTaskCreatorBuilder.cs",
@@ -530,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "PriorityTaskCreatorInitializer.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\PriorityTask\\PriorityTaskCreatorInitializer.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\PriorityTask\\PriorityTaskCreatorInitializer.cs",
@@ -542,19 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "IOptionsInitializer.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\IOptionsInitializer.cs",
-              "RelativeDocumentMoniker": "task-manager\\Tasks\\IOptionsInitializer.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\IOptionsInitializer.cs",
-              "RelativeToolTip": "task-manager\\Tasks\\IOptionsInitializer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T11:48:38.033Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Commands.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Commander\\Commands.cs",
               "RelativeDocumentMoniker": "task-manager\\Commander\\Commands.cs",
@@ -566,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "CommandManager.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Commander\\CommandManager.cs",
               "RelativeDocumentMoniker": "task-manager\\Commander\\CommandManager.cs",
@@ -578,7 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "BinaryPlugin.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\FileHandlers\\BinaryPlugin.cs",
               "RelativeDocumentMoniker": "task-manager\\FileHandlers\\BinaryPlugin.cs",
@@ -587,18 +598,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T22:09:17.708Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "BinarySerializer.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\FileHandlers\\BinarySerializer.cs",
-              "RelativeDocumentMoniker": "task-manager\\FileHandlers\\BinarySerializer.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\FileHandlers\\BinarySerializer.cs",
-              "RelativeToolTip": "task-manager\\FileHandlers\\BinarySerializer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T15:56:54.541Z"
             },
             {
               "$type": "Document",
@@ -747,18 +746,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 43,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Program.cs",
-              "RelativeDocumentMoniker": "task-manager\\Program.cs",
-              "ToolTip": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Program.cs",
-              "RelativeToolTip": "task-manager\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T00:04:10.225Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
               "Title": "ProgressTaskCreatorBuilder.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\ProgressTask\\ProgressTaskCreatorBuilder.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\ProgressTask\\ProgressTaskCreatorBuilder.cs",
@@ -770,7 +757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "TaskCreatorInitializer.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Task\\TaskCreatorInitializer.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\Task\\TaskCreatorInitializer.cs",
@@ -782,7 +769,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 45,
               "Title": "SimpleTaskCreatorInitializer.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTaskCreatorInitializer.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\SimpleTask\\SimpleTaskCreatorInitializer.cs",
@@ -794,7 +781,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 46,
               "Title": "ReminderCreatorBuilder.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\Reminder\\ReminderCreatorBuilder.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\Reminder\\ReminderCreatorBuilder.cs",
@@ -806,7 +793,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 47,
               "Title": "SimpleTaskCreatorBuilder.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Tasks\\SimpleTask\\SimpleTaskCreatorBuilder.cs",
               "RelativeDocumentMoniker": "task-manager\\Tasks\\SimpleTask\\SimpleTaskCreatorBuilder.cs",
@@ -818,7 +805,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 48,
               "Title": "Commands.cs",
               "DocumentMoniker": "C:\\Labs\\object-oriented-programming\\task-manager-oop\\task-manager\\Commands.cs",
               "RelativeDocumentMoniker": "task-manager\\Commands.cs",

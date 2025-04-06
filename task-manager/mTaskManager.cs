@@ -46,11 +46,8 @@ namespace task_manager
                     if (!_taskTypes.Contains(type))
                     {
                         _taskTypes.Add(type);
-                        mTaskCreator.AddTaskType(type);
                     }
                 }
-
-
 
                 return true;
             }

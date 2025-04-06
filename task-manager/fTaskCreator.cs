@@ -15,15 +15,18 @@ namespace task_manager
         public Task _createdTask;
         public Type _createdTaskType;
 
+        private Factory _factory;
+
+
         private Task _editingTask;
         public Task EditingTask { get { return _editingTask; } }
 
         //controllers
         public fTaskCreator(List<Type> taskTypes)
         {
-            mTaskCreator.Initialize(taskTypes);
             InitializeComponent();
             InitializeUserComponent();
+            _factory = new Factory(mTaskManager.LoadedAssemblies, this);
         }
 
         public fTaskCreator(List<Type> taskTypes, Task editingTask) : this(taskTypes)
@@ -31,6 +34,7 @@ namespace task_manager
             _editingTask = editingTask;
             InitializeEditMode();
         }
+
 
         //model
         private void InitializeEditMode() {
@@ -40,15 +44,14 @@ namespace task_manager
 
             string className = _editingTask.GetType().Name;
 
-            string editingTaskInitializer = $"{Settings.TASKS_NAMESPACE}.{className}CreatorInitializer";
-            dynamic taskEditor = Activator.CreateInstance(Type.GetType(editingTaskInitializer), this);
+            var taskEditor = _factory.CreateTaskCreatorInitializer(className);
             taskEditor.InitializeCreator(_editingTask);
 
         }
 
         private void InitializeUserComponent() 
         {
-            foreach (var type in mTaskCreator.TaskTypes)
+            foreach (var type in mTaskManager.TaskTypes)
             {
                 this.cbTaskType.Items.Add((string)type.GetField("taskTypeName").GetValue(null));
             }
@@ -62,7 +65,7 @@ namespace task_manager
         private string GetSelectedClassName() 
         {
             string className = "";
-            foreach (var type in mTaskCreator.TaskTypes)
+            foreach (var type in mTaskManager.TaskTypes)
             {
                 if (cbTaskType.Text == (string)type.GetField("taskTypeName").GetValue(null))
                 {
@@ -75,7 +78,7 @@ namespace task_manager
 
         private Type GetSelectedClass()
         {
-            foreach (var type in mTaskCreator.TaskTypes)
+            foreach (var type in mTaskManager.TaskTypes)
             {
                 if (cbTaskType.Text == (string)type.GetField("taskTypeName").GetValue(null))
                 {
@@ -84,8 +87,6 @@ namespace task_manager
             }
             return null;
         }
-
-
 
         private bool IsFormCorrect(out string message) 
         {
@@ -151,20 +152,6 @@ namespace task_manager
             DialogResult = DialogResult.Cancel;
         }
 
-        private Task CreateTask() 
-        {
-            string className = GetSelectedClassName();
-            string fullClassName = $"{Settings.TASKS_NAMESPACE}.{className}";
-            string optionsName = $"{fullClassName}Options";
-
-            dynamic options = Activator.CreateInstance(Type.GetType(optionsName), this);
-            if (options == null) return null;
-
-            options.Build();
-           
-            return Activator.CreateInstance(Type.GetType(fullClassName), options);
-        }
-
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             string message;
@@ -174,7 +161,8 @@ namespace task_manager
                 return; //бан
             }
 
-            _createdTask = CreateTask();
+            string className = GetSelectedClassName();
+            _createdTask = _factory.CreateTask(className);
 
             this.DialogResult = DialogResult.OK;
             this.CloseTaskCreator();
@@ -184,19 +172,18 @@ namespace task_manager
         {
             if (_selectedClassName != "")
             {
-                string oldSelectedClassName = _selectedClassName;
-                string oldClassCreatorBuilder = $"{Settings.TASKS_NAMESPACE}.{oldSelectedClassName}CreatorBuilder";
-                dynamic oldTaskCreatorBuilder = Activator.CreateInstance(Type.GetType(oldClassCreatorBuilder), this);
+                var oldTaskCreatorBuilder = _factory.CreateTaskCreatorBuilder(_selectedClassName);
                 oldTaskCreatorBuilder.ClearTaskCreator();
             }
 
             _selectedClassName = GetSelectedClassName();
-            string selectedClassCreatorBuilder = $"{Settings.TASKS_NAMESPACE}.{_selectedClassName}CreatorBuilder";
-            dynamic selectedTaskCreatorBuilder = Activator.CreateInstance(Type.GetType(selectedClassCreatorBuilder), this);
+            var selectedTaskCreatorBuilder = _factory.CreateTaskCreatorBuilder(_selectedClassName);
             selectedTaskCreatorBuilder.BuildTaskCreator();
 
             tbTitle.Text = $"New {cbTaskType.Text}";
             tbDescription.Text = $"I need to do ...";
         }
     }
+
+
 }

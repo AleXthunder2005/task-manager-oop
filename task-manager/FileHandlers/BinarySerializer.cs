@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using task_manager.FileHandlers;
@@ -9,6 +11,10 @@ namespace task_manager
 {
     public static class BinarySerializer
     {
+        static BinarySerializer()
+        {
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+        }
         public static void SerializeTasks(TaskList<Task> tasks, string filePath, bool haveToSaveChecksum = false)
         {
             try
@@ -28,9 +34,9 @@ namespace task_manager
                     MessageBox.Show("Successful saving!", "Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Unsuccessful saving!", "Saving error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Unsuccessful saving! ({ex.Message})", "Saving error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tasks.Clear();
             }
         }
@@ -69,9 +75,29 @@ namespace task_manager
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Reading unsuccessful!", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Reading unsuccessful! ({ex.Message})", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return new TaskList<Task>();
             }
+        }
+
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            // args.Name — полное имя сборки (например, "MyAssembly, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+
+            // Ищем сборку среди уже загруженных
+            var loadedAssembly = AppDomain.CurrentDomain.GetAssemblies()
+                .FirstOrDefault(a => a.FullName == args.Name);
+
+            if (loadedAssembly != null)
+                return loadedAssembly;
+
+            // Если сборка не загружена, пробуем загрузить её вручную
+            foreach (Assembly assembly in mTaskManager.LoadedAssemblies) 
+            {
+                if (assembly.FullName == args.Name) return assembly;
+            }
+
+            return null;
         }
     }
 }
