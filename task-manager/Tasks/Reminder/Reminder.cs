@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace task_manager.Tasks
 {
@@ -73,48 +74,50 @@ namespace task_manager.Tasks
             };
         }
 
-        public override string ToJSON()
-        {
-            var jsonBuilder = new StringBuilder("{");
-
-            string baseJson = base.ToJSON();
-            jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
-
-            jsonBuilder.Append($",\"SheduledTime\":\"{SheduledTime: yyyy-MM-dd}\"");
-            jsonBuilder.Append("}");
-            return jsonBuilder.ToString();
-        }
-
-        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
-
-            Reminder reminder = task as Reminder;
-
-            try
-            {
-                if (fields.ContainsKey("SheduledTime"))
+        /*        public override string ToJSON()
                 {
-                    reminder.SheduledTime = DateTime.ParseExact(fields["SheduledTime"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                }
-            }
-            catch
-            {
-                return false;
-            }
+                    var jsonBuilder = new StringBuilder("{");
 
-            return true;
-        }
+                    string baseJson = base.ToJSON();
+                    jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
+
+                    jsonBuilder.Append($",\"SheduledTime\":\"{SheduledTime: yyyy-MM-dd}\"");
+                    jsonBuilder.Append("}");
+                    return jsonBuilder.ToString();
+                }
+
+                public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
+                {
+                    bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
+                    if (!isBaseSuccessful)
+                        return false;
+
+                    Reminder reminder = task as Reminder;
+
+                    try
+                    {
+                        if (fields.ContainsKey("SheduledTime"))
+                        {
+                            reminder.SheduledTime = DateTime.ParseExact(fields["SheduledTime"], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                        }
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }*/
 
         //properties
+        [JsonPropertyName("SheduledTime")]
         public DateTime SheduledTime
         {
             get { return _sheduledTime; }
             set { _sheduledTime = value; }
         }
- 
+
+        [JsonPropertyName("IsViewed")]
         public bool IsViewed
         {
             get { return _isViewed; }

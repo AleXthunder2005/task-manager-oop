@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace task_manager.Tasks
 {
@@ -91,43 +92,44 @@ namespace task_manager.Tasks
             };
         }
 
-        public override string ToJSON()
-        {
-            var jsonBuilder = new StringBuilder("{");
-
-            string baseJson = base.ToJSON();
-            jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
-
-            jsonBuilder.Append($",\"Priority\":\"{Priority}\"");
-            jsonBuilder.Append("}");
-            return jsonBuilder.ToString();
-        }
-
-        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
-
-            PriorityTask priorityTask = task as PriorityTask;
-
-            try
-            {
-                t_priority priority;
-                if (Enum.TryParse<t_priority>(fields["Priority"], out priority))
+        /*        public override string ToJSON()
                 {
-                    priorityTask.Priority = priority;
-                }
-            }
-            catch
-            {
-                return false;
-            }
+                    var jsonBuilder = new StringBuilder("{");
 
-            return true;
-        }
+                    string baseJson = base.ToJSON();
+                    jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
+
+                    jsonBuilder.Append($",\"Priority\":\"{Priority}\"");
+                    jsonBuilder.Append("}");
+                    return jsonBuilder.ToString();
+                }
+
+                public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
+                {
+                    bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
+                    if (!isBaseSuccessful)
+                        return false;
+
+                    PriorityTask priorityTask = task as PriorityTask;
+
+                    try
+                    {
+                        t_priority priority;
+                        if (Enum.TryParse<t_priority>(fields["Priority"], out priority))
+                        {
+                            priorityTask.Priority = priority;
+                        }
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }*/
 
         //properties
+        [JsonPropertyName("Priority")]
         public t_priority Priority
         {
             get { return _priority; }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace task_manager.Tasks
 {
@@ -22,8 +23,6 @@ namespace task_manager.Tasks
             StartDate = builder.StartDate;
             DeadlineDate = builder.DeadlineDate;
             IsCompleted = builder.IsCompleted;
-
-            
 
             SetOptions();
         }
@@ -80,7 +79,7 @@ namespace task_manager.Tasks
             };
         }
 
-        public override string ToJSON()
+/*        public override string ToJSON()
         {
             var jsonBuilder = new StringBuilder("{");
 
@@ -120,14 +119,16 @@ namespace task_manager.Tasks
             }
 
             return true;
-        }
+        }*/
 
 
         //properties
+        [JsonPropertyName("StartDate")]
         public DateTime StartDate {
             get { return _startDate; }
             set { _startDate = value; }
         }
+        [JsonPropertyName("DeadlineDate")]
         public DateTime DeadlineDate
         {
             get { return _deadlineDate; }

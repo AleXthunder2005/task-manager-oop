@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace task_manager.Tasks
@@ -63,42 +64,43 @@ namespace task_manager.Tasks
             };
         }
 
-        public override string ToJSON()
-        {
-            var jsonBuilder = new StringBuilder("{");
-
-            string baseJson = base.ToJSON();
-            jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
-
-            jsonBuilder.Append($",\"Interval\":\"{Interval}\"");
-            jsonBuilder.Append("}");
-            return jsonBuilder.ToString();
-        }
-
-        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
-
-            ReccuringSimpleTask reccuringSimpleTask = task as ReccuringSimpleTask;
-
-            try
-            {
-                if (fields.ContainsKey("Interval"))
+        /*        public override string ToJSON()
                 {
-                    reccuringSimpleTask.Interval = int.Parse(fields["Interval"]);
-                }
-            }
-            catch
-            {
-                return false;
-            }
+                    var jsonBuilder = new StringBuilder("{");
 
-            return true;
-        }
+                    string baseJson = base.ToJSON();
+                    jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
+
+                    jsonBuilder.Append($",\"Interval\":\"{Interval}\"");
+                    jsonBuilder.Append("}");
+                    return jsonBuilder.ToString();
+                }
+
+                public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
+                {
+                    bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
+                    if (!isBaseSuccessful)
+                        return false;
+
+                    ReccuringSimpleTask reccuringSimpleTask = task as ReccuringSimpleTask;
+
+                    try
+                    {
+                        if (fields.ContainsKey("Interval"))
+                        {
+                            reccuringSimpleTask.Interval = int.Parse(fields["Interval"]);
+                        }
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+                    return true;
+                }*/
 
         //properties
+        [JsonPropertyName("Interval")]
         public double Interval
         {
             get { return _interval; }

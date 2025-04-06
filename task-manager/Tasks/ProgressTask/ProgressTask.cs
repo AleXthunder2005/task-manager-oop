@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace task_manager.Tasks
 {
@@ -85,54 +86,56 @@ namespace task_manager.Tasks
             };
         }
 
-        public override string ToJSON()
-        {
-            var jsonBuilder = new StringBuilder("{");
+        //public override string ToJSON()
+        //{
+        //    var jsonBuilder = new StringBuilder("{");
 
-            string baseJson = base.ToJSON();
-            jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
+        //    string baseJson = base.ToJSON();
+        //    jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
 
-            jsonBuilder.Append($",\"CurrCount\":\"{CurrCount}\"");
-            jsonBuilder.Append($",\"GoalCount\":\"{GoalCount}\"");
-            jsonBuilder.Append("}");
-            return jsonBuilder.ToString();
-        }
+        //    jsonBuilder.Append($",\"CurrCount\":\"{CurrCount}\"");
+        //    jsonBuilder.Append($",\"GoalCount\":\"{GoalCount}\"");
+        //    jsonBuilder.Append("}");
+        //    return jsonBuilder.ToString();
+        //}
 
-        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
+        //public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
+        //{
+        //    bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
+        //    if (!isBaseSuccessful)
+        //        return false;
 
-            ProgressTask progressTask = task as ProgressTask;
+        //    ProgressTask progressTask = task as ProgressTask;
 
-            try
-            {
-                if (fields.ContainsKey("CurrCount"))
-                {
-                    progressTask.CurrCount = int.Parse(fields["CurrCount"]);
-                }
+        //    try
+        //    {
+        //        if (fields.ContainsKey("CurrCount"))
+        //        {
+        //            progressTask.CurrCount = int.Parse(fields["CurrCount"]);
+        //        }
 
-                if (fields.ContainsKey("GoalCount"))
-                {
-                    progressTask.GoalCount = int.Parse(fields["GoalCount"]);
-                }
-            }
-            catch
-            {
-                return false;
-            }
+        //        if (fields.ContainsKey("GoalCount"))
+        //        {
+        //            progressTask.GoalCount = int.Parse(fields["GoalCount"]);
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
         //properties
+        [JsonPropertyName("GoalCount")]
         public int GoalCount
         {
             get { return _goalCount; }
             set { _goalCount = value; }
         }
 
+        [JsonPropertyName("CurrCount")]
         public int CurrCount
         {
             get { return _currCount; }

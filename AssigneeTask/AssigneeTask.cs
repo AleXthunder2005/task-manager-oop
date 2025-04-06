@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace task_manager.Tasks
 {
@@ -68,35 +69,8 @@ namespace task_manager.Tasks
             };
         }
 
-        public override string ToJSON()
-        {
-            var jsonBuilder = new StringBuilder("{");
-
-            string baseJson = base.ToJSON();
-            jsonBuilder.Append(baseJson, 1, baseJson.Length - 2);
-
-            jsonBuilder.Append($",\"Assignee\":\"{Assignee}\"");
-            jsonBuilder.Append("}");
-            return jsonBuilder.ToString();
-        }
-
-        public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
-        {
-            bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
-            if (!isBaseSuccessful)
-                return false;
-
-            AssigneeTask assigneeTask = task as AssigneeTask;
-
-            if (fields.ContainsKey("Assignee"))
-            {
-                assigneeTask.Assignee = fields["Assignee"];
-            }
-
-            return true;
-        }
-
         // Свойство исполнителя
+        [JsonPropertyName("Assignee")]
         public string Assignee
         {
             get { return _assignee; }

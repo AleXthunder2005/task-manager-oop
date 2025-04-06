@@ -82,7 +82,7 @@
     <Compile Include="FileHandlers\BinarySerializer.cs" />
     <Compile Include="Commander\CommandManager.cs" />
     <Compile Include="Commander\Commands.cs" />
-    <Compile Include="FileHandlers\JsonParser.cs" />
+    <Compile Include="FileHandlers\TaskJsonConverter.cs" />
     <Compile Include="FileHandlers\JsonHandler.cs" />
     <Compile Include="FileHandlers\JsonPlugin.cs" />
     <Compile Include="Settings.cs" />

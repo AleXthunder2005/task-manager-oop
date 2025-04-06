@@ -28,3 +28,4 @@ C:\Labs\object-oriented-programming\task-manager-oop\AssigneeTask\obj\Debug\Assi
 C:\Labs\object-oriented-programming\task-manager-oop\AssigneeTask\obj\Debug\Assignee.359DD3DB.Up2Date
 C:\Labs\object-oriented-programming\task-manager-oop\AssigneeTask\obj\Debug\AssigneeTask.dll
 C:\Labs\object-oriented-programming\task-manager-oop\AssigneeTask\obj\Debug\AssigneeTask.pdb
+C:\Labs\object-oriented-programming\task-manager-oop\AssigneeTask\bin\Debug\AssigneeTask.dll.config

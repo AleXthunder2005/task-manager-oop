@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Windows.Forms;
 using task_manager.FileHandlers;
 using task_manager.Tasks;
@@ -10,132 +11,64 @@ namespace task_manager
 {
     public static class JsonHandler
     {
-        public static string BuildJson(TaskList<Task> tasks, bool haveToSaveChecksum = false) 
+        private static readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions
         {
+            WriteIndented = true,
+            Converters = { new TaskJsonConverter() },
+        };
 
-            StringBuilder jsonBuilder = new StringBuilder("[");
-            if (tasks.Count > 0)
-            {
-                foreach (Task task in tasks)
-                {
-                    jsonBuilder.Append("{");
-                    jsonBuilder.Append($"\"Type\":\"{task.GetType().Name}\",");
-
-                    string jsonTask = task.ToJSON();
-                    jsonBuilder.Append(jsonTask.Substring(1, jsonTask.Length - 1));
-                    jsonBuilder.Append(",");
-                }
-                jsonBuilder.Length--;
-            }
-            jsonBuilder.Append("]");
-
-            string json = jsonBuilder.ToString();
-            if (haveToSaveChecksum) 
-            {
-                json = JsonPlugin.SaveChecksum(json);
-            }
-
-            //красивый вывод
-            JsonDocument doc = JsonDocument.Parse(json);
-            json = JsonSerializer.Serialize(doc, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
-
-            return json;
-        }
-
-        public static TaskList<Task> ReadJson(string json, bool haveToVerifyChecksum = false) 
-        { 
-            TaskList<Task> tasks = new TaskList<Task>();
-
+        public static string BuildJson(TaskList<Task> tasks, bool haveToSaveChecksum = false)
+        {
             try
             {
-                JsonDocument doc = JsonDocument.Parse(json.Trim());
-                json = JsonSerializer.Serialize(doc, new JsonSerializerOptions
-                {
-                    WriteIndented = false
-                });
-            }
-            catch 
-            {
-                MessageBox.Show("Reading unsuccessful! (Json is incorrect!)", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return tasks;
-            }
+                string json = JsonSerializer.Serialize(tasks, _jsonOptions);
 
-
-            if (haveToVerifyChecksum) 
-            {
-                if (!JsonPlugin.IsChecksumCorrect(json))
+                if (haveToSaveChecksum)
                 {
-                    MessageBox.Show("Reading unsuccessful! (Checksum is incorrect!)", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    json = JsonPlugin.SaveChecksum(json);
+                }
+
+                return json;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Serialization failed: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public static TaskList<Task> ReadJson(string json, bool haveToVerifyChecksum = false)
+        {
+            try
+            {
+                if (haveToVerifyChecksum)
+                {
+                    if (!JsonPlugin.IsChecksumCorrect(json))
+                    {
+                        MessageBox.Show("Checksum verification failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return new TaskList<Task>();
+                    }
+                    json = JsonPlugin.DiscardChecksum(json);
+                }
+
+                TaskList<Task> tasks = JsonSerializer.Deserialize<TaskList<Task>>(json, _jsonOptions);
+                if (tasks != null)
+                {
+                    tasks.RemoveAll(task => task == null);
                     return tasks;
                 }
+                return new TaskList<Task>();
             }
-            json = JsonPlugin.DiscardChecksum(json);
-
-
-            string[] objects = SplitJsonArray(json);
-
-            for (int i = 0; i < objects.Length; i++)
+            catch (JsonException ex)
             {
-                Dictionary<String, String> dictionary = new Dictionary<String, String>();
-                dictionary = JsonParser.ParseJsonObject(objects[i]);
-
-                if (dictionary.ContainsKey("Type")) 
-                {
-                    string typeName = dictionary["Type"];
-                    Factory factory = new Factory(mTaskManager.LoadedAssemblies);
-                    dynamic newTask = factory.CreateTask(typeName);
-
-                    if (newTask == null) continue;
-
-                    bool isReadingSuccessful = newTask.IsReadingFromJsonObjectSuccessful(newTask, dictionary);
-
-                    if (!isReadingSuccessful)
-                    {
-                        MessageBox.Show("Reading unsuccessful!", "Opening error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        tasks.Clear();
-                        break;
-                    }
-
-                    newTask.SetOptions();
-
-                    tasks.Add(newTask);
-                }
+                MessageBox.Show($"Invalid JSON format: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new TaskList<Task>();
             }
-
-            return tasks;
-        }        
-        
-        
-        private static string[] SplitJsonArray(string array)
-        {
-            array = array.Trim('[', ']');
-            var objects = new List<string>();
-            int braceLevel = 0;
-            int startIndex = 0;
-
-            for (int i = 0; i < array.Length; i++)
+            catch (Exception ex)
             {
-                char c = array[i];
-                if (c == '{')
-                {
-                    if (braceLevel == 0)
-                        startIndex = i;
-                    braceLevel++;
-                }
-                else if (c == '}')
-                {
-                    braceLevel--;
-                    if (braceLevel == 0)
-                    {
-                        objects.Add(array.Substring(startIndex, i - startIndex + 1));
-                    }
-                }
+                MessageBox.Show($"Error reading JSON: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new TaskList<Task>();
             }
-
-            return objects.ToArray();
         }
     }
 }
