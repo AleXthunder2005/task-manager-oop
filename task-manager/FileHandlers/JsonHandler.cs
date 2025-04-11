@@ -91,7 +91,6 @@ namespace task_manager
                 }
                 //Конец подключения плагина
 
-
                 TaskList<Task> tasks = JsonSerializer.Deserialize<TaskList<Task>>(json, _jsonOptions);
                 if (tasks != null)
                 {

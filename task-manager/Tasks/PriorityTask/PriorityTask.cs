@@ -22,9 +22,9 @@ namespace task_manager.Tasks
 
         public PriorityTask() { }
 
-        public PriorityTask(PriorityTaskOptions builder) : base(builder)
+        public PriorityTask(PriorityTaskOptions options) : base(options)
         {
-            Priority = builder.Priority;
+            Priority = options.Priority;
             SetOptions();
         }
 
@@ -91,42 +91,6 @@ namespace task_manager.Tasks
                 }
             };
         }
-
-        /*        public override string ToJSON()
-                {
-                    var jsonBuilder = new StringBuilder("{");
-
-                    string baseJson = base.ToJSON();
-                    jsonBuilder.Append(baseJson, 1, baseJson.Length - 2); //сделали trim('{', '}')
-
-                    jsonBuilder.Append($",\"Priority\":\"{Priority}\"");
-                    jsonBuilder.Append("}");
-                    return jsonBuilder.ToString();
-                }
-
-                public override bool IsReadingFromJsonObjectSuccessful(Task task, Dictionary<string, string> fields)
-                {
-                    bool isBaseSuccessful = base.IsReadingFromJsonObjectSuccessful(task, fields);
-                    if (!isBaseSuccessful)
-                        return false;
-
-                    PriorityTask priorityTask = task as PriorityTask;
-
-                    try
-                    {
-                        t_priority priority;
-                        if (Enum.TryParse<t_priority>(fields["Priority"], out priority))
-                        {
-                            priorityTask.Priority = priority;
-                        }
-                    }
-                    catch
-                    {
-                        return false;
-                    }
-
-                    return true;
-                }*/
 
         //properties
         [JsonPropertyName("Priority")]

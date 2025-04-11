@@ -23,7 +23,9 @@ namespace task_manager.FileHandlers
                 // Десериализуем прямо в существующий объект
                 using (var json = JsonDocument.Parse(root.GetRawText()))
                 {
-                    return (Task)JsonSerializer.Deserialize(json.RootElement.GetRawText(), task.GetType(), options);
+                    var newTask = (Task)JsonSerializer.Deserialize(json.RootElement.GetRawText(), task.GetType(), options);
+                    newTask.SetOptions();
+                    return newTask;
                 }
             }
         }

@@ -26,7 +26,6 @@ namespace task_manager.Tasks
         public override void SetOptions()
         {
             base.SetOptions();
-            // Можно настроить специфические опции отрисовки
         }
 
         public override void Draw(Graphics g, DrawOptions options)

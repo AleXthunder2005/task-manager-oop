@@ -303,6 +303,7 @@ namespace task_manager
 
                     UpdateAutoScrollMinSize();
                     pMainContent.Invalidate();
+                    _commandManager.ClearStacks();
                 }
             }
         }
@@ -320,6 +321,7 @@ namespace task_manager
 
                 UpdateAutoScrollMinSize();
                 pMainContent.Invalidate();
+                _commandManager.ClearStacks();
             }
         }
 

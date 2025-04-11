@@ -42,5 +42,11 @@ namespace task_manager
         {
             return _undoStack.Count > 0;
         }
+
+        public void ClearStacks() 
+        {
+            _undoStack.Clear();
+            _redoStack.Clear();
+        }
     }
 }
